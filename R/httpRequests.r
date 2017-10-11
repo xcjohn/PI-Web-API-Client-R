@@ -1,11 +1,13 @@
 deleteHttpRequest <- function(url, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
         res <- DELETE(url, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), verbose())
-        return(res)
+		showError(res)
+		return(res)
     }
     else {
         res <- DELETE(url, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL))
-        return(res)
+		showError(res)
+		return(res)
     }
 }
 
@@ -13,45 +15,61 @@ deleteHttpRequest <- function(url, username, password, authType, validateSSL, de
 getHttpRequest <- function(url, queryParameters, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
         res <- GET(url, query = queryParameters, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), verbose())
-        return(res)
+		showError(res)
+		return(res)
     }
     else {
         res <- GET(url, query = queryParameters, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL))
-        return(res)
+		showError(res)
+		return(res)
     }
 }
 
 postHttpRequest <- function(url, bodyRequest, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
         res <- POST(url, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
-        return(res)
+		showError(res)
+		return(res)
     }
     else {
         res <- POST(url, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
-        return(res)
+		showError(res)
+		return(res)
     }
 }
 
 patchHttpRequest <- function(url, bodyRequest, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
         res <- PATCH(url, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
-        return(res)
+		showError(res)
+		return(res)
     }
     else {
         res <- PATCH(url, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
-        return(res)
+		showError(res)
+		return(res)
     }
 }
 
 putHttpRequest <- function(url, queryParameters, bodyRequest, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
         res <- PUT(url, query = queryParameters, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
-        return(res)
+		showError(res)
+		return(res)
     }
     else {
         res <- PUT(url, query = queryParameters, authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
-        return(res)
+        showError(res)
+		return(res)
     }
+}
+
+showError <- function(res) {
+	if (res$status > 299) {
+		error <- content(res)
+		print(paste0("Error: ", error$Errors[[1]]))
+		print(paste0("HTTP Status code is ", res$status, "."))
+	}
 }
 
 check.integer <- function(N) {
