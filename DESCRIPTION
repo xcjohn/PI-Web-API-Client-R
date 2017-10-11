@@ -1,0 +1,15 @@
+Package: piwebapi
+Type: Package
+Title: PI Web API Client libraries for R
+Version: 1.0.0
+Author: Marcos Vainer Loeff
+Maintainer: OSIsoft PI Developers Club <pidevclub@osisoft.com>
+Description: This is an R package generated using the PI Web API JSON Swagger specification.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: R6,
+    httr,
+    rjson
+RoxygenNote: 6.0.1
+
