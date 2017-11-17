@@ -100,12 +100,26 @@ response3d = piWebApiService$streamSet$getValuesAdHoc(webIds)
 
 
 ```r
-response4 <- piWebApiService$data$getRecordedValues(path = "pi:\\\\pifitness-srv2\\sinusoid", startTime = "y-2d", endTime = "t")
-response5 <- piWebApiService$data$getInterpolatedValues(path = "pi:\\\\pifitness-srv2\\sinusoid", startTime = "y-2d", endTime = "t", interval = "1h")
-response6 <- piWebApiService$data$getPlotValues(path = "pi:\\\\pifitness-srv2\\sinusoid", startTime = "y-2d", endTime = "t", intervals = 30)
-response7 <- piWebApiService$data$getMultipleRecordedValues(paths = c("pi:\\\\pifitness-srv2\\sinusoid", "pi:\\\\pifitness-srv2\\sinusoidu"), startTime = "y-2d", endTime = "t")
-response8 <- piWebApiService$data$getMultipleInterpolatedValues(paths = c("pi:\\\\pifitness-srv2\\sinusoid", "pi:\\\\pifitness-srv2\\sinusoidu"), startTime = "y-2d", endTime = "t", interval = "1h")
-response9 <- piWebApiService$data$getMultiplePlotValues(paths = c("pi:\\\\pifitness-srv2\\sinusoid", "pi:\\\\pifitness-srv2\\sinusoidu"), startTime = "y-2d", endTime = "t", intervals = 30)
+response4a <- piWebApiService$data$getRecordedValues(path = "pi:\\\\PISRV1\\sinusoid", startTime = "y-200d", endTime = "t")
+response4b <- piWebApiService$data$getRecordedValues(path = "pi:\\\\PISRV1\\sinusoid", startTime = "y-200d", endTime = "t", selectedFields = "items.value;items.timestamp")
+response4c <- piWebApiService$data$getRecordedValues(path = "af:\\\\PISRV1\\UCDavisBuildings\\Buildings\\Buildings\\Academic Surge Building\\Electricity|Demand", startTime = "y-200d", endTime = "t")
+
+response5a <- piWebApiService$data$getInterpolatedValues(path = "pi:\\\\PISRV1\\sinusoid", startTime = "y-2d", endTime = "t", interval = "1h")
+response5b <- piWebApiService$data$getInterpolatedValues(path = "pi:\\\\PISRV1\\sinusoid", startTime = "y-2d", endTime = "t", interval = "1h", selectedFields = "items.value;items.timestamp")
+response5c <- piWebApiService$data$getInterpolatedValues(path = "af:\\\\PISRV1\\UCDavisBuildings\\Buildings\\Buildings\\Academic Surge Building\\Electricity|Demand", startTime = "y-2d", endTime = "t", interval = "1h")
+
+response6a <- piWebApiService$data$getPlotValues(path = "pi:\\\\PISRV1\\sinusoid", startTime = "y-2d", endTime = "t", intervals = 30)
+response6b <- piWebApiService$data$getPlotValues(path = "pi:\\\\PISRV1\\sinusoid", startTime = "y-2d", endTime = "t", intervals = 30, selectedFields = "items.value;items.timestamp")
+response6c <- piWebApiService$data$getPlotValues(path = "af:\\\\PISRV1\\UCDavisBuildings\\Buildings\\Buildings\\Academic Surge Building\\Electricity|Demand", startTime = "y-2d", endTime = "t", intervals = 30)
+
+response7a <- piWebApiService$data$getMultipleRecordedValues(paths = paths, startTime = "y-200d", endTime = "t")
+response7b <- piWebApiService$data$getMultipleRecordedValues(paths = paths, startTime = "y-200d", endTime = "t", selectedFields = "items.items.value;items.items.timestamp")
+
+response8a <- piWebApiService$data$getMultipleInterpolatedValues(paths = paths, startTime = "y-200d", endTime = "t", interval = "1h")
+response8b <- piWebApiService$data$getMultipleInterpolatedValues(paths = paths, startTime = "y-200d", endTime = "t", interval = "1h", selectedFields = "items.items.value;items.items.timestamp")
+
+response9a <- piWebApiService$data$getMultiplePlotValues(paths = paths, startTime = "y-200d", endTime = "t", intervals = 30)
+response9b <- piWebApiService$data$getMultiplePlotValues(paths = paths, startTime = "y-200d", endTime = "t", intervals = 30, selectedFields = "items.items.value;items.items.timestamp")
 ```
 
 The path from the methods above should start with "pi:" (if your stream is a PI Point) or "af:" (if your stream is an AF attribute).
