@@ -129,7 +129,7 @@ The path from the methods above should start with "pi:" (if your stream is a PI 
 ### Create a PI Point
 
 ```r
-newPoint <- piPoint(NULL, NULL, "SINUSOIDR", NULL, "12 Hour Sine Wave", "classic", "Float32", NULL, NULL, NULL, NULL, NULL)
+newPoint <- PIPoint(NULL, NULL, "SINUSOIDR", NULL, "12 Hour Sine Wave", "classic", "Float32", NULL, NULL, NULL, NULL, NULL)
 response10 = piWebApiService$dataServer$createPoint("s0TJVKOA0Ws0KihcA8rM1GogUElGSVRORVNTLVNSVjI", newPoint)
 ```
 
@@ -137,14 +137,14 @@ response10 = piWebApiService$dataServer$createPoint("s0TJVKOA0Ws0KihcA8rM1GogUEl
 ### Send values in bulk using the StreamSet/UpdateValuesAdHoc
 
 ```r
-timedValue1 <- piTimedValue(timestamp = "2017-04-26T17:40:54Z", value = 30)
-timedValue2 <- piTimedValue(timestamp = "2017-04-27T17:40:54Z", value = 31)
-timedValue3 <- piTimedValue(timestamp = "2017-04-26T17:40:54Z", value = 32)
-timedValue4 <- piTimedValue(timestamp = "2017-04-27T17:40:54Z", value = 33)
+timedValue1 <- PITimedValue(timestamp = "2017-04-26T17:40:54Z", value = 30)
+timedValue2 <- PITimedValue(timestamp = "2017-04-27T17:40:54Z", value = 31)
+timedValue3 <- PITimedValue(timestamp = "2017-04-26T17:40:54Z", value = 32)
+timedValue4 <- PITimedValue(timestamp = "2017-04-27T17:40:54Z", value = 33)
 t1 <- list(timedValue1, timedValue2)
 t2 <- list(timedValue3, timedValue4)
-s1 <- piStreamValues(webId = webIds[1], items = t1);
-s2 <- piStreamValues(webId = webIds[2], items = t2);
+s1 <- PIStreamValues(webId = webIds[1], items = t1);
+s2 <- PIStreamValues(webId = webIds[2], items = t2);
 values <- list(s1, s2)
 response11 <- piWebApiService$streamSet$updateValuesAdHoc(values, "BufferIfPossible", "Replace");
 ```
@@ -153,7 +153,7 @@ response11 <- piWebApiService$streamSet$updateValuesAdHoc(values, "BufferIfPossi
 
 ```r
 createdPoint <- piWebApiService$point$getByPath("\\\\PIFITNESS-SRV2\\SINUSOIDR")
-updatePoint <- piPoint()
+updatePoint <- PIPoint()
 updatePoint$Descriptor <- "12 Hour Sine Wave for R"
 response12 <- piWebApiService$point$update(createdPoint$WebId, updatePoint)
 ```
@@ -187,7 +187,7 @@ denyRights[1] = "Write"
 denyRights[2] = "Execute"
 denyRights[3] = "Admin"
 
-securityEntry <- piSecurityEntry(securityIdentityName = "SwaggerIdentity", allowRights = as.list(allowRight), denyRights = as.list(denyRights))
+securityEntry <- PISecurityEntry(securityIdentityName = "SwaggerIdentity", allowRights = as.list(allowRight), denyRights = as.list(denyRights))
 response15 <- piWebApiService$element$createSecurityEntry(elementWebId, securityEntry, TRUE);
 ```
 
@@ -207,7 +207,7 @@ denyRights[1] = "Write"
 denyRights[2] = "Execute"
 denyRights[3] = "Admin"
 denyRights[4] = "ReadData"
-securityEntry <- piSecurityEntry(allowRights = allowRight, denyRights = denyRights)
+securityEntry <- PISecurityEntry(allowRights = allowRight, denyRights = denyRights)
 response17 <- piWebApiService$element$updateSecurityEntry("SwaggerIdentity", elementWebId, securityEntry, TRUE)
 ```
 
