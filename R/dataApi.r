@@ -22,7 +22,7 @@ dataApi <- R6Class("dataApi",
                          res <- self$point$getByPath(path)
                          return(res$WebId)
                        }
-                       return(print(paste0("Error: invalid path. It needs to start with \"pi\" or \"af\"")))
+                       stop("Error: invalid path. It needs to start with \"pi\" or \"af\"")
                      },
                      convertPathsToWebIds = function(paths) {
                        lengthPaths <- length(paths)
@@ -33,14 +33,21 @@ dataApi <- R6Class("dataApi",
                        return(as.vector(webIds))
                      },
                      convertToDataFrame = function(items, selectedFields) {
-                       
+
+                       if (is.null(items) == TRUE)
+                         stop("The returned data is Null")
+
+                       streamsLength <- length(items)
+                       if (streamsLength == 0)
+                         stop('The returned data is Null')
+
                        addValues = FALSE
                        addTimeStamp = FALSE
                        addUnitAbbr = FALSE
                        addGood = FALSE
                        addQuestionable = FALSE
                        addSubstituded = FALSE
-                       
+
                        if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
                          if (grepl("timestamp", selectedFields)) {
                            addTimeStamp = TRUE
@@ -69,7 +76,7 @@ dataApi <- R6Class("dataApi",
                          addQuestionable = TRUE
                          addSubstituded = TRUE
                        }
-                       
+
                        itemsLength <- length(items)
                        if (itemsLength == 0) {
                          value <- array(0)
@@ -81,14 +88,14 @@ dataApi <- R6Class("dataApi",
                          resDataFrame <- data.frame(value, timestamp, unitsAbbreviation, good, questionable, substituted)
                          return(resDataFrame)
                        }
-                       
+
                        value = NULL
                        unitsAbbreviation = NULL
                        timestamp = NULL
                        good = NULL
                        questionable = NULL
                        substituted = NULL
-                       
+
                        if (addValues == TRUE) {
                          value <- array(1:itemsLength)
                        }
@@ -132,9 +139,9 @@ dataApi <- R6Class("dataApi",
                            substituted[i] <- items[[i]]$Substituted
                          }
                        }
-                       
+
                        index = 1:itemsLength
-                       
+
                        resDataFrame <- data.frame(index)
                        if (addTimeStamp == TRUE) {
                          resDataFrame[["timestamp"]] = as.vector(timestamp)
@@ -154,11 +161,11 @@ dataApi <- R6Class("dataApi",
                        if (addSubstituded == TRUE) {
                          resDataFrame[["substituted"]] = as.vector(substituted)
                        }
-                       
+
                        resDataFrame$index <- NULL
                        head(resDataFrame)
                        return(resDataFrame)
-                       
+
                      },
                      calculateItemsIndex = function(webId, items) {
                        for (i in 1:length(items)) {
@@ -169,17 +176,30 @@ dataApi <- R6Class("dataApi",
                        return(-1)
                      },
                      convertMultipleStreamsToDataFrame = function(items, gatherInOneDataFrame, webIds, selectedFields, paths = NULL) {
+
+                       if (is.null(items) == TRUE)
+                         stop("The returned data is Null")
+
                        streamsLength <- length(items)
-                       
+                       if (streamsLength == 0)
+                         stop('The returned data is Null')
+
+
+                       for (i in 1:streamsLength) {
+                         if ((is.null(items[i]) == TRUE) || (is.null(items[[i]]$Items) == TRUE))
+                           stop('Some items are Null')
+                       }
+
+
                        if (gatherInOneDataFrame == TRUE) {
-                         
+
                          addValues = FALSE
                          addTimeStamp = FALSE
                          addUnitAbbr = FALSE
                          addGood = FALSE
                          addQuestionable = FALSE
                          addSubstituded = FALSE
-                         
+
                          if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
                            if (grepl("timestamp", selectedFields)) {
                              addTimeStamp = TRUE
@@ -208,7 +228,7 @@ dataApi <- R6Class("dataApi",
                            addQuestionable = TRUE
                            addSubstituded = TRUE
                          }
-                         
+
                          itemsLength <- length(items[[1]]$Items)
                          index = 1:itemsLength
                          resDataFrame <- data.frame(index)
@@ -257,15 +277,15 @@ dataApi <- R6Class("dataApi",
                                }
                              }
                            }
-                           
-                           
+
+
                            if (i == 1) {
                              if (addTimeStamp == TRUE) {
                                resDataFrame[["timestamp"]] = as.vector(timestamp)
                              }
                            }
-                           
-                           
+
+
                            if (addValues == TRUE) {
                              resDataFrame[[paste0("value", i)]] = as.vector(value)
                            }
@@ -295,14 +315,14 @@ dataApi <- R6Class("dataApi",
                        }
                        return(resDataFrame)
                      },
-                     
-                     
+
+
                      getRecordedValues = function(path, boundaryType, desiredUnits, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone) {
                        if (is.null(path) || path == "") {
                          return(paste0("Error: required parameter path was null or undefined"))
                        }
                        if (is.character(path) == FALSE) {
-                         return(print(paste0("Error: path must be a string.")))
+                         stop("Error: path must be a string.")
                        }
                        webId <- self$convertPathToWebId(path)
                        res <- self$stream$getRecorded(webId, boundaryType, desiredUnits, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone);
@@ -311,10 +331,10 @@ dataApi <- R6Class("dataApi",
                      },
                      getMultipleRecordedValues = function(paths, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone) {
                        if (is.null(paths) || paths == "") {
-                         return(paste0("Error: required parameter paths was null or undefined"))
+                         stop("Error: required parameter paths was null or undefined")
                        }
                        if (is.vector(paths) == FALSE) {
-                         return(print(paste0("Error: path must be a vector.")))
+                         stop("Error: path must be a vector.")
                        }
                        webIds <- self$convertPathsToWebIds(paths);
                        res <- self$streamSet$getRecordedAdHoc(webIds, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone);
@@ -323,10 +343,10 @@ dataApi <- R6Class("dataApi",
                      },
                      getInterpolatedValues = function(path, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone) {
                        if (is.null(path) || path == "") {
-                         return(paste0("Error: required parameter path was null or undefined"))
+                         stop("Error: required parameter path was null or undefined")
                        }
                        if (is.character(path) == FALSE) {
-                         return(print(paste0("Error: path must be a string.")))
+                         stop("Error: path must be a string.")
                        }
                        webId <- self$convertPathToWebId(path);
                        res <- self$stream$getInterpolated(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone);
@@ -338,7 +358,7 @@ dataApi <- R6Class("dataApi",
                          return(paste0("Error: required parameter paths was null or undefined"))
                        }
                        if (is.vector(paths) == FALSE) {
-                         return(print(paste0("Error: path must be a vector.")))
+                         stop("Error: path must be a vector.")
                        }
                        if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
                          if (grepl("items.webid", selectedFields) == FALSE) {
@@ -355,7 +375,7 @@ dataApi <- R6Class("dataApi",
                          return(paste0("Error: required parameter path was null or undefined"))
                        }
                        if (is.character(path) == FALSE) {
-                         return(print(paste0("Error: path must be a string.")))
+                         stop("Error: path must be a string.")
                        }
                        webId <- self$convertPathToWebId(path);
                        res <- self$stream$getPlot(webId, desiredUnits, endTime, intervals, selectedFields, startTime, timeZone);
@@ -367,11 +387,11 @@ dataApi <- R6Class("dataApi",
                          return(paste0("Error: required parameter paths was null or undefined"))
                        }
                        if (is.vector(paths) == FALSE) {
-                         return(print(paste0("Error: path must be a vector.")))
+                         stop("Error: path must be a vector.")
                        }
-                       
+
                        webIds <- self$convertPathsToWebIds(paths);
-                       
+
                        res <- self$streamSet$getPlotAdHoc(webIds, endTime, intervals, selectedFields, startTime, timeZone);
                        resDataFrame <- self$convertMultipleStreamsToDataFrame(res$Items, FALSE, webIds, selectedFields, paths)
                        return(resDataFrame);
