@@ -6,7 +6,8 @@
 \usage{
 PIElement(webId = NULL, id = NULL, name = NULL, description = NULL,
   path = NULL, templateName = NULL, hasChildren = NULL,
-  categoryNames = NULL, extendedProperties = NULL, links = NULL)
+  categoryNames = NULL, extendedProperties = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -27,7 +28,9 @@ PIElement(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{extendedProperties}{(object)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIElement
@@ -36,6 +39,6 @@ PIElement
 Generate an instance of the PIElement PI Web API class
 }
 \examples{
-element <- PIElement(webId = "E0DqD5loBNH0erqeqJodtALAvGEqktDl4xG-twAFmjx6UAUkVTVFVOSVRUc1VHQVJNQU5V1TcHUkVFTg", id = "FCBC2D39-4085-491B-A0EE-E25767C85FA5", name = "B-210", description = "Boiler B-210", path = "\\\\\\\\MyServer\\\\NuGreen\\\\NuGreen\\\\Houston\\\\Cracking Process\\\\Equipment\\\\B-210", templateName = "Boiler", hasChildren = FALSE)
+element <- PIElement(webId = "I1EmDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBA", id = "cbb28260-853d-11e4-80c5-00155d844304", name = "B-210", description = "Boiler B-210", path = "\\\\\\\\MyServer\\\\NuGreen\\\\NuGreen\\\\Houston\\\\Cracking Process\\\\Equipment\\\\B-210", templateName = "Boiler", hasChildren = FALSE)
 
 }

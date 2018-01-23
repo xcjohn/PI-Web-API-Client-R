@@ -1,4 +1,4 @@
-PIEnumerationValue <- function(webId = NULL, id = NULL, name = NULL, description = NULL, value = NULL, path = NULL, links = NULL, serializeWebId = NULL, serializeId = NULL, serializeDescription = NULL, serializePath = NULL, serializeLinks = NULL) {
+PIEnumerationValue <- function(webId = NULL, id = NULL, name = NULL, description = NULL, value = NULL, path = NULL, parent = NULL, links = NULL, serializeWebId = NULL, serializeId = NULL, serializeDescription = NULL, serializePath = NULL, serializeLinks = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -29,7 +29,16 @@ PIEnumerationValue <- function(webId = NULL, id = NULL, name = NULL, description
 			return (print(paste0("Error: path must be a string.")))
 		}
 	}
+	if (is.null(parent) == FALSE) {
+		if (is.character(parent) == FALSE) {
+			return (print(paste0("Error: parent must be a string.")))
+		}
+	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PIEnumerationValueLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PIEnumerationValueLinks.")))
+		}
 	}
 	if (is.null(serializeWebId) == FALSE) {
 		if (is.logical(serializeWebId) == FALSE) {
@@ -56,6 +65,12 @@ PIEnumerationValue <- function(webId = NULL, id = NULL, name = NULL, description
 			return (print(paste0("Error: serializeLinks must be a boolean.")))
 		}
 	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
+	}
 	value <- list(
 	WebId = webId,
 	Id = id,
@@ -63,12 +78,14 @@ PIEnumerationValue <- function(webId = NULL, id = NULL, name = NULL, description
 	Description = description,
 	Value = value,
 	Path = path,
+	Parent = parent,
 	Links = links,
 	SerializeWebId = serializeWebId,
 	SerializeId = serializeId,
 	SerializeDescription = serializeDescription,
 	SerializePath = serializePath,
-	SerializeLinks = serializeLinks)
+	SerializeLinks = serializeLinks,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIEnumerationValue"
 	return(valueCleaned)

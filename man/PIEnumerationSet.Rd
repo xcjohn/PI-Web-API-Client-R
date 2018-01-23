@@ -6,7 +6,7 @@
 \usage{
 PIEnumerationSet(webId = NULL, id = NULL, name = NULL,
   description = NULL, path = NULL, links = NULL,
-  serializeDescription = NULL)
+  serializeDescription = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -19,9 +19,11 @@ PIEnumerationSet(webId = NULL, id = NULL, name = NULL,
 
 \item{path}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
 
 \item{serializeDescription}{(boolean)}
+
+\item{webException}{()}
 }
 \value{
 PIEnumerationSet
@@ -30,6 +32,6 @@ PIEnumerationSet
 Generate an instance of the PIEnumerationSet PI Web API class
 }
 \examples{
-enumerationSet <- PIEnumerationSet(webId = "U0qDSD5loBNH0erqeqJodtALAChs3W0xcXUG6x0ibnAnQdgUkVTVFVOScVRU1VHQVJNQU5cRX5VTUVSQVRJT05TRVRTW0VOVU1FUkFUSU9OIFNFVCAzXQ", id = "C186EF94-2028-4954-A136-FAEA79CEE9AA", name = "Model Number", description = "Model numbers by brand of vehicle", path = "\\\\\\\\MyServer\\\\NuGreen\\\\EnumerationSets[Model Number]", serializeDescription = FALSE)
+enumerationSet <- PIEnumerationSet(webId = "I1MSRDqD5loBNH0erqeqJodtALAT_x3jpGsKUCB1vtmvQHUMQ", id = "8e77fc4f-ac91-4029-81d6-fb66bd01d431", name = "Model Number", description = "Model numbers by brand of vehicle", path = "\\\\\\\\MyServer\\\\NuGreen\\\\EnumerationSets[Model Number]", serializeDescription = FALSE)
 
 }

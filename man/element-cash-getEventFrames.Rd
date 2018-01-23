@@ -2,7 +2,7 @@
 % Please edit documentation in R/elementApi.r
 \name{element$getEventFrames}
 \alias{element$getEventFrames}
-\title{Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.}
+\title{Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.}
 \arguments{
 \item{webId}{The ID of the element whose related event frames are sought.}
 
@@ -33,10 +33,12 @@
 \item{startTime}{The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.}
 
 \item{templateName}{Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 A list of event frames matching the specified conditions.
 }
 \description{
-Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.
+Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.
 }

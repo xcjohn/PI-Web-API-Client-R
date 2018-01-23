@@ -4,12 +4,14 @@
 \alias{PISummaryValue}
 \title{Generate an instance of the PISummaryValue PI Web API class}
 \usage{
-PISummaryValue(type = NULL, value = NULL)
+PISummaryValue(type = NULL, value = NULL, webException = NULL)
 }
 \arguments{
 \item{type}{(string)}
 
 \item{value}{()}
+
+\item{webException}{()}
 }
 \value{
 PISummaryValue

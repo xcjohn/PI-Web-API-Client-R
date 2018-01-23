@@ -15,7 +15,7 @@ timeRuleApi <- R6Class("timeRuleApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -31,6 +31,12 @@ timeRuleApi <- R6Class("timeRuleApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -38,7 +44,7 @@ timeRuleApi <- R6Class("timeRuleApi",
 			}
 			return (contentResponse)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -51,6 +57,12 @@ timeRuleApi <- R6Class("timeRuleApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)

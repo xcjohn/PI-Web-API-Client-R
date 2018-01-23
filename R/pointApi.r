@@ -15,7 +15,7 @@ pointApi <- R6Class("pointApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -31,6 +31,12 @@ pointApi <- R6Class("pointApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -38,7 +44,7 @@ pointApi <- R6Class("pointApi",
 			}
 			return (contentResponse)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -51,6 +57,12 @@ pointApi <- R6Class("pointApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -91,7 +103,7 @@ pointApi <- R6Class("pointApi",
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getAttributes = function(webId, name, nameFilter, selectedFields) {
+		getAttributes = function(webId, name, nameFilter, selectedFields, webIdType) {
 			queryParameters <- generateListForQueryString(name, "name")
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -118,6 +130,12 @@ pointApi <- R6Class("pointApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -128,7 +146,7 @@ pointApi <- R6Class("pointApi",
 			}
 			return (contentResponse)
 		},
-		getAttributeByName = function(name, webId, selectedFields) {
+		getAttributeByName = function(name, webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
@@ -149,6 +167,12 @@ pointApi <- R6Class("pointApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -156,7 +180,7 @@ pointApi <- R6Class("pointApi",
 			}
 			return (contentResponse)
 		},
-		getMultiple = function(asParallel, includeMode, path, selectedFields, webId) {
+		getMultiple = function(asParallel, includeMode, path, selectedFields, webId, webIdType) {
 			queryParameters <- generateListForTwoQueryString(path, "path", webId, "webId")
 			localVarPath <- paste(c(self$serviceBase, '/points/multiple'), collapse = "")
 			if (missing(asParallel) == FALSE && is.null(asParallel) == FALSE && asParallel != "") {
@@ -187,6 +211,12 @@ pointApi <- R6Class("pointApi",
 				queryParameters$webId <- webId
 				if (is.vector(webId) == FALSE) {
 					return (print(paste0("Error: webId must be a vector.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)

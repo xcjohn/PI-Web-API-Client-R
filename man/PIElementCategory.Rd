@@ -5,7 +5,7 @@
 \title{Generate an instance of the PIElementCategory PI Web API class}
 \usage{
 PIElementCategory(webId = NULL, id = NULL, name = NULL,
-  description = NULL, path = NULL, links = NULL)
+  description = NULL, path = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -18,7 +18,9 @@ PIElementCategory(webId = NULL, id = NULL, name = NULL,
 
 \item{path}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIElementCategory
@@ -27,6 +29,6 @@ PIElementCategory
 Generate an instance of the PIElementCategory PI Web API class
 }
 \examples{
-elementCategory <- PIElementCategory(webId = "e0DqD5loBNH0erqeqJodtALAQ_lRME1-QUKrnEUKhMgEUAUkVTVFVOSVRcUk9OR1xDQVRFR09SSUVTRUxFTUVOVFtDQVRFR09SWTFd", id = "3051f943-7e4d-4241-ab9c-450a84c80450", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesElement[CategoryName]")
+elementCategory <- PIElementCategory(webId = "I1ECDqD5loBNH0erqeqJodtALAQ_lRME1-QUKrnEUKhMgEUA", id = "3051f943-7e4d-4241-ab9c-450a84c80450", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesElement[CategoryName]")
 
 }

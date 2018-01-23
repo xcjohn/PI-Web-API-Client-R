@@ -15,7 +15,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -31,6 +31,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -38,7 +44,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -51,6 +57,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -103,7 +115,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			res <- patchHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getAnnotations = function(webId, selectedFields) {
+		getAnnotations = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -118,6 +130,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -125,7 +143,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		createAnnotation = function(webId, PIAnnotation) {
+		createAnnotation = function(webId, PIAnnotation, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -141,10 +159,16 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: the class from the parameter PIAnnotation should be PIAnnotation.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/annotations'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIAnnotation, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getAnnotationById = function(id, webId, selectedFields) {
+		getAnnotationById = function(id, webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(id) || id == "") {
 				return (paste0("Error: required parameter id was null or undefined"))
@@ -163,6 +187,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -215,7 +245,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getAttributes = function(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType) {
+		getAttributes = function(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, valueType, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -296,6 +326,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: valueType must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -303,7 +339,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		createAttribute = function(webId, PIAttribute) {
+		createAttribute = function(webId, PIAttribute, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -319,6 +355,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: the class from the parameter PIAttribute should be PIAttribute.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/attributes'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
@@ -334,7 +376,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getCategories = function(webId, selectedFields) {
+		getCategories = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -347,6 +389,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -374,7 +422,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		findEventFrameAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime) {
+		findEventFrameAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -491,6 +539,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -498,7 +552,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		getEventFrames = function(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, referencedElementTemplateName, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName) {
+		getEventFrames = function(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, referencedElementTemplateName, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName, webIdType) {
 			queryParameters <- generateListForQueryString(severity, "severity")
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -609,6 +663,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -616,7 +676,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		createEventFrame = function(webId, PIEventFrame) {
+		createEventFrame = function(webId, PIEventFrame, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -632,10 +692,16 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: the class from the parameter PIEventFrame should be PIEventFrame.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/eventframes'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIEventFrame, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getReferencedElements = function(webId, selectedFields) {
+		getReferencedElements = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -650,6 +716,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -657,7 +729,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields) {
+		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields, webIdType) {
 			queryParameters <- generateListForQueryString(userIdentity, "userIdentity")
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -684,6 +756,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -703,7 +781,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		getSecurityEntries = function(webId, nameFilter, selectedFields) {
+		getSecurityEntries = function(webId, nameFilter, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -724,6 +802,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -731,7 +815,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren) {
+		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -753,10 +837,16 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getSecurityEntryByName = function(name, webId, selectedFields) {
+		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
@@ -775,6 +865,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -842,7 +938,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getMultiple = function(asParallel, includeMode, path, selectedFields, webId) {
+		getMultiple = function(asParallel, includeMode, path, selectedFields, webId, webIdType) {
 			queryParameters <- generateListForTwoQueryString(path, "path", webId, "webId")
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/multiple'), collapse = "")
 			if (missing(asParallel) == FALSE && is.null(asParallel) == FALSE && asParallel != "") {
@@ -875,6 +971,12 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: webId must be a vector.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -885,13 +987,84 @@ eventFrameApi <- R6Class("eventFrameApi",
 			}
 			return (contentResponse)
 		},
-		createSearchByAttribute = function() {
+		getEventFramesQuery = function(databaseWebId, maxCount, query, selectedFields, startIndex, webIdType) {
 			queryParameters <- list()
+			localVarPath <- paste(c(self$serviceBase, '/eventframes/search'), collapse = "")
+			if (missing(databaseWebId) == FALSE && is.null(databaseWebId) == FALSE && databaseWebId != "") {
+				queryParameters$databaseWebId <- databaseWebId
+				if (is.character(databaseWebId) == FALSE) {
+					return (print(paste0("Error: databaseWebId must be a string.")))
+				}
+			}
+			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
+				queryParameters$maxCount <- maxCount
+				if (check.integer(maxCount) == FALSE) {
+					return (print(paste0("Error: maxCount must be an integer.")))
+				}
+			}
+			if (missing(query) == FALSE && is.null(query) == FALSE && query != "") {
+				queryParameters$query <- query
+				if (is.character(query) == FALSE) {
+					return (print(paste0("Error: query must be a string.")))
+				}
+			}
+			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
+				queryParameters$selectedFields <- selectedFields
+				if (is.character(selectedFields) == FALSE) {
+					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
+				queryParameters$startIndex <- startIndex
+				if (check.integer(startIndex) == FALSE) {
+					return (print(paste0("Error: startIndex must be an integer.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
+			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			contentResponse <- content(res)
+			if (res$status == 200) {
+				attr(contentResponse, "className") <- "PIItemsEventFrame"
+			}
+			return (contentResponse)
+		},
+		createSearchByAttribute = function(PISearchByAttribute, noResults, selectedFields, webIdType) {
+			queryParameters <- list()
+			if (is.null(PISearchByAttribute) || PISearchByAttribute == "") {
+				return (paste0("Error: required parameter PISearchByAttribute was null or undefined"))
+			}
+			className <- attr(PISearchByAttribute, "className")
+			if ((is.null(className)) || (className != "PISearchByAttribute")) {
+				return (print(paste0("Error: the class from the parameter PISearchByAttribute should be PISearchByAttribute.")))
+			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/searchbyattribute'), collapse = "")
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			if (missing(noResults) == FALSE && is.null(noResults) == FALSE && noResults != "") {
+				queryParameters$noResults <- noResults
+				if (is.logical(noResults) == FALSE) {
+					return (print(paste0("Error: noResults must be a boolean.")))
+				}
+			}
+			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
+				queryParameters$selectedFields <- selectedFields
+				if (is.character(selectedFields) == FALSE) {
+					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
+			res <- postHttpRequest(localVarPath, PISearchByAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		executeSearchByAttribute = function(searchId, canBeAcknowledged, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime) {
+		executeSearchByAttribute = function(searchId, canBeAcknowledged, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, webIdType) {
 			queryParameters <- generateListForQueryString(severity, "severity")
 			if (is.null(searchId) || searchId == "") {
 				return (paste0("Error: required parameter searchId was null or undefined"))
@@ -984,9 +1157,16 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
+				attr(contentResponse, "className") <- "PIItemsEventFrame"
 			}
 			if (res$status == 400) {
 				attr(contentResponse, "className") <- "PIErrors"

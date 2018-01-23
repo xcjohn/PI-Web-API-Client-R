@@ -4,7 +4,8 @@
 \alias{PIVersion}
 \title{Generate an instance of the PIVersion PI Web API class}
 \usage{
-PIVersion(fullVersion = NULL, majorMinorRevision = NULL, build = NULL)
+PIVersion(fullVersion = NULL, majorMinorRevision = NULL, build = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{fullVersion}{(string)}
@@ -12,6 +13,8 @@ PIVersion(fullVersion = NULL, majorMinorRevision = NULL, build = NULL)
 \item{majorMinorRevision}{(string)}
 
 \item{build}{(string)}
+
+\item{webException}{()}
 }
 \value{
 PIVersion
@@ -20,6 +23,6 @@ PIVersion
 Generate an instance of the PIVersion PI Web API class
 }
 \examples{
-version <- PIVersion(fullVersion = "1.8.0.201", majorMinorRevision = "1.8.0", build = "201")
+version <- PIVersion(fullVersion = "1.10.0.201", majorMinorRevision = "1.10.0", build = "201")
 
 }

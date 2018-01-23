@@ -6,7 +6,7 @@
 \usage{
 PIUnitClass(webId = NULL, id = NULL, name = NULL, description = NULL,
   canonicalUnitName = NULL, canonicalUnitAbbreviation = NULL, path = NULL,
-  links = NULL)
+  links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -23,7 +23,9 @@ PIUnitClass(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{path}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIUnitClass
@@ -32,6 +34,6 @@ PIUnitClass
 Generate an instance of the PIUnitClass PI Web API class
 }
 \examples{
-unitClass <- PIUnitClass(webId = "K0DqD5loBNH0erqeqJodtALAEYKC2hx4DU2jygG2_AT33gVUkTVFVOSVRcVU9NREFUQUJUB0VcVU9NQ0xBU1NFU1tRVFUOVElUWV2", id = "09FBCC8A-796D-4568-9287-C8B7BC5EA129", name = "Power", description = "Power Unit Class", canonicalUnitName = "watt", canonicalUnitAbbreviation = "W", path = "\\\\\\\\MyServer\\\\UOMDatabase\\\\UOMClasses[Power]")
+unitClass <- PIUnitClass(webId = "I1UCDqD5loBNH0erqeqJodtALATbkl-fxulEulDQAVw5HySQ", id = "f925b94d-6efc-4b94-a50d-0015c391f249", name = "Power", description = "Power Unit Class", canonicalUnitName = "watt", canonicalUnitAbbreviation = "W", path = "\\\\\\\\MyServer\\\\UOMDatabase\\\\UOMClasses[Power]")
 
 }

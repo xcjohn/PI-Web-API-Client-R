@@ -11,6 +11,8 @@
 \item{securityItem}{The security item of the desired security entries information to be returned. If the parameter is not specified, security entries of the 'Default' security item will be returned.}
 
 \item{selectedFields}{List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 A list of security entries matching the specified condition.

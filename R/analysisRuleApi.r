@@ -15,7 +15,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -31,6 +31,12 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -38,7 +44,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			}
 			return (contentResponse)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -51,6 +57,12 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -91,7 +103,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getAnalysisRules = function(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex) {
+		getAnalysisRules = function(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -142,6 +154,12 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -149,7 +167,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			}
 			return (contentResponse)
 		},
-		createAnalysisRule = function(webId, PIAnalysisRule) {
+		createAnalysisRule = function(webId, PIAnalysisRule, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -165,6 +183,12 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 				return (print(paste0("Error: the class from the parameter PIAnalysisRule should be PIAnalysisRule.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysisrules/', webId, '/analysisrules'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIAnalysisRule, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}

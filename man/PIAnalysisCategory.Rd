@@ -5,7 +5,7 @@
 \title{Generate an instance of the PIAnalysisCategory PI Web API class}
 \usage{
 PIAnalysisCategory(webId = NULL, id = NULL, name = NULL,
-  description = NULL, path = NULL, links = NULL)
+  description = NULL, path = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -18,7 +18,9 @@ PIAnalysisCategory(webId = NULL, id = NULL, name = NULL,
 
 \item{path}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAnalysisCategory
@@ -27,6 +29,6 @@ PIAnalysisCategory
 Generate an instance of the PIAnalysisCategory PI Web API class
 }
 \examples{
-analysisCategory <- PIAnalysisCategory(webId = "n0DqD5loBNH0erqeqJodtALAoko2-UoOVEibhTWQCk1MDwUkVTVFVOSVRcUk9OR1xDQVRFR09SSUVTQU5BTFlTSVNbQ0FURUdPUlkxXQ", id = "f9364aa2-0e4a-4854-9b85-35900a4d4c0f", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesAnalysis[CategoryName]")
+analysisCategory <- PIAnalysisCategory(webId = "I1XCDqD5loBNH0erqeqJodtALAoko2-UoOVEibhTWQCk1MDw", id = "f9364aa2-0e4a-4854-9b85-35900a4d4c0f", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesAnalysis[CategoryName]")
 
 }

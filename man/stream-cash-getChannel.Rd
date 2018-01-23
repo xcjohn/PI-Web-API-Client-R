@@ -6,7 +6,11 @@
 \arguments{
 \item{webId}{The ID of the stream.}
 
+\item{heartbeatRate}{HeartbeatRate is an integer multiple of the Polling Interval. It specifies the rate at which a client will receive an empty message if there are no data updates. It can be used to check that the connection is still alive. Zero/negative values correspond to no heartbeat. By default, no empty messages will be sent to the user.}
+
 \item{includeInitialValues}{Specified if the channel should send a message with the current value of the stream after the connection is opened. The default is 'false'.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 Switches to the Web Socket protocol.

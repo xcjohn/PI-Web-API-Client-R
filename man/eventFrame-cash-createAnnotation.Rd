@@ -7,6 +7,8 @@
 \item{webId}{The ID of the owner event frame on which to create the annotation.}
 
 \item{PIAnnotation}{The new annotation definition.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The annotation was created. The response's Location header is a link to the annotation.

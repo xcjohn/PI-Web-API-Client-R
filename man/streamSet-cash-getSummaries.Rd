@@ -39,6 +39,8 @@
 \item{timeType}{Specifies how to calculate the timestamp for each interval. The default is 'Auto'.}
 
 \item{timeZone}{The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 Summary values of the streams that meet the specified conditions.

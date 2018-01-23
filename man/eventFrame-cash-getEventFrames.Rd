@@ -2,7 +2,7 @@
 % Please edit documentation in R/eventFrameApi.r
 \name{eventFrame$getEventFrames}
 \alias{eventFrame$getEventFrames}
-\title{Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.}
+\title{Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.}
 \arguments{
 \item{webId}{The ID of the event frame to use as the root of the search.}
 
@@ -39,10 +39,12 @@
 \item{startTime}{The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.}
 
 \item{templateName}{Specify that returned event frames must have this template or a template derived from this template. The default is no template filter. Specify this parameter by name.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 A list of event frames matching the specified conditions.
 }
 \description{
-Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame with a start time in the past 8 hours.
+Retrieve event frames based on the specified conditions. By default, returns all children of the specified root event frame that have been active in the past 8 hours.
 }

@@ -8,6 +8,8 @@
 
 \item{categoryName}{Specify that included attributes must have this category. The default is no category filter.}
 
+\item{heartbeatRate}{Specifies the maximum number of consecutive empty messages that can be elapsed with no new data updates from the PI System, after which the client receives an empty payload. It helps to check if the connection is still alive. Zero/negative values correspond to no heartbeat, and the default value is no heartbeat.}
+
 \item{includeInitialValues}{Specified if the channel should send a message with the current values of all the streams after the connection is opened. The default is 'false'.}
 
 \item{nameFilter}{The name query string used for filtering attributes. The default is no filter.}
@@ -19,6 +21,8 @@
 \item{showHidden}{Specified if the search should include attributes with the Hidden property set. The default is 'false'.}
 
 \item{templateName}{Specify that included attributes must be members of this template. The default is no template filter.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 Switches to the Web Socket protocol.

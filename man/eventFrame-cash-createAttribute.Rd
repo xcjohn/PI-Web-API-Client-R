@@ -7,6 +7,8 @@
 \item{webId}{The ID of the event frame on which to create the attribute.}
 
 \item{PIAttribute}{The definition of the new attribute.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The attribute was created. The response's Location header is a link to the created attribute.

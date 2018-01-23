@@ -6,7 +6,7 @@
 \usage{
 PIAssetDatabase(webId = NULL, id = NULL, name = NULL,
   description = NULL, path = NULL, extendedProperties = NULL,
-  links = NULL)
+  links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -21,7 +21,9 @@ PIAssetDatabase(webId = NULL, id = NULL, name = NULL,
 
 \item{extendedProperties}{(object)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAssetDatabase
@@ -30,6 +32,6 @@ PIAssetDatabase
 Generate an instance of the PIAssetDatabase PI Web API class
 }
 \examples{
-assetDatabase <- PIAssetDatabase(webId = "D0NxzXSxtlKkGzAaZhKOB-KABJ2buwfWrkye3YhdL2FOUAUEhMQUZTMDRcQgYUUEVSRk9STUFOQ0UgVEVTVElORw", id = "23913034-072C-41AC-BBBD-95FB6C4122D5", name = "NuGreen", description = "PI BI Project Asset Model", path = "\\\\\\\\MyServer\\\\NuGreen")
+assetDatabase <- PIAssetDatabase(webId = "I1RDDqD5loBNH0erqeqJodtALAquulo6433EKdHra7fsmL0g", id = "a3a5ebaa-37ae-42dc-9d1e-b6bb7ec98bd2", name = "NuGreen", description = "PI BI Project Asset Model", path = "\\\\\\\\MyServer\\\\NuGreen")
 
 }

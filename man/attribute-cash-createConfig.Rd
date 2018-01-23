@@ -5,6 +5,8 @@
 \title{Create or update an attribute's DataReference configuration (Create/Update PI point for PI Point DataReference).}
 \arguments{
 \item{webId}{The ID of the attribute.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The attribute's DataReference configuration was created or updated.

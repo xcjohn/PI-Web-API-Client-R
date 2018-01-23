@@ -5,7 +5,7 @@
 \title{Generate an instance of the PIAttributeCategory PI Web API class}
 \usage{
 PIAttributeCategory(webId = NULL, id = NULL, name = NULL,
-  description = NULL, path = NULL, links = NULL)
+  description = NULL, path = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -18,7 +18,9 @@ PIAttributeCategory(webId = NULL, id = NULL, name = NULL,
 
 \item{path}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAttributeCategory
@@ -27,6 +29,6 @@ PIAttributeCategory
 Generate an instance of the PIAttributeCategory PI Web API class
 }
 \examples{
-attributeCategory <- PIAttributeCategory(webId = "c0DqD5loBNH0erqeqJodtALAofQgBVRE3E-0dk03Hqa1ngUkVTVFVOSVRcUk9OR1xDQVRFR09SSUVTQVRUUklCVVRFW0FDMF0", id = "0520f4a1-4454-4fdc-b476-4d371ea6b59e", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesAttribute[CategoryName]")
+attributeCategory <- PIAttributeCategory(webId = "I1ACDqD5loBNH0erqeqJodtALAofQgBVRE3E-0dk03Hqa1ng", id = "0520f4a1-4454-4fdc-b476-4d371ea6b59e", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesAttribute[CategoryName]")
 
 }

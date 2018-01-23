@@ -8,7 +8,7 @@ PIAttributeTrait(name = NULL, abbreviation = NULL,
   allowChildAttributes = NULL, allowDuplicates = NULL,
   isAllowedOnRootAttribute = NULL, isTypeInherited = NULL,
   isUOMInherited = NULL, requireNumeric = NULL, requireString = NULL,
-  links = NULL)
+  links = NULL, webException = NULL)
 }
 \arguments{
 \item{name}{(string)}
@@ -29,7 +29,9 @@ PIAttributeTrait(name = NULL, abbreviation = NULL,
 
 \item{requireString}{(boolean)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAttributeTrait

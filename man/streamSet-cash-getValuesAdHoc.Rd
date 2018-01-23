@@ -4,13 +4,19 @@
 \alias{streamSet$getValuesAdHoc}
 \title{Returns values of the specified streams.}
 \arguments{
-\item{webId}{The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.}
+\item{webId}{The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.}
 
 \item{selectedFields}{List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.}
+
+\item{sortField}{The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.}
+
+\item{sortOrder}{The order that the returned collection is sorted. The default is 'Ascending'}
 
 \item{time}{An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.}
 
 \item{timeZone}{The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 Summary values of the streams that meet the specified conditions.

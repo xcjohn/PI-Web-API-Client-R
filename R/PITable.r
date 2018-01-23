@@ -1,4 +1,4 @@
-PITable <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, categoryNames = NULL, timeZone = NULL, convertToLocalTime = NULL, links = NULL) {
+PITable <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, categoryNames = NULL, timeZone = NULL, convertToLocalTime = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -43,6 +43,16 @@ PITable <- function(webId = NULL, id = NULL, name = NULL, description = NULL, pa
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PITableLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PITableLinks.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
 	}
 	value <- list(
 	WebId = webId,
@@ -53,7 +63,8 @@ PITable <- function(webId = NULL, id = NULL, name = NULL, description = NULL, pa
 	CategoryNames = categoryNames,
 	TimeZone = timeZone,
 	ConvertToLocalTime = convertToLocalTime,
-	Links = links)
+	Links = links,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITable"
 	return(valueCleaned)

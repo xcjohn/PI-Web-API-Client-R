@@ -5,6 +5,10 @@ PIItemsSecurityMapping <- function(items = NULL, links = NULL) {
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PIPaginationLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PIPaginationLinks.")))
+		}
 	}
 	value <- list(
 	Items = items,

@@ -25,6 +25,8 @@
 \item{startIndex}{The starting index (zero based) of the items to be returned. The default is 0.}
 
 \item{templateName}{Specify that returned elements must have this template or a template derived from this template. The default is no template filter.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 A list of referenced elements matching the specified conditions.

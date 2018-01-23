@@ -1,4 +1,4 @@
-PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descriptor = NULL, pointClass = NULL, pointType = NULL, digitalSetName = NULL, engineeringUnits = NULL, step = NULL, future = NULL, links = NULL) {
+PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descriptor = NULL, pointClass = NULL, pointType = NULL, digitalSetName = NULL, engineeringUnits = NULL, step = NULL, future = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -55,6 +55,16 @@ PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descripto
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PIPointLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PIPointLinks.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
 	}
 	value <- list(
 	WebId = webId,
@@ -68,7 +78,8 @@ PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descripto
 	EngineeringUnits = engineeringUnits,
 	Step = step,
 	Future = future,
-	Links = links)
+	Links = links,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIPoint"
 	return(valueCleaned)

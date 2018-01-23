@@ -1,9 +1,14 @@
-PI Web API Client R package
+PI Web API client R package (2017 R2)
 =========
 
 ## Introduction
 
-This is an R package that integrates the PI System with R through PI Web API. It was built with the PI Web API 2017 Swagger definition. With this package, you can retrieve PI data without having to generate the URL for each request. 
+This is an R package that integrates the PI System with R through PI Web API. With this package, you can retrieve PI data without having to generate the URL for each request. This version was developed on top of the PI Web API 2017 R2 swagger specification.
+
+## Requirements.
+
+ - PI Web API 2017 R2 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
+ - R 3.4.3+
 
 ## Installation
 
@@ -32,8 +37,6 @@ If you want to uninstall this package, use the command below:
 remove.packages("piwebapi")
 ```
 
-
-
 ## Documentation
 
 All the methods and classes from this R package are described on its documentation, which can be opened by typing on the R console:
@@ -41,6 +44,11 @@ All the methods and classes from this R package are described on its documentati
 ```r
 help(package="piwebapi") 
 ```
+
+## Notes
+
+ - Is is highly recommended to turn debug mode on in case you are using PI Web API 2017 R2+ in order to receive more detailed exception errors. This can be achieved by creating or editing the DebugMode attribute's value to TRUE from the System Configuration element.
+ - The X-Requested-With header is added to work with CSRF defences.
 
 ## Examples
 
@@ -213,7 +221,7 @@ response17 <- piWebApiService$element$updateSecurityEntry("SwaggerIdentity", ele
 
 
 ## Licensing
-Copyright 2017 OSIsoft, LLC.
+Copyright 2018 OSIsoft, LLC.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

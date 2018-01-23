@@ -11,7 +11,7 @@ PIAnalysis(webId = NULL, id = NULL, name = NULL, description = NULL,
   isTimeRuleDefinedByTemplate = NULL, maximumQueueSize = NULL,
   outputTime = NULL, priority = NULL, publishResults = NULL,
   status = NULL, targetWebId = NULL, templateName = NULL,
-  timeRulePlugInName = NULL, links = NULL)
+  timeRulePlugInName = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -58,7 +58,9 @@ PIAnalysis(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{timeRulePlugInName}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAnalysis
@@ -67,6 +69,6 @@ PIAnalysis
 Generate an instance of the PIAnalysis PI Web API class
 }
 \examples{
-analysis <- PIAnalysis(webId = "x0DqD5loBNH0erqeqJodtALAGgF3cBcv5hGA2AAVXYRDBAUkVTVFVOSVRcNkQwQjc2MDItOTYxMi00OTRBLUE4MEQtODQyRDMyOTZENTYxXDkyMjFGMDhGLUZCMTUtNDZFMy1BQzYzLURCNDkzRDhGNkJFQlxBTkFMWVNFU1swRUFFNDU3My0wMDY0LTQxMUUtODQwRC0wOEMwOTlEM0VGNTNd", id = "7077011a-2f17-11e6-80d8-00155d844304", name = "MyAnalysis", description = "", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]", analysisRulePlugInName = "PerformanceEquation", autoCreated = FALSE, groupId = 0, hasNotification = FALSE, hasTarget = FALSE, hasTemplate = FALSE, isConfigured = FALSE, isTimeRuleDefinedByTemplate = FALSE, maximumQueueSize = 0, outputTime = "", priority = "High", publishResults = FALSE, status = "Disabled", targetWebId = "E0DqD5loBNH0erqeqJodtALAFwF3cBcv5hGA2AAVXYRDBAUkVTVFVOSVRcNkQwQjc2MDItOTYxMi00OTRBLUE4MEQtODQyRDMyOTZENTYxXDkyMjFGMDhGLUZCMTUtNDZFMy1BQzYzLURCNDkzRDhGNkJFQg", templateName = "", timeRulePlugInName = "Periodic")
+analysis <- PIAnalysis(webId = "I1XsDqD5loBNH0erqeqJodtALAWDOFEb-U5xGEQwAVXYTCAA", id = "11853358-94bf-11e7-8443-00155d84c200", name = "MyAnalysis", description = "", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]", analysisRulePlugInName = "PerformanceEquation", autoCreated = FALSE, groupId = 0, hasNotification = FALSE, hasTarget = FALSE, hasTemplate = FALSE, isConfigured = FALSE, isTimeRuleDefinedByTemplate = FALSE, maximumQueueSize = 0, outputTime = "", priority = "High", publishResults = FALSE, status = "Disabled", targetWebId = "E0DqD5loBNH0erqeqJodtALAFwF3cBcv5hGA2AAVXYRDBAUkVTVFVOSVRcNkQwQjc2MDItOTYxMi00OTRBLUE4MEQtODQyRDMyOTZENTYxXDkyMjFGMDhGLUZCMTUtNDZFMy1BQzYzLURCNDkzRDhGNkJFQg", templateName = "", timeRulePlugInName = "Periodic")
 
 }

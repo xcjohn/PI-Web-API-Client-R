@@ -15,7 +15,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -31,6 +31,12 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -38,7 +44,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 			}
 			return (contentResponse)
 		},
-		createFromAnalysis = function(analysisWebId, name) {
+		createFromAnalysis = function(analysisWebId, name, webIdType) {
 			queryParameters <- list()
 			if (is.null(analysisWebId) || analysisWebId == "") {
 				return (paste0("Error: required parameter analysisWebId was null or undefined"))
@@ -54,10 +60,16 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: name must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -70,6 +82,12 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -110,7 +128,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getCategories = function(webId, selectedFields) {
+		getCategories = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -125,6 +143,12 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -132,7 +156,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 			}
 			return (contentResponse)
 		},
-		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields) {
+		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields, webIdType) {
 			queryParameters <- generateListForQueryString(userIdentity, "userIdentity")
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -159,6 +183,12 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -178,7 +208,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 			}
 			return (contentResponse)
 		},
-		getSecurityEntries = function(webId, nameFilter, selectedFields) {
+		getSecurityEntries = function(webId, nameFilter, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -199,6 +229,12 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -206,7 +242,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 			}
 			return (contentResponse)
 		},
-		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren) {
+		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -228,10 +264,16 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getSecurityEntryByName = function(name, webId, selectedFields) {
+		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
@@ -250,6 +292,12 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -316,6 +364,52 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 			}
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
+		},
+		getAnalysisTemplatesQuery = function(databaseWebId, maxCount, query, selectedFields, startIndex, webIdType) {
+			queryParameters <- list()
+			localVarPath <- paste(c(self$serviceBase, '/analysistemplates/search'), collapse = "")
+			if (missing(databaseWebId) == FALSE && is.null(databaseWebId) == FALSE && databaseWebId != "") {
+				queryParameters$databaseWebId <- databaseWebId
+				if (is.character(databaseWebId) == FALSE) {
+					return (print(paste0("Error: databaseWebId must be a string.")))
+				}
+			}
+			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
+				queryParameters$maxCount <- maxCount
+				if (check.integer(maxCount) == FALSE) {
+					return (print(paste0("Error: maxCount must be an integer.")))
+				}
+			}
+			if (missing(query) == FALSE && is.null(query) == FALSE && query != "") {
+				queryParameters$query <- query
+				if (is.character(query) == FALSE) {
+					return (print(paste0("Error: query must be a string.")))
+				}
+			}
+			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
+				queryParameters$selectedFields <- selectedFields
+				if (is.character(selectedFields) == FALSE) {
+					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
+				queryParameters$startIndex <- startIndex
+				if (check.integer(startIndex) == FALSE) {
+					return (print(paste0("Error: startIndex must be an integer.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
+			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			contentResponse <- content(res)
+			if (res$status == 200) {
+				attr(contentResponse, "className") <- "PIItemsAnalysisTemplate"
+			}
+			return (contentResponse)
 		}
 	)
 )

@@ -9,7 +9,8 @@ PITimeRulePlugIn(webId = NULL, id = NULL, name = NULL,
   assemblyID = NULL, assemblyLoadProperties = NULL, assemblyTime = NULL,
   compatibilityVersion = NULL, isBrowsable = NULL,
   isNonEditableConfig = NULL, loadedAssemblyTime = NULL,
-  loadedVersion = NULL, version = NULL, links = NULL)
+  loadedVersion = NULL, version = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -42,7 +43,9 @@ PITimeRulePlugIn(webId = NULL, id = NULL, name = NULL,
 
 \item{version}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PITimeRulePlugIn
@@ -51,6 +54,6 @@ PITimeRulePlugIn
 Generate an instance of the PITimeRulePlugIn PI Web API class
 }
 \examples{
-timeRulePlugIn <- PITimeRulePlugIn(webId = "W0NxzXSxtlKkGzAhZfHOB-KAjzvCrVcGmUePCcTgk3_HzAUEhMQUZTMDRcUExVR0lOU1RJTUVSVUxFW1BFUklPRElDXQ", id = "adc23b8f-0657-4799-8f09-c4e0937fc7cc", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MYSERVER\\\\PlugInsTimeRule[Periodic]", assemblyFileName = "OSIsoft.AF.Time.TimeRule.Periodic.dll", assemblyID = "7a635b27-3c3c-4a5f-bba9-01f06e9e525b", assemblyTime = "5/25/2016 2:01:07 PM", compatibilityVersion = 2, isBrowsable = FALSE, isNonEditableConfig = FALSE, loadedAssemblyTime = "1/1/1970 12:00:00 AM", loadedVersion = "", version = "2.8.5.7552")
+timeRulePlugIn <- PITimeRulePlugIn(webId = "I1TPDqD5loBNH0erqeqJodtALAFPRV1lWW1kqmFRgvo4IAwQ", id = "d655f414-9655-4ad6-a615-182fa38200c1", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MYSERVER\\\\PlugInsTimeRule[Periodic]", assemblyFileName = "OSIsoft.AF.Time.TimeRule.Periodic.dll", assemblyID = "7a635b27-3c3c-4a5f-bba9-01f06e9e525b", assemblyTime = "5/25/2016 2:01:07 PM", compatibilityVersion = 2, isBrowsable = FALSE, isNonEditableConfig = FALSE, loadedAssemblyTime = "1/1/1970 12:00:00 AM", loadedVersion = "", version = "2.8.5.7552")
 
 }

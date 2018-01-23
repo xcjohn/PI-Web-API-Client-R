@@ -29,6 +29,8 @@
 \item{templateName}{Specify that returned attributes must be members of this template. The default is no template filter.}
 
 \item{valueType}{Specify that returned attributes' value type must be the given value type. The default is no value type filter.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 A list of child attributes.

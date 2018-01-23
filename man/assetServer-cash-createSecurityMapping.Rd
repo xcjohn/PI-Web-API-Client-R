@@ -7,6 +7,8 @@
 \item{webId}{The ID of the asset server on which to create the security mapping.}
 
 \item{PISecurityMapping}{The new security mapping definition.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The security mapping was created. The response's Location header is a link to the security mapping.

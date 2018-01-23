@@ -9,7 +9,8 @@ PIAttribute(webId = NULL, id = NULL, name = NULL, description = NULL,
   defaultUnitsName = NULL, dataReferencePlugIn = NULL,
   configString = NULL, isConfigurationItem = NULL, isExcluded = NULL,
   isHidden = NULL, isManualDataEntry = NULL, hasChildren = NULL,
-  categoryNames = NULL, step = NULL, traitName = NULL, links = NULL)
+  categoryNames = NULL, step = NULL, traitName = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -48,7 +49,9 @@ PIAttribute(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{traitName}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAttribute
@@ -57,6 +60,6 @@ PIAttribute
 Generate an instance of the PIAttribute PI Web API class
 }
 \examples{
-attribute <- PIAttribute(webId = "A0EDqD5loBNH0erqeqJodtALAUvtkqIDl4xG-twAFmjx6AA79jxF7HiqFwpsgMBxwgWmgUkVTVFVOSVRcU1VNJQVHQU5cTlVHUkVZTlxIT1VTVE9f0FBMQU5UQ0lUWQ", id = "512B6616-CE39-4F70-9048-8C6A025FB592", name = "Water", description = "2008 Water Use", path = "\\\\\\\\MyServer\\\\NuGreen\\\\NuGreen\\\\Houston\\\\Cracking Process\\\\Equipment\\\\B-210|Water(2008)", type = "Int32", typeQualifier = "", defaultUnitsName = "liters", dataReferencePlugIn = "Table Lookup", configString = "SELECT [Water Use] FROM [Energy Use 2008] WHERE [Asset ID] = '\%Element\%'", isConfigurationItem = FALSE, isExcluded = FALSE, isHidden = FALSE, isManualDataEntry = FALSE, hasChildren = FALSE, step = FALSE, traitName = "LimitLoLo")
+attribute <- PIAttribute(webId = "I1AbEDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBAGyPedZG1sUmxOOclp3Flwg", id = "75de231b-b591-49b1-b138-e725a77165c2", name = "Water", description = "2008 Water Use", path = "\\\\\\\\MyServer\\\\NuGreen\\\\NuGreen\\\\Houston\\\\Cracking Process\\\\Equipment\\\\B-210|Water(2008)", type = "Int32", typeQualifier = "", defaultUnitsName = "liters", dataReferencePlugIn = "Table Lookup", configString = "SELECT [Water Use] FROM [Energy Use 2008] WHERE [Asset ID] = '\%Element\%'", isConfigurationItem = FALSE, isExcluded = FALSE, isHidden = FALSE, isManualDataEntry = FALSE, hasChildren = FALSE, step = FALSE, traitName = "LimitLoLo")
 
 }

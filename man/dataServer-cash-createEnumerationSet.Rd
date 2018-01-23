@@ -7,6 +7,8 @@
 \item{webId}{The ID of the server on which to create the enumeration set.}
 
 \item{PIEnumerationSet}{The new enumeration set definition.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The enumeration was created. The response's Location header is a link to the created enumeration set.

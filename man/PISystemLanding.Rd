@@ -4,14 +4,17 @@
 \alias{PISystemLanding}
 \title{Generate an instance of the PISystemLanding PI Web API class}
 \usage{
-PISystemLanding(productTitle = NULL, productVersion = NULL, links = NULL)
+PISystemLanding(productTitle = NULL, productVersion = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{productTitle}{(string)}
 
 \item{productVersion}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PISystemLanding

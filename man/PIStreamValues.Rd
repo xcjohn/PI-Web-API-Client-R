@@ -5,7 +5,7 @@
 \title{Generate an instance of the PIStreamValues PI Web API class}
 \usage{
 PIStreamValues(webId = NULL, name = NULL, path = NULL, items = NULL,
-  unitsAbbreviation = NULL, links = NULL)
+  unitsAbbreviation = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -18,7 +18,9 @@ PIStreamValues(webId = NULL, name = NULL, path = NULL, items = NULL,
 
 \item{unitsAbbreviation}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIStreamValues
@@ -27,6 +29,6 @@ PIStreamValues
 Generate an instance of the PIStreamValues PI Web API class
 }
 \examples{
-streamValues <- PIStreamValues(webId = "A0EDqD5loBNH0erqeqJodtALAUvtkqIDl4xG-twAFmjx6AA79jxF7HiqFwpsgMBxwgWmgUkVTVFVOSVRcU1VNJQVHQU5cTlVHUkVZTlxIT1VTVE9f0FBMQU5UQ0lUWQ", name = "Water", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement|Water", unitsAbbreviation = "m")
+streamValues <- PIStreamValues(webId = "I1AbEDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBAGyPedZG1sUmxOOclp3Flwg", name = "Water", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement|Water", unitsAbbreviation = "m")
 
 }

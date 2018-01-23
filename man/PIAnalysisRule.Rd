@@ -8,7 +8,7 @@ PIAnalysisRule(webId = NULL, id = NULL, name = NULL, description = NULL,
   path = NULL, configString = NULL, displayString = NULL,
   editorType = NULL, hasChildren = NULL, isConfigured = NULL,
   isInitializing = NULL, plugInName = NULL, supportedBehaviors = NULL,
-  variableMapping = NULL, links = NULL)
+  variableMapping = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -39,7 +39,9 @@ PIAnalysisRule(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{variableMapping}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAnalysisRule
@@ -48,6 +50,6 @@ PIAnalysisRule
 Generate an instance of the PIAnalysisRule PI Web API class
 }
 \examples{
-analysisRule <- PIAnalysisRule(webId = "l0xDqD5loBNH0erqeqJodtALA_GQlORUv5hGA2AAVXYRDBA_GQlORUv5hGA2AAVXYRDBAUkVTVFVOSVRcNUIxQzg5REEtQTQ2Ri00NkVDLTlFMUYtRjI0NEI4OTQyRkVDXDkwQ0U0NURGLTYyODktNDgyMi04MTg2LTM3RTlBNEVENDA4RFxBTkFMWVNFU1s2QkZENjMzMS1FQTUwLTQ4OTctODcyMi0zRjc5RDFDMDNFMjNdXEFOQUxZU0lTUlVMRQ", id = "392564fc-2f15-11e6-80d8-00155d844304", name = "PerformanceEquation", description = "Runs a performance equation.", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\AnalysisRule", configString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", displayString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", editorType = "OSIsoft.AF.Analysis.AnalysisRule.PEAnalysisRuleEditor", hasChildren = FALSE, isConfigured = FALSE, isInitializing = FALSE, plugInName = "PerformanceEquation", variableMapping = "b||Attribute1;c||Attribute2")
+analysisRule <- PIAnalysisRule(webId = "I1XRXDqD5loBNH0erqeqJodtALAfyWdysKU5xGEQwAVXYTCAAfyWdysKU5xGEQwAVXYTCAA", id = "ca9d257f-94c2-11e7-8443-00155d84c200", name = "PerformanceEquation", description = "Runs a performance equation.", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\AnalysisRule", configString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", displayString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", editorType = "OSIsoft.AF.Analysis.AnalysisRule.PEAnalysisRuleEditor", hasChildren = FALSE, isConfigured = FALSE, isInitializing = FALSE, plugInName = "PerformanceEquation", variableMapping = "b||Attribute1;c||Attribute2")
 
 }

@@ -3,6 +3,13 @@
 \name{element$createSearchByAttribute}
 \alias{element$createSearchByAttribute}
 \title{Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.}
+\arguments{
+\item{PISearchByAttribute}{The query of search by attribute.}
+
+\item{noResults}{If false, the response content will contain the first page of the search results. If true, the response content will be empty. The default is false.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
+}
 \value{
 The link is stored in the response's "Location" header. The response content is the first page of the search result by the default parameters.
 }

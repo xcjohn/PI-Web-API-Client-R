@@ -4,10 +4,12 @@
 \alias{PILanding}
 \title{Generate an instance of the PILanding PI Web API class}
 \usage{
-PILanding(links = NULL)
+PILanding(links = NULL, webException = NULL)
 }
 \arguments{
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PILanding

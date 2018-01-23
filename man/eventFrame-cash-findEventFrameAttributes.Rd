@@ -30,7 +30,7 @@
 
 \item{searchFullHierarchy}{Specifies if the search should include objects nested further than immediate children of the given resource. The default is 'false'.}
 
-\item{searchMode}{Determines how the startTime and endTime parameters are treated when searching for event frames.     The default is 'Overlapped'.}
+\item{searchMode}{Determines how the startTime and endTime parameters are treated when searching for event frames. The default is 'Overlapped'.}
 
 \item{selectedFields}{List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.}
 
@@ -41,6 +41,8 @@
 \item{startIndex}{The starting index (zero based) of the items to be returned. The default is 0.}
 
 \item{startTime}{A string representing the earliest starting time for the event frames to be matched. startTime must be less than or equal to the endTime. The default is '*-8h'.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 a list of matching attributes.

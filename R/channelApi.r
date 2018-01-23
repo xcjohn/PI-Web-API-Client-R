@@ -21,6 +21,7 @@ channelApi <- R6Class("channelApi",
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
+				attr(contentResponse, "className") <- "PIItemsChannelInstance"
 			}
 			return (contentResponse)
 		}

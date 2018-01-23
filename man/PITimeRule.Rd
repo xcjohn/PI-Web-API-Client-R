@@ -8,7 +8,7 @@ PITimeRule(webId = NULL, id = NULL, name = NULL, description = NULL,
   path = NULL, configString = NULL, configStringStored = NULL,
   displayString = NULL, editorType = NULL, isConfigured = NULL,
   isInitializing = NULL, mergeDuplicatedItems = NULL, plugInName = NULL,
-  links = NULL)
+  links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -37,7 +37,9 @@ PITimeRule(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{plugInName}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PITimeRule
@@ -46,6 +48,6 @@ PITimeRule
 Generate an instance of the PITimeRule PI Web API class
 }
 \examples{
-timeRule <- PITimeRule(webId = "w0xDqD5loBNH0erqeqJodtALAPLXQTRgv5hGA2AAVXYRDBAPLXQTRgv5hGA2AAVXYRDBAUkVTVFVOSVRcMEMzQjczQkYtMzc2NS00QkYyLTg3N0EtRjlENTE4MDFCNkQ0XEM5NzZDOTFDLUEyOEEtNENDMS05MTQ4LUFBRTNFRTM0RERFM1xBTkFMWVNFU1syRDNCODI1NS02OTZGLTQ1MUQtQjUwRC05REJBOEQ3RDFGODBdXFRJTUVSVUxF", id = "4dd0b53c-2f18-11e6-80d8-00155d844304", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\TimeRule", configString = "Frequency=300", configStringStored = "", displayString = "Frequency=300", editorType = "OSIsoft.AF.Time.TimeRule.PeriodicConfig", isConfigured = FALSE, isInitializing = FALSE, mergeDuplicatedItems = FALSE, plugInName = "Periodic")
+timeRule <- PITimeRule(webId = "I1TRXDqD5loBNH0erqeqJodtALAROsUFcWU5xGEQwAVXYTCAAROsUFcWU5xGEQwAVXYTCAA", id = "1514eb44-94c5-11e7-8443-00155d84c200", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\TimeRule", configString = "Frequency=300", configStringStored = "", displayString = "Frequency=300", editorType = "OSIsoft.AF.Time.TimeRule.PeriodicConfig", isConfigured = FALSE, isInitializing = FALSE, mergeDuplicatedItems = FALSE, plugInName = "Periodic")
 
 }

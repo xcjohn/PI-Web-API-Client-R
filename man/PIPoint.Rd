@@ -7,7 +7,7 @@
 PIPoint(webId = NULL, id = NULL, name = NULL, path = NULL,
   descriptor = NULL, pointClass = NULL, pointType = NULL,
   digitalSetName = NULL, engineeringUnits = NULL, step = NULL,
-  future = NULL, links = NULL)
+  future = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -32,7 +32,9 @@ PIPoint(webId = NULL, id = NULL, name = NULL, path = NULL,
 
 \item{future}{(boolean)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIPoint
@@ -41,6 +43,6 @@ PIPoint
 Generate an instance of the PIPoint PI Web API class
 }
 \examples{
-point <- PIPoint(webId = "P0ZkdQMwx9oUCCzSWmnpgoEwTB8AAAUEhMVlpOXDAwR0FMDjBDRjAwMV9YUTAx", id = 8012, name = "PointName", path = "\\\\\\\\MyPIServer\\\\PointName", descriptor = "12 Hour Sine Wave", pointClass = "classic", pointType = "Float32", digitalSetName = "", engineeringUnits = "", step = FALSE, future = FALSE)
+point <- PIPoint(webId = "I1DPa70Wf0zBA06CLkV9ovNQgQCAAAAA", id = 82, name = "PointName", path = "\\\\\\\\MyPIServer\\\\PointName", descriptor = "12 Hour Sine Wave", pointClass = "classic", pointType = "Float32", digitalSetName = "", engineeringUnits = "", step = FALSE, future = FALSE)
 
 }

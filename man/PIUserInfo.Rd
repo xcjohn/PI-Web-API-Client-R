@@ -5,7 +5,7 @@
 \title{Generate an instance of the PIUserInfo PI Web API class}
 \usage{
 PIUserInfo(identityType = NULL, name = NULL, isAuthenticated = NULL,
-  sID = NULL, impersonationLevel = NULL)
+  sID = NULL, impersonationLevel = NULL, webException = NULL)
 }
 \arguments{
 \item{identityType}{(string)}
@@ -17,6 +17,8 @@ PIUserInfo(identityType = NULL, name = NULL, isAuthenticated = NULL,
 \item{sID}{(string)}
 
 \item{impersonationLevel}{(string)}
+
+\item{webException}{()}
 }
 \value{
 PIUserInfo

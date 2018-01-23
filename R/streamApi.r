@@ -15,7 +15,7 @@ streamApi <- R6Class("streamApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		getChannel = function(webId, includeInitialValues) {
+		getChannel = function(webId, heartbeatRate, includeInitialValues, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -24,10 +24,22 @@ streamApi <- R6Class("streamApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streams/', webId, '/channel'), collapse = "")
+			if (missing(heartbeatRate) == FALSE && is.null(heartbeatRate) == FALSE && heartbeatRate != "") {
+				queryParameters$heartbeatRate <- heartbeatRate
+				if (check.integer(heartbeatRate) == FALSE) {
+					return (print(paste0("Error: heartbeatRate must be an integer.")))
+				}
+			}
 			if (missing(includeInitialValues) == FALSE && is.null(includeInitialValues) == FALSE && includeInitialValues != "") {
 				queryParameters$includeInitialValues <- includeInitialValues
 				if (is.logical(includeInitialValues) == FALSE) {
 					return (print(paste0("Error: includeInitialValues must be a boolean.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -65,7 +77,7 @@ streamApi <- R6Class("streamApi",
 			}
 			return (contentResponse)
 		},
-		getInterpolated = function(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone) {
+		getInterpolated = function(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, syncTime, syncTimeBoundaryType, timeZone) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -114,6 +126,18 @@ streamApi <- R6Class("streamApi",
 				queryParameters$startTime <- startTime
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
+				}
+			}
+			if (missing(syncTime) == FALSE && is.null(syncTime) == FALSE && syncTime != "") {
+				queryParameters$syncTime <- syncTime
+				if (is.character(syncTime) == FALSE) {
+					return (print(paste0("Error: syncTime must be a string.")))
+				}
+			}
+			if (missing(syncTimeBoundaryType) == FALSE && is.null(syncTimeBoundaryType) == FALSE && syncTimeBoundaryType != "") {
+				queryParameters$syncTimeBoundaryType <- syncTimeBoundaryType
+				if (is.character(syncTimeBoundaryType) == FALSE) {
+					return (print(paste0("Error: syncTimeBoundaryType must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
@@ -597,9 +621,12 @@ streamApi <- R6Class("streamApi",
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PITimedValue"
 			}
+			if (res$status == 409) {
+				attr(contentResponse, "className") <- "PIErrors"
+			}
 			return (contentResponse)
 		},
-		updateValue = function(webId, PITimedValue, bufferOption, updateOption) {
+		updateValue = function(webId, PITimedValue, bufferOption, updateOption, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -625,6 +652,12 @@ streamApi <- R6Class("streamApi",
 				queryParameters$updateOption <- updateOption
 				if (is.character(updateOption) == FALSE) {
 					return (print(paste0("Error: updateOption must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- postHttpRequest(localVarPath, PITimedValue, self$username, self$password, self$authType, self$validateSSL, self$debug)

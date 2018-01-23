@@ -15,13 +15,19 @@ assetServerApi <- R6Class("assetServerApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		list = function(selectedFields) {
+		list = function(selectedFields, webIdType) {
 			queryParameters <- list()
 			localVarPath <- paste(c(self$serviceBase, '/assetservers'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -31,7 +37,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		getByName = function(name, selectedFields) {
+		getByName = function(name, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
@@ -47,6 +53,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -54,7 +66,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -70,6 +82,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -77,7 +95,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -92,6 +110,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -99,7 +123,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		getAnalysisRulePlugIns = function(webId, selectedFields) {
+		getAnalysisRulePlugIns = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -114,6 +138,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -121,7 +151,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		getDatabases = function(webId, selectedFields) {
+		getDatabases = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -136,6 +166,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -143,7 +179,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		createAssetDatabase = function(webId, PIAssetDatabase) {
+		createAssetDatabase = function(webId, PIAssetDatabase, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -159,10 +195,16 @@ assetServerApi <- R6Class("assetServerApi",
 				return (print(paste0("Error: the class from the parameter PIAssetDatabase should be PIAssetDatabase.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetservers/', webId, '/assetdatabases'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIAssetDatabase, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getSecurity = function(webId, securityItem, userIdentity, forceRefresh, selectedFields) {
+		getSecurity = function(webId, securityItem, userIdentity, forceRefresh, selectedFields, webIdType) {
 			queryParameters <- generateListForTwoQueryString(securityItem, "securityItem", userIdentity, "userIdentity")
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -195,6 +237,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -214,7 +262,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		getSecurityEntries = function(webId, nameFilter, securityItem, selectedFields) {
+		getSecurityEntries = function(webId, nameFilter, securityItem, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -241,6 +289,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -248,7 +302,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren, securityItem) {
+		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren, securityItem, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -276,10 +330,16 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getSecurityEntryByName = function(name, webId, securityItem, selectedFields) {
+		getSecurityEntryByName = function(name, webId, securityItem, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
@@ -304,6 +364,12 @@ assetServerApi <- R6Class("assetServerApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -383,7 +449,7 @@ assetServerApi <- R6Class("assetServerApi",
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getSecurityIdentities = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder) {
+		getSecurityIdentities = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -428,6 +494,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -435,7 +507,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		createSecurityIdentity = function(webId, PISecurityIdentity) {
+		createSecurityIdentity = function(webId, PISecurityIdentity, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -451,10 +523,16 @@ assetServerApi <- R6Class("assetServerApi",
 				return (print(paste0("Error: the class from the parameter PISecurityIdentity should be PISecurityIdentity.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetservers/', webId, '/securityidentities'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PISecurityIdentity, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getSecurityIdentitiesForUser = function(webId, userIdentity, selectedFields) {
+		getSecurityIdentitiesForUser = function(webId, userIdentity, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -476,6 +554,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -492,7 +576,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		getSecurityMappings = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder) {
+		getSecurityMappings = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -537,6 +621,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -544,7 +634,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		createSecurityMapping = function(webId, PISecurityMapping) {
+		createSecurityMapping = function(webId, PISecurityMapping, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -560,10 +650,16 @@ assetServerApi <- R6Class("assetServerApi",
 				return (print(paste0("Error: the class from the parameter PISecurityMapping should be PISecurityMapping.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetservers/', webId, '/securitymappings'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PISecurityMapping, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getTimeRulePlugIns = function(webId, selectedFields) {
+		getTimeRulePlugIns = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -578,6 +674,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -585,7 +687,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		getUnitClasses = function(webId, selectedFields) {
+		getUnitClasses = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -600,6 +702,12 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -607,7 +715,7 @@ assetServerApi <- R6Class("assetServerApi",
 			}
 			return (contentResponse)
 		},
-		createUnitClass = function(webId, PIUnitClass) {
+		createUnitClass = function(webId, PIUnitClass, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -623,6 +731,12 @@ assetServerApi <- R6Class("assetServerApi",
 				return (print(paste0("Error: the class from the parameter PIUnitClass should be PIUnitClass.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetservers/', webId, '/unitclasses'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIUnitClass, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}

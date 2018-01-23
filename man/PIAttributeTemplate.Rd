@@ -10,7 +10,7 @@ PIAttributeTemplate(webId = NULL, id = NULL, name = NULL,
   dataReferencePlugIn = NULL, configString = NULL,
   isConfigurationItem = NULL, isExcluded = NULL, isHidden = NULL,
   isManualDataEntry = NULL, hasChildren = NULL, categoryNames = NULL,
-  traitName = NULL, links = NULL)
+  traitName = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -49,7 +49,9 @@ PIAttributeTemplate(webId = NULL, id = NULL, name = NULL,
 
 \item{traitName}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAttributeTemplate
@@ -58,6 +60,6 @@ PIAttributeTemplate
 Generate an instance of the PIAttributeTemplate PI Web API class
 }
 \examples{
-attributeTemplate <- PIAttributeTemplate(webId = "t0EDqD5loBNH0erqeqJodtALACd8tc2JnkUWeQ2KsKq30iA1W9lw3cYRkCQ5TRZsrkLQAUkVTVFVORVScU1VHQVJNQU5cRUxFTUVOVFRFTVBMQVRFUTQt1EFOVF18UExBTlRUUlVOQ0FURUROQU1F", id = "F82605BC-3A9C-4091-A57E-C0D9341BAD1A", name = "Water(2008)", description = "2008 Water Use", path = "\\\\\\\\MyServer\\\\NuGreen\\\\ElementTemplates[Boiler]|Water(2008)", type = "Int32", typeQualifier = "", defaultUnitsName = "liters", dataReferencePlugIn = "Table Lookup", configString = "SELECT [Water Use] FROM [Energy Use 2008] WHERE [Asset ID] = '\%Element\%'", isConfigurationItem = FALSE, isExcluded = FALSE, isHidden = FALSE, isManualDataEntry = FALSE, hasChildren = FALSE, traitName = "LimitLoLo")
+attributeTemplate <- PIAttributeTemplate(webId = "I1ATEG_auSSsvuECG8ad_p8b25QQkxqWDwIWU6zC4vmgpd4kgtSfQI9VdxUGA8fi1yf9DVg", id = "23d027b5-5dd5-41c5-80f1-f8b5c9ff4356", name = "Water(2008)", description = "2008 Water Use", path = "\\\\\\\\MyServer\\\\NuGreen\\\\ElementTemplates[Boiler]|Water(2008)", type = "Int32", typeQualifier = "", defaultUnitsName = "liters", dataReferencePlugIn = "Table Lookup", configString = "SELECT [Water Use] FROM [Energy Use 2008] WHERE [Asset ID] = '\%Element\%'", isConfigurationItem = FALSE, isExcluded = FALSE, isHidden = FALSE, isManualDataEntry = FALSE, hasChildren = FALSE, traitName = "LimitLoLo")
 
 }

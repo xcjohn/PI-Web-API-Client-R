@@ -9,7 +9,8 @@ PIAnalysisRulePlugIn(webId = NULL, id = NULL, name = NULL,
   assemblyID = NULL, assemblyLoadProperties = NULL, assemblyTime = NULL,
   compatibilityVersion = NULL, isBrowsable = NULL,
   isNonEditableConfig = NULL, loadedAssemblyTime = NULL,
-  loadedVersion = NULL, version = NULL, links = NULL)
+  loadedVersion = NULL, version = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -42,7 +43,9 @@ PIAnalysisRulePlugIn(webId = NULL, id = NULL, name = NULL,
 
 \item{version}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAnalysisRulePlugIn
@@ -51,6 +54,6 @@ PIAnalysisRulePlugIn
 Generate an instance of the PIAnalysisRulePlugIn PI Web API class
 }
 \examples{
-analysisRulePlugIn <- PIAnalysisRulePlugIn(webId = "L0DqD5loBNH0erqeqJodtALAAc7dxPJowEixZDO6X94w4AUkVTVFVOSVRcUExVR0lOU0FOQUxZU0lTUlVMRVtJTUJBTEFOQ0Vd", id = "c4ddce01-68f2-48c0-b164-33ba5fde30e0", name = "Imbalance", description = "Calculates simple material imbalances on nodes of a model.", path = "\\\\\\\\MYSERVER\\\\PlugInsAnalysisRule[Imbalance]", assemblyFileName = "OSIsoft.AF.Analysis.AnalysisRule.Imbalance.dll", assemblyID = "1acd00c2-79d0-4818-a03c-0616c4513750", assemblyTime = "5/25/2016 2:01:07 PM", compatibilityVersion = 2, isBrowsable = FALSE, isNonEditableConfig = FALSE, loadedAssemblyTime = "1/1/1970 12:00:00 AM", loadedVersion = "", version = "2.8.5.7552")
+analysisRulePlugIn <- PIAnalysisRulePlugIn(webId = "I1XPDqD5loBNH0erqeqJodtALABWwqmmFvekaFShbb-52MAw", id = "9a2a6c05-6f61-467a-854a-16dbfb9d8c03", name = "Imbalance", description = "Calculates simple material imbalances on nodes of a model.", path = "\\\\\\\\MYSERVER\\\\PlugInsAnalysisRule[Imbalance]", assemblyFileName = "OSIsoft.AF.Analysis.AnalysisRule.Imbalance.dll", assemblyID = "1acd00c2-79d0-4818-a03c-0616c4513750", assemblyTime = "5/25/2016 2:01:07 PM", compatibilityVersion = 2, isBrowsable = FALSE, isNonEditableConfig = FALSE, loadedAssemblyTime = "1/1/1970 12:00:00 AM", loadedVersion = "", version = "2.8.5.7552")
 
 }

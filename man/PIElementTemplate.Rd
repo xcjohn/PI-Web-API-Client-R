@@ -8,7 +8,7 @@ PIElementTemplate(webId = NULL, id = NULL, name = NULL,
   description = NULL, path = NULL, allowElementToExtend = NULL,
   baseTemplate = NULL, instanceType = NULL, namingPattern = NULL,
   categoryNames = NULL, extendedProperties = NULL, severity = NULL,
-  canBeAcknowledged = NULL, links = NULL)
+  canBeAcknowledged = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -37,7 +37,9 @@ PIElementTemplate(webId = NULL, id = NULL, name = NULL,
 
 \item{canBeAcknowledged}{(boolean)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIElementTemplate
@@ -46,6 +48,6 @@ PIElementTemplate
 Generate an instance of the PIElementTemplate PI Web API class
 }
 \examples{
-elementTemplate <- PIElementTemplate(webId = "T0DqD5loBNH0erqeqJodtALAvdrykzvWo0SXjjgcl9gTqAkUVTVFVOSVRcU1VHQVJ5UQNcRUxFTUVOVFRFTVBMQVRFU1t1TFRFUlBSSVNFXQ", id = "74646B96-A130-40A3-AA25-49396C9D6B3C", name = "Boiler", description = "Boiler", path = "\\\\\\\\MyServer\\\\NuGreen\\\\ElementTemplates[Boiler]", allowElementToExtend = FALSE, baseTemplate = "Equipment", instanceType = "Element", namingPattern = "\%TEMPLATE\%", severity = "None", canBeAcknowledged = FALSE)
+elementTemplate <- PIElementTemplate(webId = "I1ETDqD5loBNH0erqeqJodtALAkpSYp6uykE2Ku0yChDU91g", id = "a7989492-b2ab-4d90-8abb-4c8284353dd6", name = "Boiler", description = "Boiler", path = "\\\\\\\\MyServer\\\\NuGreen\\\\ElementTemplates[Boiler]", allowElementToExtend = FALSE, baseTemplate = "Equipment", instanceType = "Element", namingPattern = "\%TEMPLATE\%", severity = "None", canBeAcknowledged = FALSE)
 
 }

@@ -5,7 +5,8 @@
 \title{Generate an instance of the PISecurityIdentity PI Web API class}
 \usage{
 PISecurityIdentity(webId = NULL, id = NULL, name = NULL,
-  description = NULL, path = NULL, isEnabled = NULL, links = NULL)
+  description = NULL, path = NULL, isEnabled = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -20,7 +21,9 @@ PISecurityIdentity(webId = NULL, id = NULL, name = NULL,
 
 \item{isEnabled}{(boolean)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PISecurityIdentity
@@ -29,6 +32,6 @@ PISecurityIdentity
 Generate an instance of the PISecurityIdentity PI Web API class
 }
 \examples{
-securityIdentity <- PISecurityIdentity(webId = "I07v5To0Ux7Eus2sjMsdqq_AUEhMQUZTMDU", id = "a353feee-3145-4bec-acda-c8ccb1daaafc", name = "MySecurityIdentity", description = "", path = "\\\\\\\\RESTUNIT\\\\SecurityIdentities[MySecurityIdentity]", isEnabled = FALSE)
+securityIdentity <- PISecurityIdentity(webId = "I1SIDqD5loBNH0erqeqJodtALASe6l8zgYokqdeeFilFI9tw", id = "f3a5ee49-1838-4aa2-9d79-e16294523db7", name = "MySecurityIdentity", description = "", path = "\\\\\\\\RESTUNIT\\\\SecurityIdentities[MySecurityIdentity]", isEnabled = FALSE)
 
 }

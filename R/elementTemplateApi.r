@@ -15,7 +15,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -31,6 +31,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -38,7 +44,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			}
 			return (contentResponse)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -51,6 +57,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -91,7 +103,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getAnalysisTemplates = function(webId, selectedFields) {
+		getAnalysisTemplates = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -106,6 +118,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -113,7 +131,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			}
 			return (contentResponse)
 		},
-		getAttributeTemplates = function(webId, selectedFields, showInherited) {
+		getAttributeTemplates = function(webId, selectedFields, showInherited, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -134,6 +152,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 					return (print(paste0("Error: showInherited must be a boolean.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -141,7 +165,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			}
 			return (contentResponse)
 		},
-		createAttributeTemplate = function(webId, PIAttributeTemplate) {
+		createAttributeTemplate = function(webId, PIAttributeTemplate, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -157,10 +181,16 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 				return (print(paste0("Error: the class from the parameter PIAttributeTemplate should be PIAttributeTemplate.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/elementtemplates/', webId, '/attributetemplates'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIAttributeTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getCategories = function(webId, selectedFields, showInherited) {
+		getCategories = function(webId, selectedFields, showInherited, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -181,6 +211,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 					return (print(paste0("Error: showInherited must be a boolean.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -188,7 +224,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			}
 			return (contentResponse)
 		},
-		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields) {
+		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields, webIdType) {
 			queryParameters <- generateListForQueryString(userIdentity, "userIdentity")
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -215,6 +251,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -234,7 +276,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			}
 			return (contentResponse)
 		},
-		getSecurityEntries = function(webId, nameFilter, selectedFields) {
+		getSecurityEntries = function(webId, nameFilter, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -255,6 +297,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -262,7 +310,7 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 			}
 			return (contentResponse)
 		},
-		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren) {
+		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -284,10 +332,16 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getSecurityEntryByName = function(name, webId, selectedFields) {
+		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
@@ -306,6 +360,12 @@ elementTemplateApi <- R6Class("elementTemplateApi",
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)

@@ -7,6 +7,8 @@
 \item{webId}{The ID of the element on which to create the Analysis.}
 
 \item{PIAnalysis}{The new Analysis definition.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The Analysis was created. The response's Location header is a link to the Analysis.

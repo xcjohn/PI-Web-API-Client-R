@@ -11,6 +11,8 @@
 \item{bufferOption}{The desired AFBufferOption. The default is 'BufferIfPossible'.}
 
 \item{updateOption}{The desired AFUpdateOption. The default is 'Replace'. This parameter is ignored if the attribute is a configuration item.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The value was accepted for a potential buffered update. The response's Location header is a link that can be used to examine the result.

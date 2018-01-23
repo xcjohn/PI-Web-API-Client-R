@@ -9,6 +9,8 @@
 \item{PISecurityEntry}{The new security entry definition. The full list of allow and deny rights must be supplied.}
 
 \item{applyToChildren}{If false, the new access permissions are only applied to the associated object. If true, the access permissions of children with any parent-child reference types will change when the permissions on the primary parent change.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The security entry was created. The response's Location header is a link to the security entry.

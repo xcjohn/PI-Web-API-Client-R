@@ -5,7 +5,7 @@
 \title{Generate an instance of the PIStreamSummaries PI Web API class}
 \usage{
 PIStreamSummaries(webId = NULL, name = NULL, path = NULL, items = NULL,
-  links = NULL)
+  links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -16,7 +16,9 @@ PIStreamSummaries(webId = NULL, name = NULL, path = NULL, items = NULL,
 
 \item{items}{(array)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIStreamSummaries
@@ -25,6 +27,6 @@ PIStreamSummaries
 Generate an instance of the PIStreamSummaries PI Web API class
 }
 \examples{
-streamSummaries <- PIStreamSummaries(webId = "A0EDqD5loBNH0erqeqJodtALAUvtkqIDl4xG-twAFmjx6AA79jxF7HiqFwpsgMBxwgWmgUkVTVFVOSVRcU1VNJQVHQU5cTlVHUkVZTlxIT1VTVE9f0FBMQU5UQ0lUWQ", name = "Water", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement|Water")
+streamSummaries <- PIStreamSummaries(webId = "I1AbEDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBAGyPedZG1sUmxOOclp3Flwg", name = "Water", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement|Water")
 
 }

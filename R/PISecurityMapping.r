@@ -1,4 +1,4 @@
-PISecurityMapping <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, account = NULL, securityIdentityWebId = NULL, links = NULL) {
+PISecurityMapping <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, account = NULL, securityIdentityWebId = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -35,6 +35,16 @@ PISecurityMapping <- function(webId = NULL, id = NULL, name = NULL, description 
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PISecurityMappingLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PISecurityMappingLinks.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
 	}
 	value <- list(
 	WebId = webId,
@@ -44,7 +54,8 @@ PISecurityMapping <- function(webId = NULL, id = NULL, name = NULL, description 
 	Path = path,
 	Account = account,
 	SecurityIdentityWebId = securityIdentityWebId,
-	Links = links)
+	Links = links,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityMapping"
 	return(valueCleaned)

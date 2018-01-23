@@ -5,7 +5,11 @@
 \title{Generate an instance of the PISecurityRights PI Web API class}
 \usage{
 PISecurityRights(ownerWebId = NULL, securityItem = NULL,
-  userIdentity = NULL, links = NULL)
+  userIdentity = NULL, links = NULL, canAnnotate = NULL,
+  canDelete = NULL, canExecute = NULL, canRead = NULL,
+  canReadData = NULL, canSubscribe = NULL, canSubscribeOthers = NULL,
+  canWrite = NULL, canWriteData = NULL, hasAdmin = NULL, rights = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{ownerWebId}{(string)}
@@ -14,7 +18,31 @@ PISecurityRights(ownerWebId = NULL, securityItem = NULL,
 
 \item{userIdentity}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{canAnnotate}{(boolean)}
+
+\item{canDelete}{(boolean)}
+
+\item{canExecute}{(boolean)}
+
+\item{canRead}{(boolean)}
+
+\item{canReadData}{(boolean)}
+
+\item{canSubscribe}{(boolean)}
+
+\item{canSubscribeOthers}{(boolean)}
+
+\item{canWrite}{(boolean)}
+
+\item{canWriteData}{(boolean)}
+
+\item{hasAdmin}{(boolean)}
+
+\item{rights}{(array)}
+
+\item{webException}{()}
 }
 \value{
 PISecurityRights
@@ -23,6 +51,6 @@ PISecurityRights
 Generate an instance of the PISecurityRights PI Web API class
 }
 \examples{
-securityRights <- PISecurityRights(ownerWebId = "E0DqD5loBNH0erqeqJodtALAvGEqktDl4xG-twAFmjx6UAUkVTVFVOSVRUc1VHQVJNQU5V1TcHUkVFTg", securityItem = "Default", userIdentity = "domain\\\\user")
+securityRights <- PISecurityRights(ownerWebId = "I1EmDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBA", securityItem = "Default", userIdentity = "domain\\\\user", canAnnotate = FALSE, canDelete = FALSE, canExecute = FALSE, canRead = FALSE, canReadData = FALSE, canSubscribe = FALSE, canSubscribeOthers = FALSE, canWrite = FALSE, canWriteData = FALSE, hasAdmin = FALSE)
 
 }

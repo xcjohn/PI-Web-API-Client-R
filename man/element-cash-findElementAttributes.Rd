@@ -35,6 +35,8 @@
 \item{sortOrder}{The order that the returned collection is sorted. The default is 'Ascending'.}
 
 \item{startIndex}{The starting index (zero based) of the items to be returned. The default is 0.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 a list of matching attributes.

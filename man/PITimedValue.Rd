@@ -5,8 +5,8 @@
 \title{Generate an instance of the PITimedValue PI Web API class}
 \usage{
 PITimedValue(timestamp = NULL, unitsAbbreviation = NULL, good = NULL,
-  questionable = NULL, substituted = NULL, value = NULL,
-  exception = NULL)
+  questionable = NULL, substituted = NULL, value = NULL, errors = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{timestamp}{(string)}
@@ -21,7 +21,9 @@ PITimedValue(timestamp = NULL, unitsAbbreviation = NULL, good = NULL,
 
 \item{value}{(object)}
 
-\item{exception}{()}
+\item{errors}{(array)}
+
+\item{webException}{()}
 }
 \value{
 PITimedValue

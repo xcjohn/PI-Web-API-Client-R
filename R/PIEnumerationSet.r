@@ -1,4 +1,4 @@
-PIEnumerationSet <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, links = NULL, serializeDescription = NULL) {
+PIEnumerationSet <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, links = NULL, serializeDescription = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -25,10 +25,20 @@ PIEnumerationSet <- function(webId = NULL, id = NULL, name = NULL, description =
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PIEnumerationSetLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PIEnumerationSetLinks.")))
+		}
 	}
 	if (is.null(serializeDescription) == FALSE) {
 		if (is.logical(serializeDescription) == FALSE) {
 			return (print(paste0("Error: serializeDescription must be a boolean.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
 		}
 	}
 	value <- list(
@@ -38,7 +48,8 @@ PIEnumerationSet <- function(webId = NULL, id = NULL, name = NULL, description =
 	Description = description,
 	Path = path,
 	Links = links,
-	SerializeDescription = serializeDescription)
+	SerializeDescription = serializeDescription,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIEnumerationSet"
 	return(valueCleaned)

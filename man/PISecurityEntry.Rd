@@ -5,7 +5,8 @@
 \title{Generate an instance of the PISecurityEntry PI Web API class}
 \usage{
 PISecurityEntry(name = NULL, securityIdentityName = NULL,
-  allowRights = NULL, denyRights = NULL, links = NULL)
+  allowRights = NULL, denyRights = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{name}{(string)}
@@ -16,7 +17,9 @@ PISecurityEntry(name = NULL, securityIdentityName = NULL,
 
 \item{denyRights}{(array)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PISecurityEntry

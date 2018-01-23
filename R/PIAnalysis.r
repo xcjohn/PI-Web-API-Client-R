@@ -1,4 +1,4 @@
-PIAnalysis <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, analysisRulePlugInName = NULL, autoCreated = NULL, categoryNames = NULL, groupId = NULL, hasNotification = NULL, hasTarget = NULL, hasTemplate = NULL, isConfigured = NULL, isTimeRuleDefinedByTemplate = NULL, maximumQueueSize = NULL, outputTime = NULL, priority = NULL, publishResults = NULL, status = NULL, targetWebId = NULL, templateName = NULL, timeRulePlugInName = NULL, links = NULL) {
+PIAnalysis <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, analysisRulePlugInName = NULL, autoCreated = NULL, categoryNames = NULL, groupId = NULL, hasNotification = NULL, hasTarget = NULL, hasTemplate = NULL, isConfigured = NULL, isTimeRuleDefinedByTemplate = NULL, maximumQueueSize = NULL, outputTime = NULL, priority = NULL, publishResults = NULL, status = NULL, targetWebId = NULL, templateName = NULL, timeRulePlugInName = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -113,6 +113,16 @@ PIAnalysis <- function(webId = NULL, id = NULL, name = NULL, description = NULL,
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PIAnalysisLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PIAnalysisLinks.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
 	}
 	value <- list(
 	WebId = webId,
@@ -137,7 +147,8 @@ PIAnalysis <- function(webId = NULL, id = NULL, name = NULL, description = NULL,
 	TargetWebId = targetWebId,
 	TemplateName = templateName,
 	TimeRulePlugInName = timeRulePlugInName,
-	Links = links)
+	Links = links,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysis"
 	return(valueCleaned)

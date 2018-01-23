@@ -9,7 +9,7 @@ PIItemsTable(items = NULL, links = NULL)
 \arguments{
 \item{items}{(array)}
 
-\item{links}{(object)}
+\item{links}{()}
 }
 \value{
 PIItemsTable

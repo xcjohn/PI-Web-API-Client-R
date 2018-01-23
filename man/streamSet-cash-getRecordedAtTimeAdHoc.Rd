@@ -6,13 +6,15 @@
 \arguments{
 \item{time}{The timestamp at which the values are desired.}
 
-\item{webId}{The ID of a stream.  Multiple streams may be specified with multiple instances of the parameter.}
+\item{webId}{The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.}
 
 \item{retrievalMode}{An optional value that determines the values to return when values don't exist at the exact time specified. The default is 'Auto'.}
 
 \item{selectedFields}{List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.}
 
 \item{timeZone}{The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 Recorded values of the streams that meet the specified conditions.

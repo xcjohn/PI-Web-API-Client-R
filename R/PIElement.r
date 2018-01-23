@@ -1,4 +1,4 @@
-PIElement <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, templateName = NULL, hasChildren = NULL, categoryNames = NULL, extendedProperties = NULL, links = NULL) {
+PIElement <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, templateName = NULL, hasChildren = NULL, categoryNames = NULL, extendedProperties = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -45,6 +45,16 @@ PIElement <- function(webId = NULL, id = NULL, name = NULL, description = NULL, 
 	if (is.null(extendedProperties) == FALSE) {
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PIElementLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PIElementLinks.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
 	}
 	value <- list(
 	WebId = webId,
@@ -56,7 +66,8 @@ PIElement <- function(webId = NULL, id = NULL, name = NULL, description = NULL, 
 	HasChildren = hasChildren,
 	CategoryNames = categoryNames,
 	ExtendedProperties = extendedProperties,
-	Links = links)
+	Links = links,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIElement"
 	return(valueCleaned)

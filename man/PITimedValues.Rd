@@ -4,12 +4,14 @@
 \alias{PITimedValues}
 \title{Generate an instance of the PITimedValues PI Web API class}
 \usage{
-PITimedValues(items = NULL, unitsAbbreviation = NULL)
+PITimedValues(items = NULL, unitsAbbreviation = NULL, webException = NULL)
 }
 \arguments{
 \item{items}{(array)}
 
 \item{unitsAbbreviation}{(string)}
+
+\item{webException}{()}
 }
 \value{
 PITimedValues

@@ -6,7 +6,7 @@
 \usage{
 PITable(webId = NULL, id = NULL, name = NULL, description = NULL,
   path = NULL, categoryNames = NULL, timeZone = NULL,
-  convertToLocalTime = NULL, links = NULL)
+  convertToLocalTime = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -25,7 +25,9 @@ PITable(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{convertToLocalTime}{(boolean)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PITable
@@ -34,6 +36,6 @@ PITable
 Generate an instance of the PITable PI Web API class
 }
 \examples{
-table <- PITable(webId = "B0DqD5loBNH0erqeqJodtALAgAMa5wsjA0acPM-MJytrPAUkVTVFVOSVRcTUFSS1xUQUJMRVNbVEVTVFRBQkxFXQ", id = "e71a0380-230b-4603-9c3c-cf8c272b6b3c", name = "CarInfo", description = "Table of car info.", path = "\\\\\\\\MyServer\\\\MyDatabase\\\\Tables[CarInfo]", timeZone = "Eastern Standard Time", convertToLocalTime = FALSE)
+table <- PITable(webId = "I1BlDqD5loBNH0erqeqJodtALAmLr4X86Jmkeynt3QVwlqXw", id = "5ff8ba98-89ce-479a-b29e-ddd057096a5f", name = "CarInfo", description = "Table of car info.", path = "\\\\\\\\MyServer\\\\MyDatabase\\\\Tables[CarInfo]", timeZone = "Eastern Standard Time", convertToLocalTime = FALSE)
 
 }

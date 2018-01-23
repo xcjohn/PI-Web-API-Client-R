@@ -5,7 +5,7 @@
 \title{Generate an instance of the PISystemStatus PI Web API class}
 \usage{
 PISystemStatus(upTimeInMinutes = NULL, state = NULL,
-  cacheInstances = NULL)
+  cacheInstances = NULL, webException = NULL)
 }
 \arguments{
 \item{upTimeInMinutes}{(number)}
@@ -13,6 +13,8 @@ PISystemStatus(upTimeInMinutes = NULL, state = NULL,
 \item{state}{(string)}
 
 \item{cacheInstances}{(integer)}
+
+\item{webException}{()}
 }
 \value{
 PISystemStatus

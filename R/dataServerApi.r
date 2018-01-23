@@ -15,13 +15,19 @@ dataServerApi <- R6Class("dataServerApi",
 			self$validateSSL <- validateSSL
 			self$debug <- debug
 		},
-		list = function(selectedFields) {
+		list = function(selectedFields, webIdType) {
 			queryParameters <- list()
 			localVarPath <- paste(c(self$serviceBase, '/dataservers'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
 				queryParameters$selectedFields <- selectedFields
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
@@ -31,7 +37,7 @@ dataServerApi <- R6Class("dataServerApi",
 			}
 			return (contentResponse)
 		},
-		getByName = function(name, selectedFields) {
+		getByName = function(name, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
@@ -47,6 +53,12 @@ dataServerApi <- R6Class("dataServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -54,7 +66,7 @@ dataServerApi <- R6Class("dataServerApi",
 			}
 			return (contentResponse)
 		},
-		getByPath = function(path, selectedFields) {
+		getByPath = function(path, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
@@ -70,6 +82,12 @@ dataServerApi <- R6Class("dataServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -77,7 +95,7 @@ dataServerApi <- R6Class("dataServerApi",
 			}
 			return (contentResponse)
 		},
-		get = function(webId, selectedFields) {
+		get = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -92,6 +110,12 @@ dataServerApi <- R6Class("dataServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -99,7 +123,7 @@ dataServerApi <- R6Class("dataServerApi",
 			}
 			return (contentResponse)
 		},
-		getEnumerationSets = function(webId, selectedFields) {
+		getEnumerationSets = function(webId, selectedFields, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -114,6 +138,12 @@ dataServerApi <- R6Class("dataServerApi",
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -121,7 +151,7 @@ dataServerApi <- R6Class("dataServerApi",
 			}
 			return (contentResponse)
 		},
-		createEnumerationSet = function(webId, PIEnumerationSet) {
+		createEnumerationSet = function(webId, PIEnumerationSet, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -137,10 +167,54 @@ dataServerApi <- R6Class("dataServerApi",
 				return (print(paste0("Error: the class from the parameter PIEnumerationSet should be PIEnumerationSet.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/dataservers/', webId, '/enumerationsets'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIEnumerationSet, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
-		getPoints = function(webId, maxCount, nameFilter, selectedFields, startIndex) {
+		getLicense = function(webId, module, selectedFields, webIdType) {
+			queryParameters <- list()
+			if (is.null(webId) || webId == "") {
+				return (paste0("Error: required parameter webId was null or undefined"))
+			}
+			if (is.character(webId) == FALSE) {
+				return (print(paste0("Error: webId must be a string.")))
+			}
+			if (is.null(module) || module == "") {
+				return (paste0("Error: required parameter module was null or undefined"))
+			}
+			if (is.character(module) == FALSE) {
+				return (print(paste0("Error: module must be a string.")))
+			}
+			queryParameters$module <- module
+			localVarPath <- paste(c(self$serviceBase, '/dataservers/', webId, '/license'), collapse = "")
+			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
+				queryParameters$selectedFields <- selectedFields
+				if (is.character(selectedFields) == FALSE) {
+					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
+			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			contentResponse <- content(res)
+			if (res$status == 200) {
+				attr(contentResponse, "className") <- "PIDataServerLicense"
+			}
+			if (res$status == 404) {
+				attr(contentResponse, "className") <- "PIErrors"
+			}
+			return (contentResponse)
+		},
+		getPoints = function(webId, maxCount, nameFilter, selectedFields, startIndex, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -173,6 +247,12 @@ dataServerApi <- R6Class("dataServerApi",
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
@@ -180,7 +260,7 @@ dataServerApi <- R6Class("dataServerApi",
 			}
 			return (contentResponse)
 		},
-		createPoint = function(webId, PIPoint) {
+		createPoint = function(webId, PIPoint, webIdType) {
 			queryParameters <- list()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
@@ -196,6 +276,12 @@ dataServerApi <- R6Class("dataServerApi",
 				return (print(paste0("Error: the class from the parameter PIPoint should be PIPoint.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/dataservers/', webId, '/points'), collapse = "")
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				queryParameters$webIdType <- webIdType
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
 			res <- postHttpRequest(localVarPath, PIPoint, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}

@@ -4,12 +4,14 @@
 \alias{PITableData}
 \title{Generate an instance of the PITableData PI Web API class}
 \usage{
-PITableData(columns = NULL, rows = NULL)
+PITableData(columns = NULL, rows = NULL, webException = NULL)
 }
 \arguments{
 \item{columns}{(object)}
 
 \item{rows}{(array)}
+
+\item{webException}{()}
 }
 \value{
 PITableData

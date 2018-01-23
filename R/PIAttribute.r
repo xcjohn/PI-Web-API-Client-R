@@ -1,4 +1,4 @@
-PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, type = NULL, typeQualifier = NULL, defaultUnitsName = NULL, dataReferencePlugIn = NULL, configString = NULL, isConfigurationItem = NULL, isExcluded = NULL, isHidden = NULL, isManualDataEntry = NULL, hasChildren = NULL, categoryNames = NULL, step = NULL, traitName = NULL, links = NULL) {
+PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, type = NULL, typeQualifier = NULL, defaultUnitsName = NULL, dataReferencePlugIn = NULL, configString = NULL, isConfigurationItem = NULL, isExcluded = NULL, isHidden = NULL, isManualDataEntry = NULL, hasChildren = NULL, categoryNames = NULL, step = NULL, traitName = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -93,6 +93,16 @@ PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PIAttributeLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PIAttributeLinks.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
 	}
 	value <- list(
 	WebId = webId,
@@ -113,7 +123,8 @@ PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL
 	CategoryNames = categoryNames,
 	Step = step,
 	TraitName = traitName,
-	Links = links)
+	Links = links,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttribute"
 	return(valueCleaned)

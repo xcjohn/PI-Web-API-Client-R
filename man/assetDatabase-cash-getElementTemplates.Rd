@@ -17,6 +17,8 @@
 \item{sortField}{The field or property of the object used to sort the returned collection. The default is 'Name'.}
 
 \item{sortOrder}{The order that the returned collection is sorted. The default is 'Ascending'.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 A list of element templates matching the specified condition.

@@ -8,7 +8,8 @@ PIAnalysisTemplate(webId = NULL, id = NULL, name = NULL,
   description = NULL, path = NULL, analysisRulePlugInName = NULL,
   categoryNames = NULL, createEnabled = NULL, groupId = NULL,
   hasNotificationTemplate = NULL, hasTarget = NULL, outputTime = NULL,
-  targetName = NULL, timeRulePlugInName = NULL, links = NULL)
+  targetName = NULL, timeRulePlugInName = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -39,7 +40,9 @@ PIAnalysisTemplate(webId = NULL, id = NULL, name = NULL,
 
 \item{timeRulePlugInName}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAnalysisTemplate
@@ -48,6 +51,6 @@ PIAnalysisTemplate
 Generate an instance of the PIAnalysisTemplate PI Web API class
 }
 \examples{
-analysisTemplate <- PIAnalysisTemplate(webId = "Y0DqD5loBNH0erqeqJodtALA0IiywCJ7mkyCQYNQSlvYWwUkVTVFVOSVRcOTdCRjMyMzMtNDgyMi00OTYxLTg4M0YtQzU2REFERERDODUzXEFOQUxZU0lTVEVNUExBVEVTW0EzMjcwNzI2LTkzMDEtNDY5NS1BQTE1LTBCOEM0NUNCNDJDQ10", id = "c0b288d0-7b22-4c9a-8241-83504a5bd85b", name = "MyAnalysisTemplate", description = "", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\AnalysisTemplates[MyAnalysisTemplate]", analysisRulePlugInName = "PerformanceEquation", createEnabled = FALSE, groupId = 0, hasNotificationTemplate = FALSE, hasTarget = FALSE, outputTime = "", targetName = "MyElementTemplate", timeRulePlugInName = "Periodic")
+analysisTemplate <- PIAnalysisTemplate(webId = "I1XTG_auSSsvuECG8ad_p8b25QEZgtYQY_J06YnELl5cALiA", id = "612d9811-3f06-4e27-989c-42e5e5c00b88", name = "MyAnalysisTemplate", description = "", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\AnalysisTemplates[MyAnalysisTemplate]", analysisRulePlugInName = "PerformanceEquation", createEnabled = FALSE, groupId = 0, hasNotificationTemplate = FALSE, hasTarget = FALSE, outputTime = "", targetName = "MyElementTemplate", timeRulePlugInName = "Periodic")
 
 }

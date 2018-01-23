@@ -5,7 +5,8 @@
 \title{Generate an instance of the PICacheInstance PI Web API class}
 \usage{
 PICacheInstance(id = NULL, lastRefreshTime = NULL,
-  willRefreshAfter = NULL, scheduledExpirationTime = NULL, user = NULL)
+  willRefreshAfter = NULL, scheduledExpirationTime = NULL, user = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{id}{(string)}
@@ -17,6 +18,8 @@ PICacheInstance(id = NULL, lastRefreshTime = NULL,
 \item{scheduledExpirationTime}{(string)}
 
 \item{user}{(string)}
+
+\item{webException}{()}
 }
 \value{
 PICacheInstance

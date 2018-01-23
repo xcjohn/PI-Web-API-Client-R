@@ -6,7 +6,7 @@
 \usage{
 PISecurityMapping(webId = NULL, id = NULL, name = NULL,
   description = NULL, path = NULL, account = NULL,
-  securityIdentityWebId = NULL, links = NULL)
+  securityIdentityWebId = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -23,7 +23,9 @@ PISecurityMapping(webId = NULL, id = NULL, name = NULL,
 
 \item{securityIdentityWebId}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PISecurityMapping
@@ -32,6 +34,6 @@ PISecurityMapping
 Generate an instance of the PISecurityMapping PI Web API class
 }
 \examples{
-securityMapping <- PISecurityMapping(webId = "M07v5To0Ux7Eus2sjMsdqq_AUEhMQUZTMDU", id = "a353feee-3145-4bec-acda-c8ccb1daaafc", name = "MySecurityMapping", description = "", path = "\\\\\\\\RESTUNIT\\\\SecurityMappings[MySecurityMapping]", account = "domain\\\\user", securityIdentityWebId = "I07v5To0Ux7Eus2sjMsdqq_AUEhMQUZTMDU")
+securityMapping <- PISecurityMapping(webId = "I1SMDqD5loBNH0erqeqJodtALAgu8UrMAZB0qWp9H7C4TAXQ", id = "ac14ef82-19c0-4a07-96a7-d1fb0b84c05d", name = "MySecurityMapping", description = "", path = "\\\\\\\\RESTUNIT\\\\SecurityMappings[MySecurityMapping]", account = "domain\\\\user", securityIdentityWebId = "I07v5To0Ux7Eus2sjMsdqq_AUEhMQUZTMDU")
 
 }

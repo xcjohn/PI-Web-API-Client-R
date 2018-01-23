@@ -7,7 +7,7 @@
 PISecurity(canAnnotate = NULL, canDelete = NULL, canExecute = NULL,
   canRead = NULL, canReadData = NULL, canSubscribe = NULL,
   canSubscribeOthers = NULL, canWrite = NULL, canWriteData = NULL,
-  hasAdmin = NULL, rights = NULL)
+  hasAdmin = NULL, rights = NULL, webException = NULL)
 }
 \arguments{
 \item{canAnnotate}{(boolean)}
@@ -31,6 +31,8 @@ PISecurity(canAnnotate = NULL, canDelete = NULL, canExecute = NULL,
 \item{hasAdmin}{(boolean)}
 
 \item{rights}{(array)}
+
+\item{webException}{()}
 }
 \value{
 PISecurity

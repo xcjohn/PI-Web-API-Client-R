@@ -6,7 +6,7 @@
 \usage{
 PIAnnotation(id = NULL, name = NULL, description = NULL, value = NULL,
   creator = NULL, creationDate = NULL, modifier = NULL,
-  modifyDate = NULL, links = NULL)
+  modifyDate = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{id}{(string)}
@@ -25,7 +25,9 @@ PIAnnotation(id = NULL, name = NULL, description = NULL, value = NULL,
 
 \item{modifyDate}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIAnnotation

@@ -7,7 +7,7 @@
 PIUnit(webId = NULL, id = NULL, name = NULL, abbreviation = NULL,
   description = NULL, path = NULL, factor = NULL, offset = NULL,
   referenceFactor = NULL, referenceOffset = NULL,
-  referenceUnitAbbreviation = NULL, links = NULL)
+  referenceUnitAbbreviation = NULL, links = NULL, webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -32,7 +32,9 @@ PIUnit(webId = NULL, id = NULL, name = NULL, abbreviation = NULL,
 
 \item{referenceUnitAbbreviation}{(string)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIUnit
@@ -41,6 +43,6 @@ PIUnit
 Generate an instance of the PIUnit PI Web API class
 }
 \examples{
-unit <- PIUnit(webId = "u0DqD5loBNH0eqreqJodtALAR5X5Ku22eUqbeawQJoWIdAUkVVTFVOSVRcVU9NFREUQUJBU0VcZEVSVFo", id = "609049B3-108A-4A9A-94B3-359AA092C5A0", name = "Hertz", abbreviation = "Hz", description = "Hertz Unit", path = "\\\\\\\\MyServer\\\\UOMDatabase\\\\Hertz", referenceUnitAbbreviation = "")
+unit <- PIUnit(webId = "I1UtDqD5loBNH0erqeqJodtALAjqwhgeI8lEeV4xeD1db0_A", id = "8121ac8e-3ce2-4794-95e3-1783d5d6f4fc", name = "Hertz", abbreviation = "Hz", description = "Hertz Unit", path = "\\\\\\\\MyServer\\\\UOMDatabase\\\\Hertz", referenceUnitAbbreviation = "")
 
 }

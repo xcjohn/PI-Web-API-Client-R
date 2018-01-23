@@ -1,4 +1,4 @@
-PISecurity <- function(canAnnotate = NULL, canDelete = NULL, canExecute = NULL, canRead = NULL, canReadData = NULL, canSubscribe = NULL, canSubscribeOthers = NULL, canWrite = NULL, canWriteData = NULL, hasAdmin = NULL, rights = NULL) {
+PISecurity <- function(canAnnotate = NULL, canDelete = NULL, canExecute = NULL, canRead = NULL, canReadData = NULL, canSubscribe = NULL, canSubscribeOthers = NULL, canWrite = NULL, canWriteData = NULL, hasAdmin = NULL, rights = NULL, webException = NULL) {
 	if (is.null(canAnnotate) == FALSE) {
 		if (is.logical(canAnnotate) == FALSE) {
 			return (print(paste0("Error: canAnnotate must be a boolean.")))
@@ -57,6 +57,12 @@ PISecurity <- function(canAnnotate = NULL, canDelete = NULL, canExecute = NULL, 
 			return (print(paste0("Error: rights[[1]] must be a string.")))
 		}
 	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
+	}
 	value <- list(
 	CanAnnotate = canAnnotate,
 	CanDelete = canDelete,
@@ -68,7 +74,8 @@ PISecurity <- function(canAnnotate = NULL, canDelete = NULL, canExecute = NULL, 
 	CanWrite = canWrite,
 	CanWriteData = canWriteData,
 	HasAdmin = hasAdmin,
-	Rights = rights)
+	Rights = rights,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurity"
 	return(valueCleaned)

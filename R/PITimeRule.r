@@ -1,4 +1,4 @@
-PITimeRule <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, configString = NULL, configStringStored = NULL, displayString = NULL, editorType = NULL, isConfigured = NULL, isInitializing = NULL, mergeDuplicatedItems = NULL, plugInName = NULL, links = NULL) {
+PITimeRule <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, configString = NULL, configStringStored = NULL, displayString = NULL, editorType = NULL, isConfigured = NULL, isInitializing = NULL, mergeDuplicatedItems = NULL, plugInName = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -65,6 +65,16 @@ PITimeRule <- function(webId = NULL, id = NULL, name = NULL, description = NULL,
 		}
 	}
 	if (is.null(links) == FALSE) {
+		className <- attr(links, "className")
+		if ((is.null(className)) || (className != "PITimeRuleLinks")) {
+			return (print(paste0("Error: the class from the parameter links should be PITimeRuleLinks.")))
+		}
+	}
+	if (is.null(webException) == FALSE) {
+		className <- attr(webException, "className")
+		if ((is.null(className)) || (className != "PIWebException")) {
+			return (print(paste0("Error: the class from the parameter webException should be PIWebException.")))
+		}
 	}
 	value <- list(
 	WebId = webId,
@@ -80,7 +90,8 @@ PITimeRule <- function(webId = NULL, id = NULL, name = NULL, description = NULL,
 	IsInitializing = isInitializing,
 	MergeDuplicatedItems = mergeDuplicatedItems,
 	PlugInName = plugInName,
-	Links = links)
+	Links = links,
+	WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITimeRule"
 	return(valueCleaned)

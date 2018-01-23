@@ -7,6 +7,8 @@
 \item{analysisWebId}{The ID of the Analysis, on which the template is created.}
 
 \item{name}{The name for the created template, which must be unique within the database's AnalysisTemplate collection. If the name ends with an asterisk (*), then a unique name will be generated based on the supplied name. The default is the specified Analysis' name suffixed with an asterisk (*).}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The Analysis Template was created. The response's Location header is a link to the created Analysis Template.

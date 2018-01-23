@@ -7,6 +7,8 @@
 \item{webId}{The ID of the database in which to create the analysis template.}
 
 \item{PIAnalysisTemplate}{The new analysis template definition.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The analysis template was created. The response's Location header is a link to the created template.

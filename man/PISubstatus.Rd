@@ -4,12 +4,14 @@
 \alias{PISubstatus}
 \title{Generate an instance of the PISubstatus PI Web API class}
 \usage{
-PISubstatus(substatus = NULL, message = NULL)
+PISubstatus(substatus = NULL, message = NULL, webException = NULL)
 }
 \arguments{
 \item{substatus}{(integer)}
 
 \item{message}{(string)}
+
+\item{webException}{()}
 }
 \value{
 PISubstatus

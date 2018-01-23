@@ -33,6 +33,8 @@
 \item{startIndex}{The starting index (zero based) of the items to be returned. The default is 0.}
 
 \item{startTime}{The starting time for the search. startTime must be less than or equal to the endTime. The searchMode parameter will control whether the comparison will be performed against the event frame's startTime or endTime. The default is '*-8h'.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 a list of matching EventFrames.

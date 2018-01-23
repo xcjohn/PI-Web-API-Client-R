@@ -7,6 +7,8 @@
 \item{webId}{The ID of the database in which to create the attribute category.}
 
 \item{PIAttributeCategory}{The new attribute category definition.}
+
+\item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }
 \value{
 The attribute category was created. The response's Location header is a link to the attribute category.

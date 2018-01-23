@@ -4,14 +4,17 @@
 \alias{PIPointAttribute}
 \title{Generate an instance of the PIPointAttribute PI Web API class}
 \usage{
-PIPointAttribute(name = NULL, value = NULL, links = NULL)
+PIPointAttribute(name = NULL, value = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{name}{(string)}
 
 \item{value}{(object)}
 
-\item{links}{(object)}
+\item{links}{()}
+
+\item{webException}{()}
 }
 \value{
 PIPointAttribute

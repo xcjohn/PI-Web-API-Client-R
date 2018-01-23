@@ -4,12 +4,14 @@
 \alias{PIValue}
 \title{Generate an instance of the PIValue PI Web API class}
 \usage{
-PIValue(value = NULL, exception = NULL)
+PIValue(value = NULL, exception = NULL, webException = NULL)
 }
 \arguments{
 \item{value}{(object)}
 
 \item{exception}{()}
+
+\item{webException}{()}
 }
 \value{
 PIValue
