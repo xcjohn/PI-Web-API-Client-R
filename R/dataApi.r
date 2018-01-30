@@ -329,7 +329,7 @@ dataApi <- R6Class("dataApi",
                        resDataFrame <- self$convertToDataFrame(res$Items, selectedFields)
                        return(resDataFrame);
                      },
-                     getMultipleRecordedValues = function(paths, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone) {
+                     getMultipleRecordedValues = function(paths, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType) {
                        if (is.null(paths) || paths == "") {
                          stop("Error: required parameter paths was null or undefined")
                        }
@@ -337,11 +337,11 @@ dataApi <- R6Class("dataApi",
                          stop("Error: path must be a vector.")
                        }
                        webIds <- self$convertPathsToWebIds(paths);
-                       res <- self$streamSet$getRecordedAdHoc(webIds, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, startTime, timeZone);
+                       res <- self$streamSet$getRecordedAdHoc(webIds, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
                        resDataFrame <- self$convertMultipleStreamsToDataFrame(res$Items, FALSE, webIds, selectedFields, paths)
                        return(resDataFrame);
                      },
-                     getInterpolatedValues = function(path, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone) {
+                     getInterpolatedValues = function(path, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, syncTime, syncTimeBoundaryType, timeZone) {
                        if (is.null(path) || path == "") {
                          stop("Error: required parameter path was null or undefined")
                        }
@@ -349,11 +349,11 @@ dataApi <- R6Class("dataApi",
                          stop("Error: path must be a string.")
                        }
                        webId <- self$convertPathToWebId(path);
-                       res <- self$stream$getInterpolated(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone);
+                       res <- self$stream$getInterpolated(webId, desiredUnits, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, syncTime, syncTimeBoundaryType, timeZone);
                        resDataFrame <- self$convertToDataFrame(res$Items, selectedFields)
                        return(resDataFrame);
                      },
-                     getMultipleInterpolatedValues = function(paths, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone) {
+                     getMultipleInterpolatedValues = function(paths, endTime, filterExpression, includeFilteredValues, interval, selectedFields, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, timeZone, webIdType) {
                        if (is.null(paths) || paths == "") {
                          return(paste0("Error: required parameter paths was null or undefined"))
                        }
@@ -366,7 +366,7 @@ dataApi <- R6Class("dataApi",
                          }
                        }
                        webIds <- self$convertPathsToWebIds(paths);
-                       res <- self$streamSet$getInterpolatedAdHoc(webIds, endTime, filterExpression, includeFilteredValues, interval, selectedFields, startTime, timeZone);
+                       res <- self$streamSet$getInterpolatedAdHoc(webIds, endTime, filterExpression, includeFilteredValues, interval, selectedFields, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, timeZone, webIdType);
                        resDataFrame <- self$convertMultipleStreamsToDataFrame(res$Items, TRUE, webIds, selectedFields)
                        return(resDataFrame);
                      },
@@ -382,7 +382,7 @@ dataApi <- R6Class("dataApi",
                        resDataFrame <- self$convertToDataFrame(res$Items, selectedFields)
                        return(resDataFrame);
                      },
-                     getMultiplePlotValues = function(paths, endTime, intervals, selectedFields, startTime, timeZone) {
+                     getMultiplePlotValues = function(paths, endTime, intervals, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType) {
                        if (is.null(paths) || paths == "") {
                          return(paste0("Error: required parameter paths was null or undefined"))
                        }
@@ -392,7 +392,7 @@ dataApi <- R6Class("dataApi",
 
                        webIds <- self$convertPathsToWebIds(paths);
 
-                       res <- self$streamSet$getPlotAdHoc(webIds, endTime, intervals, selectedFields, startTime, timeZone);
+                       res <- self$streamSet$getPlotAdHoc(webIds, endTime, intervals, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
                        resDataFrame <- self$convertMultipleStreamsToDataFrame(res$Items, FALSE, webIds, selectedFields, paths)
                        return(resDataFrame);
                      }
