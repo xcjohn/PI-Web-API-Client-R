@@ -1,11 +1,7 @@
 Package: piwebapi
 Type: Package
 Title: PI Web API client R package
-<<<<<<< HEAD
 Version: 1.1.1
-=======
-Version: 1.1.0
->>>>>>> 149e979bc9a069ca2270f9a9bd3c36dcc4615cd0
 Author: Marcos Vainer Loeff
 Maintainer: OSIsoft PI Developers Club <pidevclub@osisoft.com>
 Description: This is an R package generated using the PI Web API JSON Swagger specification.
