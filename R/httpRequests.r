@@ -54,22 +54,32 @@ patchHttpRequest <- function(url, bodyRequest, username, password, authType, val
 putHttpRequest <- function(url, queryParameters, bodyRequest, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
         res <- PUT(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
-		showError(res)
-		return(res)
+		    showError(res)
+		    return(res)
     }
     else {
         res <- PUT(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
         showError(res)
-		return(res)
+		    return(res)
     }
 }
 
 showError <- function(res) {
-	if (res$status > 299) {
-		error <- content(res)
-		print(paste0("Error: ", error$Errors[[1]]))
-		print(paste0("HTTP Status code is ", res$status, "."))
-	}
+    print(paste0("HTTP Status code is ", res$status, "."))
+    if (res$status == 401) {
+        print(paste0("Authentication Error: Please review PI Web API security and allowed authentication methods."))
+    }
+    if (res$status > 299) {
+		    error <- content(res)
+		    if (is.null(error$Errors[[1]])==FALSE)
+		    {
+		        print(paste0("Error: ", error$Errors[[1]]))
+		    }
+		    else
+	      {
+	          print(paste0("Error: ", error))
+	      }
+	  }
 }
 
 check.integer <- function(N) {
@@ -79,38 +89,6 @@ check.integer <- function(N) {
     return(res)
 }
 
-generateListForQueryString <- function(vector, queryStringName) {
-    queryParameters <- list()
-    for (i in 1:length(vector)) {
-        value = vector[i]
-        key <- paste0(queryStringName, i)
-        queryParameters[[key]] = value
-        names(queryParameters)[i] <- queryStringName
-    }
-    return(queryParameters)
-}
-
-generateListForTwoQueryString <- function(vector1, queryStringName1, vector2, queryStringName2) {
-    queryParameters <- list()
-    for (i in 1:length(vector1)) {
-        value = vector1[i]
-        key <- paste0(queryStringName1, i)
-        queryParameters[[key]] = value
-        names(queryParameters)[i] <- queryStringName1
-    }
-
-    for (i in 1:length(vector2)) {
-        value = vector2[i]
-        key <- paste0(queryStringName2, i)
-        queryParameters[[key]] = value
-    }
-    startIndex <- 1 + length(vector1)
-    endIndex <- length(names(queryParameters))
-    for (i in startIndex:endIndex) {
-        names(queryParameters)[i] <- queryStringName2
-    }
-    return(queryParameters)
-}
 
 is.NullOb <- function(x) is.null(x) | all(sapply(x, is.null))
 

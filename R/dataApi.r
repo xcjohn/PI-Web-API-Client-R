@@ -107,7 +107,14 @@ dataApi <- R6Class("dataApi",
                     for (j in 1:itemsLength) {
                       if (is.null(items[[k]]$Items[[j]]$Value) == FALSE)
                       {
-                        value[j] <- items[[k]]$Items[[j]]$Value
+                        if (is.numeric(items[[k]]$Items[[j]]$Value) == TRUE)
+                        {
+                          value[j] <- items[[k]]$Items[[j]]$Value
+                        }
+                        else
+                        {
+                          value[j] <- items[[k]]$Items[[j]]$Value$Name
+                        }
                       }
                       if (is.null(items[[k]]$Items[[j]]$Timestamp) == FALSE)
                       {
