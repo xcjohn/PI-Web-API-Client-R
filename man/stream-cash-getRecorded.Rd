@@ -6,6 +6,8 @@
 \arguments{
 \item{webId}{The ID of the stream.}
 
+\item{associations}{Associated values to return in the response, separated by semicolons (;). This call supports Annotations to return events with annotation values. If this parameter is not specified, annotation values are not returned.}
+
 \item{boundaryType}{An optional value that determines how the times and values of the returned end points are determined. The default is 'Inside'.}
 
 \item{desiredUnits}{The name or abbreviation of the desired units of measure for the returned value, as found in the UOM database associated with the attribute. If not specified for an attribute, the attribute's default unit of measure is used. If the underlying stream is a point, this value may not be specified, as points are not associated with a unit of measure.}

@@ -48,6 +48,6 @@ PITimeRule
 Generate an instance of the PITimeRule PI Web API class
 }
 \examples{
-timeRule <- PITimeRule(webId = "I1TRXDqD5loBNH0erqeqJodtALAROsUFcWU5xGEQwAVXYTCAAROsUFcWU5xGEQwAVXYTCAA", id = "1514eb44-94c5-11e7-8443-00155d84c200", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\TimeRule", configString = "Frequency=300", configStringStored = "", displayString = "Frequency=300", editorType = "OSIsoft.AF.Time.TimeRule.PeriodicConfig", isConfigured = FALSE, isInitializing = FALSE, mergeDuplicatedItems = FALSE, plugInName = "Periodic")
+timeRule <- PITimeRule(webId = "I1TRXDqD5loBNH0erqeqJodtALAROsUFcWU5xGEQwAVXYTCAAROsUFcWU5xGEQwAVXYTCAA", id = "1514eb44-94c5-11e7-8443-00155d84c200", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\TimeRule", configString = "Frequency=300", configStringStored = "", displayString = "Frequency=300", editorType = "OSIsoft.AF.Time.TimeRule.PeriodicConfig", isConfigured = FALSE, isInitializing = FALSE, mergeDuplicatedItems = FALSE, plugInName = "Periodic")
 
 }

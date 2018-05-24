@@ -26,9 +26,9 @@
 
 \item{showHidden}{Specified if the search should include attributes with the Hidden property set. The default is 'false'.}
 
-\item{sortField}{The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.}
+\item{sortField}{The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.}
 
-\item{sortOrder}{The order that the returned collection is sorted. The default is 'Ascending'}
+\item{sortOrder}{The order that the returned collection is sorted. The default is 'Ascending'.}
 
 \item{startTime}{An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.}
 

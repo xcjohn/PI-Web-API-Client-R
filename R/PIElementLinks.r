@@ -1,4 +1,4 @@
-PIElementLinks <- function(self = NULL, analyses = NULL, attributes = NULL, elements = NULL, database = NULL, parent = NULL, template = NULL, categories = NULL, defaultAttribute = NULL, eventFrames = NULL, interpolatedData = NULL, recordedData = NULL, plotData = NULL, summaryData = NULL, value = NULL, endValue = NULL, security = NULL, securityEntries = NULL) {
+PIElementLinks <- function(self = NULL, analyses = NULL, attributes = NULL, elements = NULL, database = NULL, parent = NULL, template = NULL, categories = NULL, defaultAttribute = NULL, eventFrames = NULL, interpolatedData = NULL, recordedData = NULL, plotData = NULL, summaryData = NULL, value = NULL, endValue = NULL, security = NULL, securityEntries = NULL, notificationRules = NULL) {
 	if (is.null(self) == FALSE) {
 		if (is.character(self) == FALSE) {
 			return (print(paste0("Error: self must be a string.")))
@@ -89,6 +89,11 @@ PIElementLinks <- function(self = NULL, analyses = NULL, attributes = NULL, elem
 			return (print(paste0("Error: securityEntries must be a string.")))
 		}
 	}
+	if (is.null(notificationRules) == FALSE) {
+		if (is.character(notificationRules) == FALSE) {
+			return (print(paste0("Error: notificationRules must be a string.")))
+		}
+	}
 	value <- list(
 	Self = self,
 	Analyses = analyses,
@@ -107,7 +112,8 @@ PIElementLinks <- function(self = NULL, analyses = NULL, attributes = NULL, elem
 	Value = value,
 	EndValue = endValue,
 	Security = security,
-	SecurityEntries = securityEntries)
+	SecurityEntries = securityEntries,
+	NotificationRules = notificationRules)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIElementLinks"
 	return(valueCleaned)

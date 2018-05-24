@@ -1,4 +1,4 @@
-PIAssetServerLinks <- function(self = NULL, databases = NULL, securityIdentities = NULL, securityMappings = NULL, unitClasses = NULL, analysisRulePlugIns = NULL, timeRulePlugIns = NULL, security = NULL, securityEntries = NULL) {
+PIAssetServerLinks <- function(self = NULL, databases = NULL, notificationContactTemplates = NULL, securityIdentities = NULL, securityMappings = NULL, unitClasses = NULL, analysisRulePlugIns = NULL, timeRulePlugIns = NULL, security = NULL, securityEntries = NULL) {
 	if (is.null(self) == FALSE) {
 		if (is.character(self) == FALSE) {
 			return (print(paste0("Error: self must be a string.")))
@@ -7,6 +7,11 @@ PIAssetServerLinks <- function(self = NULL, databases = NULL, securityIdentities
 	if (is.null(databases) == FALSE) {
 		if (is.character(databases) == FALSE) {
 			return (print(paste0("Error: databases must be a string.")))
+		}
+	}
+	if (is.null(notificationContactTemplates) == FALSE) {
+		if (is.character(notificationContactTemplates) == FALSE) {
+			return (print(paste0("Error: notificationContactTemplates must be a string.")))
 		}
 	}
 	if (is.null(securityIdentities) == FALSE) {
@@ -47,6 +52,7 @@ PIAssetServerLinks <- function(self = NULL, databases = NULL, securityIdentities
 	value <- list(
 	Self = self,
 	Databases = databases,
+	NotificationContactTemplates = notificationContactTemplates,
 	SecurityIdentities = securityIdentities,
 	SecurityMappings = securityMappings,
 	UnitClasses = unitClasses,

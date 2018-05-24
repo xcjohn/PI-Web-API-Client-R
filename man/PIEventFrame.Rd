@@ -67,6 +67,6 @@ PIEventFrame
 Generate an instance of the PIEventFrame PI Web API class
 }
 \examples{
-eventFrame <- PIEventFrame(webId = "I1FmDqD5loBNH0erqeqJodtALADqD5loBNH0cAAAAAAASwAg", id = "96f9a00e-4d80-471f-0000-00000004b002", name = "EF20140725-001", description = "Event Frame of Past Week", path = "\\\\\\\\MyServer\\\\NuGreen\\\\EventFrames[EF20140725-001]", templateName = "Template", hasChildren = FALSE, startTime = "7/18/2014 2:45:29 PM", endTime = "7/25/2014 2:45:29 PM", severity = "None", acknowledgedBy = "MyDomain\\\\UserA", acknowledgedDate = "7/30/2014 11:04:23 AM", canBeAcknowledged = FALSE, isAcknowledged = FALSE, isAnnotated = FALSE, isLocked = FALSE, areValuesCaptured = FALSE)
+eventFrame <- PIEventFrame(webId = "I1FmDqD5loBNH0erqeqJodtALADqD5loBNH0cAAAAAAASwAg", id = "96f9a00e-4d80-471f-0000-00000004b002", name = "EF20140725-001", description = "Event Frame of Past Week", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\EventFrames[EF20140725-001]", templateName = "Template", hasChildren = FALSE, startTime = "7/18/2014 2:45:29 PM", endTime = "7/25/2014 2:45:29 PM", severity = "None", acknowledgedBy = "MyDomain\\\\UserA", acknowledgedDate = "7/30/2014 11:04:23 AM", canBeAcknowledged = FALSE, isAcknowledged = FALSE, isAnnotated = FALSE, isLocked = FALSE, areValuesCaptured = FALSE)
 
 }

@@ -27,6 +27,6 @@ PIStreamSummaries
 Generate an instance of the PIStreamSummaries PI Web API class
 }
 \examples{
-streamSummaries <- PIStreamSummaries(webId = "I1AbEDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBAGyPedZG1sUmxOOclp3Flwg", name = "Water", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement|Water")
+streamSummaries <- PIStreamSummaries(webId = "I1AbEDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBAGyPedZG1sUmxOOclp3Flwg", name = "Water", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\MyElement|Water")
 
 }

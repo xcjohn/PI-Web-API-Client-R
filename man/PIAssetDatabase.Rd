@@ -32,6 +32,6 @@ PIAssetDatabase
 Generate an instance of the PIAssetDatabase PI Web API class
 }
 \examples{
-assetDatabase <- PIAssetDatabase(webId = "I1RDDqD5loBNH0erqeqJodtALAquulo6433EKdHra7fsmL0g", id = "a3a5ebaa-37ae-42dc-9d1e-b6bb7ec98bd2", name = "NuGreen", description = "PI BI Project Asset Model", path = "\\\\\\\\MyServer\\\\NuGreen")
+assetDatabase <- PIAssetDatabase(webId = "I1RDDqD5loBNH0erqeqJodtALAquulo6433EKdHra7fsmL0g", id = "a3a5ebaa-37ae-42dc-9d1e-b6bb7ec98bd2", name = "MyDatabase", description = "PI BI Project Asset Model", path = "\\\\\\\\MyAssetServer\\\\MyDatabase")
 
 }

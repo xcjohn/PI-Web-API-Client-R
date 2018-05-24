@@ -16,28 +16,28 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			self$debug <- debug
 		},
 		getByPath = function(path, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
 			}
 			if (is.character(path) == FALSE) {
 				return (print(paste0("Error: path must be a string.")))
 			}
-			queryParameters$path <- path
+			qs$add('path', path, FALSE);
 			localVarPath <- paste(c(self$serviceBase, '/attributetemplates'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAttributeTemplate"
@@ -45,7 +45,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			return (contentResponse)
 		},
 		get = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -54,18 +54,18 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributetemplates/', webId), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAttributeTemplate"
@@ -73,7 +73,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			return (contentResponse)
 		},
 		update = function(webId, PIAttributeTemplate) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -92,7 +92,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			return (res)
 		},
 		delete = function(webId) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -104,7 +104,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			return (res)
 		},
 		getAttributeTemplates = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -113,18 +113,18 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributetemplates/', webId, '/attributetemplates'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAttributeTemplate"
@@ -132,7 +132,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			return (contentResponse)
 		},
 		createAttributeTemplate = function(webId, PIAttributeTemplate, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -148,7 +148,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributetemplates/', webId, '/attributetemplates'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -157,7 +157,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -166,18 +166,18 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributetemplates/', webId, '/categories'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAttributeCategory"

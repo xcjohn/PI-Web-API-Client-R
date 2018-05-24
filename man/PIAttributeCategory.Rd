@@ -29,6 +29,6 @@ PIAttributeCategory
 Generate an instance of the PIAttributeCategory PI Web API class
 }
 \examples{
-attributeCategory <- PIAttributeCategory(webId = "I1ACDqD5loBNH0erqeqJodtALAofQgBVRE3E-0dk03Hqa1ng", id = "0520f4a1-4454-4fdc-b476-4d371ea6b59e", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesAttribute[CategoryName]")
+attributeCategory <- PIAttributeCategory(webId = "I1ACDqD5loBNH0erqeqJodtALAofQgBVRE3E-0dk03Hqa1ng", id = "0520f4a1-4454-4fdc-b476-4d371ea6b59e", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyAssetServer\\\\Database\\\\CategoriesAttribute[CategoryName]")
 
 }

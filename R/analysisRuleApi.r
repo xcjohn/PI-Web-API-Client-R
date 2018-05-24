@@ -16,28 +16,28 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			self$debug <- debug
 		},
 		getByPath = function(path, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
 			}
 			if (is.character(path) == FALSE) {
 				return (print(paste0("Error: path must be a string.")))
 			}
-			queryParameters$path <- path
+			qs$add('path', path, FALSE);
 			localVarPath <- paste(c(self$serviceBase, '/analysisrules'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAnalysisRule"
@@ -45,7 +45,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			return (contentResponse)
 		},
 		get = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -54,18 +54,18 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysisrules/', webId), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAnalysisRule"
@@ -73,7 +73,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			return (contentResponse)
 		},
 		update = function(webId, PIAnalysisRule) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -92,7 +92,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			return (res)
 		},
 		delete = function(webId) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -104,7 +104,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			return (res)
 		},
 		getAnalysisRules = function(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -113,54 +113,54 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysisrules/', webId, '/analysisrules'), collapse = "")
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
-				queryParameters$startIndex <- startIndex
+				qs$add('startIndex', startIndex, FALSE);
 				if (check.integer(startIndex) == FALSE) {
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAnalysisRule"
@@ -168,7 +168,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			return (contentResponse)
 		},
 		createAnalysisRule = function(webId, PIAnalysisRule, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -184,7 +184,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysisrules/', webId, '/analysisrules'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}

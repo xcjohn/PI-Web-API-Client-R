@@ -16,9 +16,9 @@ channelApi <- R6Class("channelApi",
 			self$debug <- debug
 		},
 		instances = function() {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/channels/instances'), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsChannelInstance"

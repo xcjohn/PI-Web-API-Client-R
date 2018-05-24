@@ -1,4 +1,4 @@
-PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, type = NULL, typeQualifier = NULL, defaultUnitsName = NULL, dataReferencePlugIn = NULL, configString = NULL, isConfigurationItem = NULL, isExcluded = NULL, isHidden = NULL, isManualDataEntry = NULL, hasChildren = NULL, categoryNames = NULL, step = NULL, traitName = NULL, links = NULL, webException = NULL) {
+PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, type = NULL, typeQualifier = NULL, defaultUnitsName = NULL, displayDigits = NULL, dataReferencePlugIn = NULL, configString = NULL, isConfigurationItem = NULL, isExcluded = NULL, isHidden = NULL, isManualDataEntry = NULL, hasChildren = NULL, categoryNames = NULL, step = NULL, traitName = NULL, defaultUnitsNameAbbreviation = NULL, span = NULL, zero = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -37,6 +37,11 @@ PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL
 	if (is.null(defaultUnitsName) == FALSE) {
 		if (is.character(defaultUnitsName) == FALSE) {
 			return (print(paste0("Error: defaultUnitsName must be a string.")))
+		}
+	}
+	if (is.null(displayDigits) == FALSE) {
+		if (check.integer(displayDigits) == FALSE) {
+			return (print(paste0("Error: displayDigits must be an integer.")))
 		}
 	}
 	if (is.null(dataReferencePlugIn) == FALSE) {
@@ -92,6 +97,15 @@ PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL
 			return (print(paste0("Error: traitName must be a string.")))
 		}
 	}
+	if (is.null(defaultUnitsNameAbbreviation) == FALSE) {
+		if (is.character(defaultUnitsNameAbbreviation) == FALSE) {
+			return (print(paste0("Error: defaultUnitsNameAbbreviation must be a string.")))
+		}
+	}
+	if (is.null(span) == FALSE) {
+	}
+	if (is.null(zero) == FALSE) {
+	}
 	if (is.null(links) == FALSE) {
 		className <- attr(links, "className")
 		if ((is.null(className)) || (className != "PIAttributeLinks")) {
@@ -113,6 +127,7 @@ PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL
 	Type = type,
 	TypeQualifier = typeQualifier,
 	DefaultUnitsName = defaultUnitsName,
+	DisplayDigits = displayDigits,
 	DataReferencePlugIn = dataReferencePlugIn,
 	ConfigString = configString,
 	IsConfigurationItem = isConfigurationItem,
@@ -123,6 +138,9 @@ PIAttribute <- function(webId = NULL, id = NULL, name = NULL, description = NULL
 	CategoryNames = categoryNames,
 	Step = step,
 	TraitName = traitName,
+	DefaultUnitsNameAbbreviation = defaultUnitsNameAbbreviation,
+	Span = span,
+	Zero = zero,
 	Links = links,
 	WebException = webException)
 	valueCleaned <- rmNullObs(value)

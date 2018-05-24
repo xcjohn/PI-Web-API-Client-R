@@ -48,6 +48,6 @@ PIElementTemplate
 Generate an instance of the PIElementTemplate PI Web API class
 }
 \examples{
-elementTemplate <- PIElementTemplate(webId = "I1ETDqD5loBNH0erqeqJodtALAkpSYp6uykE2Ku0yChDU91g", id = "a7989492-b2ab-4d90-8abb-4c8284353dd6", name = "Boiler", description = "Boiler", path = "\\\\\\\\MyServer\\\\NuGreen\\\\ElementTemplates[Boiler]", allowElementToExtend = FALSE, baseTemplate = "Equipment", instanceType = "Element", namingPattern = "\%TEMPLATE\%", severity = "None", canBeAcknowledged = FALSE)
+elementTemplate <- PIElementTemplate(webId = "I1ETDqD5loBNH0erqeqJodtALAkpSYp6uykE2Ku0yChDU91g", id = "a7989492-b2ab-4d90-8abb-4c8284353dd6", name = "MachineName", description = "Manufacturing Machine MachineName", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\ElementTemplates[Boiler]", allowElementToExtend = FALSE, baseTemplate = "Equipment", instanceType = "Element", namingPattern = "\%TEMPLATE\%", severity = "None", canBeAcknowledged = FALSE)
 
 }

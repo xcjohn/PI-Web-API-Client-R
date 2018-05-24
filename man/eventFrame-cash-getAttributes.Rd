@@ -28,6 +28,10 @@
 
 \item{templateName}{Specify that returned attributes must be members of this template. The default is no template filter.}
 
+\item{trait}{The name of the attribute trait. Multiple traits may be specified with multiple instances of the parameter.}
+
+\item{traitCategory}{The category of the attribute traits. Multiple categories may be specified with multiple instances of the parameter. If the parameter is not specified, or if its value is "all", then all attribute traits of all categories will be returned.}
+
 \item{valueType}{Specify that returned attributes' value type must be the given value type. The default is no value type filter.}
 
 \item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}

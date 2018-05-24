@@ -1,13 +1,13 @@
-PI Web API client R package (2017 R2)
+PI Web API client R package (2018)
 =========
 
 ## Introduction
 
-This is an R package that integrates the PI System with R through PI Web API. With this package, you can retrieve PI data without having to generate the URL for each request. This version was developed on top of the PI Web API 2017 R2 swagger specification.
+This is an R package that integrates the PI System with R through PI Web API. With this package, you can retrieve PI data without having to generate the URL for each request. This version was developed on top of the PI Web API 2018 swagger specification.
 
 ## Requirements.
 
- - PI Web API 2017 R2 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
+ - PI Web API 2018 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
  - R 3.4.3+
 
 ## Installation

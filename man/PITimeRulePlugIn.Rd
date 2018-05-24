@@ -54,6 +54,6 @@ PITimeRulePlugIn
 Generate an instance of the PITimeRulePlugIn PI Web API class
 }
 \examples{
-timeRulePlugIn <- PITimeRulePlugIn(webId = "I1TPDqD5loBNH0erqeqJodtALAFPRV1lWW1kqmFRgvo4IAwQ", id = "d655f414-9655-4ad6-a615-182fa38200c1", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MYSERVER\\\\PlugInsTimeRule[Periodic]", assemblyFileName = "OSIsoft.AF.Time.TimeRule.Periodic.dll", assemblyID = "7a635b27-3c3c-4a5f-bba9-01f06e9e525b", assemblyTime = "5/25/2016 2:01:07 PM", compatibilityVersion = 2, isBrowsable = FALSE, isNonEditableConfig = FALSE, loadedAssemblyTime = "1/1/1970 12:00:00 AM", loadedVersion = "", version = "2.8.5.7552")
+timeRulePlugIn <- PITimeRulePlugIn(webId = "I1TPDqD5loBNH0erqeqJodtALAFPRV1lWW1kqmFRgvo4IAwQ", id = "d655f414-9655-4ad6-a615-182fa38200c1", name = "Periodic", description = "Creates regular periodic time periods.", path = "\\\\\\\\MyAssetServer\\\\PlugInsTimeRule[Periodic]", assemblyFileName = "OSIsoft.AF.Time.TimeRule.Periodic.dll", assemblyID = "7a635b27-3c3c-4a5f-bba9-01f06e9e525b", assemblyTime = "5/25/2016 2:01:07 PM", compatibilityVersion = 2, isBrowsable = FALSE, isNonEditableConfig = FALSE, loadedAssemblyTime = "1/1/1970 12:00:00 AM", loadedVersion = "", version = "2.8.5.7552")
 
 }

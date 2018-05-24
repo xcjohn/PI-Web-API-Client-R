@@ -16,28 +16,28 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			self$debug <- debug
 		},
 		getByPath = function(path, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
 			}
 			if (is.character(path) == FALSE) {
 				return (print(paste0("Error: path must be a string.")))
 			}
-			queryParameters$path <- path
+			qs$add('path', path, FALSE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAssetDatabase"
@@ -45,7 +45,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		get = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -54,18 +54,18 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAssetDatabase"
@@ -73,7 +73,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		update = function(webId, PIAssetDatabase) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -92,7 +92,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		delete = function(webId) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -104,7 +104,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		findAnalyses = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, startIndex, webIdType) {
-			queryParameters <- generateListForQueryString(field, "field")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -117,50 +117,51 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			if (is.vector(field) == FALSE) {
 				return (print(paste0("Error: field must be a vector.")))
 			}
+			qs$add('field', field, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/analyses'), collapse = "")
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(query) == FALSE && is.null(query) == FALSE && query != "") {
-				queryParameters$query <- query
+				qs$add('query', query, FALSE);
 				if (is.character(query) == FALSE) {
 					return (print(paste0("Error: query must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
-				queryParameters$startIndex <- startIndex
+				qs$add('startIndex', startIndex, FALSE);
 				if (check.integer(startIndex) == FALSE) {
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAnalysis"
@@ -168,7 +169,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		getAnalysisCategories = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -177,18 +178,18 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/analysiscategories'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAnalysisCategory"
@@ -196,7 +197,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createAnalysisCategory = function(webId, PIAnalysisCategory, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -212,7 +213,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/analysiscategories'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -221,7 +222,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getAnalysisTemplates = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType) {
-			queryParameters <- generateListForQueryString(field, "field")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -234,44 +235,45 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			if (is.vector(field) == FALSE) {
 				return (print(paste0("Error: field must be a vector.")))
 			}
+			qs$add('field', field, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/analysistemplates'), collapse = "")
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(query) == FALSE && is.null(query) == FALSE && query != "") {
-				queryParameters$query <- query
+				qs$add('query', query, FALSE);
 				if (is.character(query) == FALSE) {
 					return (print(paste0("Error: query must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAnalysisTemplate"
@@ -279,7 +281,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createAnalysisTemplate = function(webId, PIAnalysisTemplate, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -295,7 +297,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/analysistemplates'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -304,7 +306,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getAttributeCategories = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -313,18 +315,18 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/attributecategories'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAttributeCategory"
@@ -332,7 +334,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createAttributeCategory = function(webId, PIAttributeCategory, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -348,7 +350,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/attributecategories'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -357,7 +359,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		findElementAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, elementCategory, elementDescriptionFilter, elementNameFilter, elementTemplate, elementType, maxCount, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -366,102 +368,102 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/elementattributes'), collapse = "")
 			if (missing(attributeCategory) == FALSE && is.null(attributeCategory) == FALSE && attributeCategory != "") {
-				queryParameters$attributeCategory <- attributeCategory
+				qs$add('attributeCategory', attributeCategory, FALSE);
 				if (is.character(attributeCategory) == FALSE) {
 					return (print(paste0("Error: attributeCategory must be a string.")))
 				}
 			}
 			if (missing(attributeDescriptionFilter) == FALSE && is.null(attributeDescriptionFilter) == FALSE && attributeDescriptionFilter != "") {
-				queryParameters$attributeDescriptionFilter <- attributeDescriptionFilter
+				qs$add('attributeDescriptionFilter', attributeDescriptionFilter, FALSE);
 				if (is.character(attributeDescriptionFilter) == FALSE) {
 					return (print(paste0("Error: attributeDescriptionFilter must be a string.")))
 				}
 			}
 			if (missing(attributeNameFilter) == FALSE && is.null(attributeNameFilter) == FALSE && attributeNameFilter != "") {
-				queryParameters$attributeNameFilter <- attributeNameFilter
+				qs$add('attributeNameFilter', attributeNameFilter, FALSE);
 				if (is.character(attributeNameFilter) == FALSE) {
 					return (print(paste0("Error: attributeNameFilter must be a string.")))
 				}
 			}
 			if (missing(attributeType) == FALSE && is.null(attributeType) == FALSE && attributeType != "") {
-				queryParameters$attributeType <- attributeType
+				qs$add('attributeType', attributeType, FALSE);
 				if (is.character(attributeType) == FALSE) {
 					return (print(paste0("Error: attributeType must be a string.")))
 				}
 			}
 			if (missing(elementCategory) == FALSE && is.null(elementCategory) == FALSE && elementCategory != "") {
-				queryParameters$elementCategory <- elementCategory
+				qs$add('elementCategory', elementCategory, FALSE);
 				if (is.character(elementCategory) == FALSE) {
 					return (print(paste0("Error: elementCategory must be a string.")))
 				}
 			}
 			if (missing(elementDescriptionFilter) == FALSE && is.null(elementDescriptionFilter) == FALSE && elementDescriptionFilter != "") {
-				queryParameters$elementDescriptionFilter <- elementDescriptionFilter
+				qs$add('elementDescriptionFilter', elementDescriptionFilter, FALSE);
 				if (is.character(elementDescriptionFilter) == FALSE) {
 					return (print(paste0("Error: elementDescriptionFilter must be a string.")))
 				}
 			}
 			if (missing(elementNameFilter) == FALSE && is.null(elementNameFilter) == FALSE && elementNameFilter != "") {
-				queryParameters$elementNameFilter <- elementNameFilter
+				qs$add('elementNameFilter', elementNameFilter, FALSE);
 				if (is.character(elementNameFilter) == FALSE) {
 					return (print(paste0("Error: elementNameFilter must be a string.")))
 				}
 			}
 			if (missing(elementTemplate) == FALSE && is.null(elementTemplate) == FALSE && elementTemplate != "") {
-				queryParameters$elementTemplate <- elementTemplate
+				qs$add('elementTemplate', elementTemplate, FALSE);
 				if (is.character(elementTemplate) == FALSE) {
 					return (print(paste0("Error: elementTemplate must be a string.")))
 				}
 			}
 			if (missing(elementType) == FALSE && is.null(elementType) == FALSE && elementType != "") {
-				queryParameters$elementType <- elementType
+				qs$add('elementType', elementType, FALSE);
 				if (is.character(elementType) == FALSE) {
 					return (print(paste0("Error: elementType must be a string.")))
 				}
 			}
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
-				queryParameters$startIndex <- startIndex
+				qs$add('startIndex', startIndex, FALSE);
 				if (check.integer(startIndex) == FALSE) {
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAttribute"
@@ -469,7 +471,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		getElementCategories = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -478,18 +480,18 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/elementcategories'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsElementCategory"
@@ -497,7 +499,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createElementCategory = function(webId, PIElementCategory, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -513,7 +515,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/elementcategories'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -522,7 +524,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getElements = function(webId, categoryName, descriptionFilter, elementType, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, templateName, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -531,78 +533,78 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/elements'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(descriptionFilter) == FALSE && is.null(descriptionFilter) == FALSE && descriptionFilter != "") {
-				queryParameters$descriptionFilter <- descriptionFilter
+				qs$add('descriptionFilter', descriptionFilter, FALSE);
 				if (is.character(descriptionFilter) == FALSE) {
 					return (print(paste0("Error: descriptionFilter must be a string.")))
 				}
 			}
 			if (missing(elementType) == FALSE && is.null(elementType) == FALSE && elementType != "") {
-				queryParameters$elementType <- elementType
+				qs$add('elementType', elementType, FALSE);
 				if (is.character(elementType) == FALSE) {
 					return (print(paste0("Error: elementType must be a string.")))
 				}
 			}
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
-				queryParameters$startIndex <- startIndex
+				qs$add('startIndex', startIndex, FALSE);
 				if (check.integer(startIndex) == FALSE) {
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsElement"
@@ -610,7 +612,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createElement = function(webId, PIElement, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -626,7 +628,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/elements'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -635,7 +637,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getElementTemplates = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType) {
-			queryParameters <- generateListForQueryString(field, "field")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -648,44 +650,45 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			if (is.vector(field) == FALSE) {
 				return (print(paste0("Error: field must be a vector.")))
 			}
+			qs$add('field', field, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/elementtemplates'), collapse = "")
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(query) == FALSE && is.null(query) == FALSE && query != "") {
-				queryParameters$query <- query
+				qs$add('query', query, FALSE);
 				if (is.character(query) == FALSE) {
 					return (print(paste0("Error: query must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsElementTemplate"
@@ -693,7 +696,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createElementTemplate = function(webId, PIElementTemplate, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -709,7 +712,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/elementtemplates'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -718,7 +721,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getEnumerationSets = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -727,18 +730,18 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/enumerationsets'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsEnumerationSet"
@@ -746,7 +749,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createEnumerationSet = function(webId, PIEnumerationSet, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -762,7 +765,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/enumerationsets'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -771,7 +774,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		findEventFrameAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -780,120 +783,120 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/eventframeattributes'), collapse = "")
 			if (missing(attributeCategory) == FALSE && is.null(attributeCategory) == FALSE && attributeCategory != "") {
-				queryParameters$attributeCategory <- attributeCategory
+				qs$add('attributeCategory', attributeCategory, FALSE);
 				if (is.character(attributeCategory) == FALSE) {
 					return (print(paste0("Error: attributeCategory must be a string.")))
 				}
 			}
 			if (missing(attributeDescriptionFilter) == FALSE && is.null(attributeDescriptionFilter) == FALSE && attributeDescriptionFilter != "") {
-				queryParameters$attributeDescriptionFilter <- attributeDescriptionFilter
+				qs$add('attributeDescriptionFilter', attributeDescriptionFilter, FALSE);
 				if (is.character(attributeDescriptionFilter) == FALSE) {
 					return (print(paste0("Error: attributeDescriptionFilter must be a string.")))
 				}
 			}
 			if (missing(attributeNameFilter) == FALSE && is.null(attributeNameFilter) == FALSE && attributeNameFilter != "") {
-				queryParameters$attributeNameFilter <- attributeNameFilter
+				qs$add('attributeNameFilter', attributeNameFilter, FALSE);
 				if (is.character(attributeNameFilter) == FALSE) {
 					return (print(paste0("Error: attributeNameFilter must be a string.")))
 				}
 			}
 			if (missing(attributeType) == FALSE && is.null(attributeType) == FALSE && attributeType != "") {
-				queryParameters$attributeType <- attributeType
+				qs$add('attributeType', attributeType, FALSE);
 				if (is.character(attributeType) == FALSE) {
 					return (print(paste0("Error: attributeType must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(eventFrameCategory) == FALSE && is.null(eventFrameCategory) == FALSE && eventFrameCategory != "") {
-				queryParameters$eventFrameCategory <- eventFrameCategory
+				qs$add('eventFrameCategory', eventFrameCategory, FALSE);
 				if (is.character(eventFrameCategory) == FALSE) {
 					return (print(paste0("Error: eventFrameCategory must be a string.")))
 				}
 			}
 			if (missing(eventFrameDescriptionFilter) == FALSE && is.null(eventFrameDescriptionFilter) == FALSE && eventFrameDescriptionFilter != "") {
-				queryParameters$eventFrameDescriptionFilter <- eventFrameDescriptionFilter
+				qs$add('eventFrameDescriptionFilter', eventFrameDescriptionFilter, FALSE);
 				if (is.character(eventFrameDescriptionFilter) == FALSE) {
 					return (print(paste0("Error: eventFrameDescriptionFilter must be a string.")))
 				}
 			}
 			if (missing(eventFrameNameFilter) == FALSE && is.null(eventFrameNameFilter) == FALSE && eventFrameNameFilter != "") {
-				queryParameters$eventFrameNameFilter <- eventFrameNameFilter
+				qs$add('eventFrameNameFilter', eventFrameNameFilter, FALSE);
 				if (is.character(eventFrameNameFilter) == FALSE) {
 					return (print(paste0("Error: eventFrameNameFilter must be a string.")))
 				}
 			}
 			if (missing(eventFrameTemplate) == FALSE && is.null(eventFrameTemplate) == FALSE && eventFrameTemplate != "") {
-				queryParameters$eventFrameTemplate <- eventFrameTemplate
+				qs$add('eventFrameTemplate', eventFrameTemplate, FALSE);
 				if (is.character(eventFrameTemplate) == FALSE) {
 					return (print(paste0("Error: eventFrameTemplate must be a string.")))
 				}
 			}
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(referencedElementNameFilter) == FALSE && is.null(referencedElementNameFilter) == FALSE && referencedElementNameFilter != "") {
-				queryParameters$referencedElementNameFilter <- referencedElementNameFilter
+				qs$add('referencedElementNameFilter', referencedElementNameFilter, FALSE);
 				if (is.character(referencedElementNameFilter) == FALSE) {
 					return (print(paste0("Error: referencedElementNameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(searchMode) == FALSE && is.null(searchMode) == FALSE && searchMode != "") {
-				queryParameters$searchMode <- searchMode
+				qs$add('searchMode', searchMode, FALSE);
 				if (is.character(searchMode) == FALSE) {
 					return (print(paste0("Error: searchMode must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
-				queryParameters$startIndex <- startIndex
+				qs$add('startIndex', startIndex, FALSE);
 				if (check.integer(startIndex) == FALSE) {
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAttribute"
@@ -901,7 +904,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		getEventFrames = function(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, referencedElementTemplateName, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName, webIdType) {
-			queryParameters <- generateListForQueryString(severity, "severity")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -910,114 +913,114 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/eventframes'), collapse = "")
 			if (missing(canBeAcknowledged) == FALSE && is.null(canBeAcknowledged) == FALSE && canBeAcknowledged != "") {
-				queryParameters$canBeAcknowledged <- canBeAcknowledged
+				qs$add('canBeAcknowledged', canBeAcknowledged, FALSE);
 				if (is.logical(canBeAcknowledged) == FALSE) {
 					return (print(paste0("Error: canBeAcknowledged must be a boolean.")))
 				}
 			}
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(isAcknowledged) == FALSE && is.null(isAcknowledged) == FALSE && isAcknowledged != "") {
-				queryParameters$isAcknowledged <- isAcknowledged
+				qs$add('isAcknowledged', isAcknowledged, FALSE);
 				if (is.logical(isAcknowledged) == FALSE) {
 					return (print(paste0("Error: isAcknowledged must be a boolean.")))
 				}
 			}
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(referencedElementNameFilter) == FALSE && is.null(referencedElementNameFilter) == FALSE && referencedElementNameFilter != "") {
-				queryParameters$referencedElementNameFilter <- referencedElementNameFilter
+				qs$add('referencedElementNameFilter', referencedElementNameFilter, FALSE);
 				if (is.character(referencedElementNameFilter) == FALSE) {
 					return (print(paste0("Error: referencedElementNameFilter must be a string.")))
 				}
 			}
 			if (missing(referencedElementTemplateName) == FALSE && is.null(referencedElementTemplateName) == FALSE && referencedElementTemplateName != "") {
-				queryParameters$referencedElementTemplateName <- referencedElementTemplateName
+				qs$add('referencedElementTemplateName', referencedElementTemplateName, FALSE);
 				if (is.character(referencedElementTemplateName) == FALSE) {
 					return (print(paste0("Error: referencedElementTemplateName must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(searchMode) == FALSE && is.null(searchMode) == FALSE && searchMode != "") {
-				queryParameters$searchMode <- searchMode
+				qs$add('searchMode', searchMode, FALSE);
 				if (is.character(searchMode) == FALSE) {
 					return (print(paste0("Error: searchMode must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(severity) == FALSE && is.null(severity) == FALSE && severity != "") {
-				queryParameters$severity <- severity
+				qs$add('severity', severity, TRUE);
 				if (is.vector(severity) == FALSE) {
 					return (print(paste0("Error: severity must be a vector.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
-				queryParameters$startIndex <- startIndex
+				qs$add('startIndex', startIndex, FALSE);
 				if (check.integer(startIndex) == FALSE) {
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsEventFrame"
@@ -1025,7 +1028,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createEventFrame = function(webId, PIEventFrame, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1041,7 +1044,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/eventframes'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -1050,7 +1053,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		export = function(webId, endTime, exportMode, startTime) {
-			queryParameters <- generateListForQueryString(exportMode, "exportMode")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1059,31 +1062,31 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/export'), collapse = "")
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(exportMode) == FALSE && is.null(exportMode) == FALSE && exportMode != "") {
-				queryParameters$exportMode <- exportMode
+				qs$add('exportMode', exportMode, TRUE);
 				if (is.vector(exportMode) == FALSE) {
 					return (print(paste0("Error: exportMode must be a vector.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 			}
 			return (contentResponse)
 		},
 		import = function(webId, importMode) {
-			queryParameters <- generateListForQueryString(importMode, "importMode")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1092,7 +1095,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/import'), collapse = "")
 			if (missing(importMode) == FALSE && is.null(importMode) == FALSE && importMode != "") {
-				queryParameters$importMode <- importMode
+				qs$add('importMode', importMode, TRUE);
 				if (is.vector(importMode) == FALSE) {
 					return (print(paste0("Error: importMode must be a vector.")))
 				}
@@ -1101,7 +1104,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getReferencedElements = function(webId, categoryName, descriptionFilter, elementType, maxCount, nameFilter, selectedFields, sortField, sortOrder, startIndex, templateName, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1110,72 +1113,72 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/referencedelements'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(descriptionFilter) == FALSE && is.null(descriptionFilter) == FALSE && descriptionFilter != "") {
-				queryParameters$descriptionFilter <- descriptionFilter
+				qs$add('descriptionFilter', descriptionFilter, FALSE);
 				if (is.character(descriptionFilter) == FALSE) {
 					return (print(paste0("Error: descriptionFilter must be a string.")))
 				}
 			}
 			if (missing(elementType) == FALSE && is.null(elementType) == FALSE && elementType != "") {
-				queryParameters$elementType <- elementType
+				qs$add('elementType', elementType, FALSE);
 				if (is.character(elementType) == FALSE) {
 					return (print(paste0("Error: elementType must be a string.")))
 				}
 			}
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startIndex) == FALSE && is.null(startIndex) == FALSE && startIndex != "") {
-				queryParameters$startIndex <- startIndex
+				qs$add('startIndex', startIndex, FALSE);
 				if (check.integer(startIndex) == FALSE) {
 					return (print(paste0("Error: startIndex must be an integer.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsElement"
@@ -1183,7 +1186,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		addReferencedElement = function(webId, referencedElementWebId, referenceType) {
-			queryParameters <- generateListForQueryString(referencedElementWebId, "referencedElementWebId")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1196,9 +1199,10 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			if (is.vector(referencedElementWebId) == FALSE) {
 				return (print(paste0("Error: referencedElementWebId must be a vector.")))
 			}
+			qs$add('referencedElementWebId', referencedElementWebId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/referencedelements'), collapse = "")
 			if (missing(referenceType) == FALSE && is.null(referenceType) == FALSE && referenceType != "") {
-				queryParameters$referenceType <- referenceType
+				qs$add('referenceType', referenceType, FALSE);
 				if (is.character(referenceType) == FALSE) {
 					return (print(paste0("Error: referenceType must be a string.")))
 				}
@@ -1207,7 +1211,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		removeReferencedElement = function(webId, referencedElementWebId) {
-			queryParameters <- generateListForQueryString(referencedElementWebId, "referencedElementWebId")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1220,12 +1224,13 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			if (is.vector(referencedElementWebId) == FALSE) {
 				return (print(paste0("Error: referencedElementWebId must be a vector.")))
 			}
+			qs$add('referencedElementWebId', referencedElementWebId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/referencedelements'), collapse = "")
 			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurity = function(webId, securityItem, userIdentity, forceRefresh, selectedFields, webIdType) {
-			queryParameters <- generateListForTwoQueryString(securityItem, "securityItem", userIdentity, "userIdentity")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1238,32 +1243,34 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			if (is.vector(securityItem) == FALSE) {
 				return (print(paste0("Error: securityItem must be a vector.")))
 			}
+			qs$add('securityItem', securityItem, TRUE);
 			if (is.null(userIdentity) || userIdentity == "") {
 				return (paste0("Error: required parameter userIdentity was null or undefined"))
 			}
 			if (is.vector(userIdentity) == FALSE) {
 				return (print(paste0("Error: userIdentity must be a vector.")))
 			}
+			qs$add('userIdentity', userIdentity, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/security'), collapse = "")
 			if (missing(forceRefresh) == FALSE && is.null(forceRefresh) == FALSE && forceRefresh != "") {
-				queryParameters$forceRefresh <- forceRefresh
+				qs$add('forceRefresh', forceRefresh, FALSE);
 				if (is.logical(forceRefresh) == FALSE) {
 					return (print(paste0("Error: forceRefresh must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsSecurityRights"
@@ -1283,7 +1290,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		getSecurityEntries = function(webId, nameFilter, securityItem, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1292,30 +1299,30 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/securityentries'), collapse = "")
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(securityItem) == FALSE && is.null(securityItem) == FALSE && securityItem != "") {
-				queryParameters$securityItem <- securityItem
+				qs$add('securityItem', securityItem, FALSE);
 				if (is.character(securityItem) == FALSE) {
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsSecurityEntry"
@@ -1323,7 +1330,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren, securityItem, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1339,19 +1346,19 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/securityentries'), collapse = "")
 			if (missing(applyToChildren) == FALSE && is.null(applyToChildren) == FALSE && applyToChildren != "") {
-				queryParameters$applyToChildren <- applyToChildren
+				qs$add('applyToChildren', applyToChildren, FALSE);
 				if (is.logical(applyToChildren) == FALSE) {
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
 			if (missing(securityItem) == FALSE && is.null(securityItem) == FALSE && securityItem != "") {
-				queryParameters$securityItem <- securityItem
+				qs$add('securityItem', securityItem, FALSE);
 				if (is.character(securityItem) == FALSE) {
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -1360,7 +1367,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, securityItem, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
 			}
@@ -1375,24 +1382,24 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/securityentries/', name), collapse = "")
 			if (missing(securityItem) == FALSE && is.null(securityItem) == FALSE && securityItem != "") {
-				queryParameters$securityItem <- securityItem
+				qs$add('securityItem', securityItem, FALSE);
 				if (is.character(securityItem) == FALSE) {
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PISecurityEntry"
@@ -1403,7 +1410,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		updateSecurityEntry = function(name, webId, PISecurityEntry, applyToChildren, securityItem) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
 			}
@@ -1425,22 +1432,22 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/securityentries/', name), collapse = "")
 			if (missing(applyToChildren) == FALSE && is.null(applyToChildren) == FALSE && applyToChildren != "") {
-				queryParameters$applyToChildren <- applyToChildren
+				qs$add('applyToChildren', applyToChildren, FALSE);
 				if (is.logical(applyToChildren) == FALSE) {
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
 			if (missing(securityItem) == FALSE && is.null(securityItem) == FALSE && securityItem != "") {
-				queryParameters$securityItem <- securityItem
+				qs$add('securityItem', securityItem, FALSE);
 				if (is.character(securityItem) == FALSE) {
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
 			}
-			res <- putHttpRequest(localVarPath, queryParameters, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- putHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		deleteSecurityEntry = function(name, webId, applyToChildren, securityItem) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
 			}
@@ -1455,13 +1462,13 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/securityentries/', name), collapse = "")
 			if (missing(applyToChildren) == FALSE && is.null(applyToChildren) == FALSE && applyToChildren != "") {
-				queryParameters$applyToChildren <- applyToChildren
+				qs$add('applyToChildren', applyToChildren, FALSE);
 				if (is.logical(applyToChildren) == FALSE) {
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
 			if (missing(securityItem) == FALSE && is.null(securityItem) == FALSE && securityItem != "") {
-				queryParameters$securityItem <- securityItem
+				qs$add('securityItem', securityItem, FALSE);
 				if (is.character(securityItem) == FALSE) {
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
@@ -1470,7 +1477,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getTableCategories = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1479,18 +1486,18 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/tablecategories'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsTableCategory"
@@ -1498,7 +1505,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createTableCategory = function(webId, PITableCategory, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1514,7 +1521,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/tablecategories'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -1523,7 +1530,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (res)
 		},
 		getTables = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1532,18 +1539,18 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/tables'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsTable"
@@ -1551,7 +1558,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			return (contentResponse)
 		},
 		createTable = function(webId, PITable, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1567,7 +1574,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/tables'), collapse = "")
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}

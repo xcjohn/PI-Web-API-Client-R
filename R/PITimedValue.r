@@ -1,4 +1,4 @@
-PITimedValue <- function(timestamp = NULL, unitsAbbreviation = NULL, good = NULL, questionable = NULL, substituted = NULL, value = NULL, errors = NULL, webException = NULL) {
+PITimedValue <- function(timestamp = NULL, unitsAbbreviation = NULL, good = NULL, questionable = NULL, substituted = NULL, annotated = NULL, value = NULL, errors = NULL, webException = NULL) {
 	if (is.null(timestamp) == FALSE) {
 		if (is.character(timestamp) == FALSE) {
 			return (print(paste0("Error: timestamp must be a string.")))
@@ -24,6 +24,11 @@ PITimedValue <- function(timestamp = NULL, unitsAbbreviation = NULL, good = NULL
 			return (print(paste0("Error: substituted must be a boolean.")))
 		}
 	}
+	if (is.null(annotated) == FALSE) {
+		if (is.logical(annotated) == FALSE) {
+			return (print(paste0("Error: annotated must be a boolean.")))
+		}
+	}
 	if (is.null(value) == FALSE) {
 	}
 	if (is.null(errors) == FALSE) {
@@ -43,6 +48,7 @@ PITimedValue <- function(timestamp = NULL, unitsAbbreviation = NULL, good = NULL
 	Good = good,
 	Questionable = questionable,
 	Substituted = substituted,
+	Annotated = annotated,
 	Value = value,
 	Errors = errors,
 	WebException = webException)

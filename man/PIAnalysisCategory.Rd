@@ -29,6 +29,6 @@ PIAnalysisCategory
 Generate an instance of the PIAnalysisCategory PI Web API class
 }
 \examples{
-analysisCategory <- PIAnalysisCategory(webId = "I1XCDqD5loBNH0erqeqJodtALAoko2-UoOVEibhTWQCk1MDw", id = "f9364aa2-0e4a-4854-9b85-35900a4d4c0f", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesAnalysis[CategoryName]")
+analysisCategory <- PIAnalysisCategory(webId = "I1XCDqD5loBNH0erqeqJodtALAoko2-UoOVEibhTWQCk1MDw", id = "f9364aa2-0e4a-4854-9b85-35900a4d4c0f", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyAssetServer\\\\Database\\\\CategoriesAnalysis[CategoryName]")
 
 }

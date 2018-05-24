@@ -1,4 +1,4 @@
-PIAttributeTemplate <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, type = NULL, typeQualifier = NULL, defaultUnitsName = NULL, defaultValue = NULL, dataReferencePlugIn = NULL, configString = NULL, isConfigurationItem = NULL, isExcluded = NULL, isHidden = NULL, isManualDataEntry = NULL, hasChildren = NULL, categoryNames = NULL, traitName = NULL, links = NULL, webException = NULL) {
+PIAttributeTemplate <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, type = NULL, typeQualifier = NULL, defaultUnitsName = NULL, defaultValue = NULL, dataReferencePlugIn = NULL, configString = NULL, isConfigurationItem = NULL, isExcluded = NULL, isHidden = NULL, isManualDataEntry = NULL, hasChildren = NULL, categoryNames = NULL, traitName = NULL, defaultUnitsNameAbbreviation = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -89,6 +89,11 @@ PIAttributeTemplate <- function(webId = NULL, id = NULL, name = NULL, descriptio
 			return (print(paste0("Error: traitName must be a string.")))
 		}
 	}
+	if (is.null(defaultUnitsNameAbbreviation) == FALSE) {
+		if (is.character(defaultUnitsNameAbbreviation) == FALSE) {
+			return (print(paste0("Error: defaultUnitsNameAbbreviation must be a string.")))
+		}
+	}
 	if (is.null(links) == FALSE) {
 		className <- attr(links, "className")
 		if ((is.null(className)) || (className != "PIAttributeTemplateLinks")) {
@@ -120,6 +125,7 @@ PIAttributeTemplate <- function(webId = NULL, id = NULL, name = NULL, descriptio
 	HasChildren = hasChildren,
 	CategoryNames = categoryNames,
 	TraitName = traitName,
+	DefaultUnitsNameAbbreviation = defaultUnitsNameAbbreviation,
 	Links = links,
 	WebException = webException)
 	valueCleaned <- rmNullObs(value)

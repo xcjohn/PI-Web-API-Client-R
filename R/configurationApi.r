@@ -16,16 +16,16 @@ configurationApi <- R6Class("configurationApi",
 			self$debug <- debug
 		},
 		list = function() {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/system/configuration'), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 			}
 			return (contentResponse)
 		},
 		get = function(key) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(key) || key == "") {
 				return (paste0("Error: required parameter key was null or undefined"))
 			}
@@ -33,7 +33,7 @@ configurationApi <- R6Class("configurationApi",
 				return (print(paste0("Error: key must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/system/configuration/', key), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 			}
@@ -43,7 +43,7 @@ configurationApi <- R6Class("configurationApi",
 			return (contentResponse)
 		},
 		delete = function(key) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(key) || key == "") {
 				return (paste0("Error: required parameter key was null or undefined"))
 			}

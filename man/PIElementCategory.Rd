@@ -29,6 +29,6 @@ PIElementCategory
 Generate an instance of the PIElementCategory PI Web API class
 }
 \examples{
-elementCategory <- PIElementCategory(webId = "I1ECDqD5loBNH0erqeqJodtALAQ_lRME1-QUKrnEUKhMgEUA", id = "3051f943-7e4d-4241-ab9c-450a84c80450", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesElement[CategoryName]")
+elementCategory <- PIElementCategory(webId = "I1ECDqD5loBNH0erqeqJodtALAQ_lRME1-QUKrnEUKhMgEUA", id = "3051f943-7e4d-4241-ab9c-450a84c80450", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyAssetServer\\\\Database\\\\CategoriesElement[CategoryName]")
 
 }

@@ -34,6 +34,6 @@ PIUnitClass
 Generate an instance of the PIUnitClass PI Web API class
 }
 \examples{
-unitClass <- PIUnitClass(webId = "I1UCDqD5loBNH0erqeqJodtALATbkl-fxulEulDQAVw5HySQ", id = "f925b94d-6efc-4b94-a50d-0015c391f249", name = "Power", description = "Power Unit Class", canonicalUnitName = "watt", canonicalUnitAbbreviation = "W", path = "\\\\\\\\MyServer\\\\UOMDatabase\\\\UOMClasses[Power]")
+unitClass <- PIUnitClass(webId = "I1UCDqD5loBNH0erqeqJodtALATbkl-fxulEulDQAVw5HySQ", id = "f925b94d-6efc-4b94-a50d-0015c391f249", name = "Power", description = "Power Unit Class", canonicalUnitName = "watt", canonicalUnitAbbreviation = "W", path = "\\\\\\\\MyAssetServer\\\\UOMDatabase\\\\UOMClasses[Power]")
 
 }

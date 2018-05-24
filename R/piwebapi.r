@@ -2,6 +2,7 @@ library(R6)
 library(httr)
 library(rjson)
 
+
 piwebapi <- R6Class("piwebapi",
 	private = list(),
 	public = list(
@@ -33,6 +34,10 @@ piwebapi <- R6Class("piwebapi",
 		enumerationSet = NULL,
 		enumerationValue = NULL,
 		eventFrame = NULL,
+		notificationContactTemplate = NULL,
+		notificationRule = NULL,
+		notificationRuleSubscriber = NULL,
+		notificationRuleTemplate = NULL,
 		point = NULL,
 		securityIdentity = NULL,
 		securityMapping = NULL,
@@ -83,6 +88,10 @@ piwebapi <- R6Class("piwebapi",
 			self$enumerationSet = enumerationSetApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
 			self$enumerationValue = enumerationValueApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
 			self$eventFrame = eventFrameApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
+			self$notificationContactTemplate = notificationContactTemplateApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
+			self$notificationRule = notificationRuleApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
+			self$notificationRuleSubscriber = notificationRuleSubscriberApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
+			self$notificationRuleTemplate = notificationRuleTemplateApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
 			self$point = pointApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
 			self$securityIdentity = securityIdentityApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)
 			self$securityMapping = securityMappingApi$new(self$serviceBase, self$authType, self$username, self$password, self$validateSSL, self$debug)

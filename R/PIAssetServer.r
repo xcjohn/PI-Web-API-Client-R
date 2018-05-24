@@ -1,4 +1,4 @@
-PIAssetServer <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, isConnected = NULL, serverVersion = NULL, extendedProperties = NULL, links = NULL, webException = NULL) {
+PIAssetServer <- function(webId = NULL, id = NULL, name = NULL, description = NULL, path = NULL, isConnected = NULL, serverVersion = NULL, serverTime = NULL, extendedProperties = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -34,6 +34,11 @@ PIAssetServer <- function(webId = NULL, id = NULL, name = NULL, description = NU
 			return (print(paste0("Error: serverVersion must be a string.")))
 		}
 	}
+	if (is.null(serverTime) == FALSE) {
+		if (is.character(serverTime) == FALSE) {
+			return (print(paste0("Error: serverTime must be a string.")))
+		}
+	}
 	if (is.null(extendedProperties) == FALSE) {
 	}
 	if (is.null(links) == FALSE) {
@@ -56,6 +61,7 @@ PIAssetServer <- function(webId = NULL, id = NULL, name = NULL, description = NU
 	Path = path,
 	IsConnected = isConnected,
 	ServerVersion = serverVersion,
+	ServerTime = serverTime,
 	ExtendedProperties = extendedProperties,
 	Links = links,
 	WebException = webException)

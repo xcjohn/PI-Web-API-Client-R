@@ -5,14 +5,16 @@
 \title{Generate an instance of the PIAssetServerLinks PI Web API class}
 \usage{
 PIAssetServerLinks(self = NULL, databases = NULL,
-  securityIdentities = NULL, securityMappings = NULL, unitClasses = NULL,
-  analysisRulePlugIns = NULL, timeRulePlugIns = NULL, security = NULL,
-  securityEntries = NULL)
+  notificationContactTemplates = NULL, securityIdentities = NULL,
+  securityMappings = NULL, unitClasses = NULL, analysisRulePlugIns = NULL,
+  timeRulePlugIns = NULL, security = NULL, securityEntries = NULL)
 }
 \arguments{
 \item{self}{(string)}
 
 \item{databases}{(string)}
+
+\item{notificationContactTemplates}{(string)}
 
 \item{securityIdentities}{(string)}
 
@@ -35,6 +37,6 @@ PIAssetServerLinks
 Generate an instance of the PIAssetServerLinks PI Web API class
 }
 \examples{
-assetServerLinks <- PIAssetServerLinks(self = "", databases = "", securityIdentities = "", securityMappings = "", unitClasses = "", analysisRulePlugIns = "", timeRulePlugIns = "", security = "", securityEntries = "")
+assetServerLinks <- PIAssetServerLinks(self = "", databases = "", notificationContactTemplates = "", securityIdentities = "", securityMappings = "", unitClasses = "", analysisRulePlugIns = "", timeRulePlugIns = "", security = "", securityEntries = "")
 
 }

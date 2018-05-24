@@ -39,6 +39,6 @@ PIElement
 Generate an instance of the PIElement PI Web API class
 }
 \examples{
-element <- PIElement(webId = "I1EmDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBA", id = "cbb28260-853d-11e4-80c5-00155d844304", name = "B-210", description = "Boiler B-210", path = "\\\\\\\\MyServer\\\\NuGreen\\\\NuGreen\\\\Houston\\\\Cracking Process\\\\Equipment\\\\B-210", templateName = "Boiler", hasChildren = FALSE)
+element <- PIElement(webId = "I1EmDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBA", id = "cbb28260-853d-11e4-80c5-00155d844304", name = "MachineName", description = "Manufacturing Equipment MachineName", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\CityName\\\\EngineeringProcess\\\\Equipment\\\\MachineName", templateName = "MachineName", hasChildren = FALSE)
 
 }

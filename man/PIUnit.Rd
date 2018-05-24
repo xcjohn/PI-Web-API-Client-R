@@ -43,6 +43,6 @@ PIUnit
 Generate an instance of the PIUnit PI Web API class
 }
 \examples{
-unit <- PIUnit(webId = "I1UtDqD5loBNH0erqeqJodtALAjqwhgeI8lEeV4xeD1db0_A", id = "8121ac8e-3ce2-4794-95e3-1783d5d6f4fc", name = "Hertz", abbreviation = "Hz", description = "Hertz Unit", path = "\\\\\\\\MyServer\\\\UOMDatabase\\\\Hertz", referenceUnitAbbreviation = "")
+unit <- PIUnit(webId = "I1UtDqD5loBNH0erqeqJodtALAjqwhgeI8lEeV4xeD1db0_A", id = "8121ac8e-3ce2-4794-95e3-1783d5d6f4fc", name = "Hertz", abbreviation = "Hz", description = "Hertz Unit", path = "\\\\\\\\MyAssetServer\\\\UOMDatabase\\\\Hertz", referenceUnitAbbreviation = "")
 
 }

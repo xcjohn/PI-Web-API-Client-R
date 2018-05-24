@@ -36,6 +36,6 @@ PITable
 Generate an instance of the PITable PI Web API class
 }
 \examples{
-table <- PITable(webId = "I1BlDqD5loBNH0erqeqJodtALAmLr4X86Jmkeynt3QVwlqXw", id = "5ff8ba98-89ce-479a-b29e-ddd057096a5f", name = "CarInfo", description = "Table of car info.", path = "\\\\\\\\MyServer\\\\MyDatabase\\\\Tables[CarInfo]", timeZone = "Eastern Standard Time", convertToLocalTime = FALSE)
+table <- PITable(webId = "I1BlDqD5loBNH0erqeqJodtALAmLr4X86Jmkeynt3QVwlqXw", id = "5ff8ba98-89ce-479a-b29e-ddd057096a5f", name = "CarInfo", description = "Table of car info.", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\Tables[CarInfo]", timeZone = "Eastern Standard Time", convertToLocalTime = FALSE)
 
 }

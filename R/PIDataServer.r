@@ -1,4 +1,4 @@
-PIDataServer <- function(webId = NULL, id = NULL, name = NULL, path = NULL, isConnected = NULL, serverVersion = NULL, links = NULL, webException = NULL) {
+PIDataServer <- function(webId = NULL, id = NULL, name = NULL, path = NULL, isConnected = NULL, serverVersion = NULL, serverTime = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -29,6 +29,11 @@ PIDataServer <- function(webId = NULL, id = NULL, name = NULL, path = NULL, isCo
 			return (print(paste0("Error: serverVersion must be a string.")))
 		}
 	}
+	if (is.null(serverTime) == FALSE) {
+		if (is.character(serverTime) == FALSE) {
+			return (print(paste0("Error: serverTime must be a string.")))
+		}
+	}
 	if (is.null(links) == FALSE) {
 		className <- attr(links, "className")
 		if ((is.null(className)) || (className != "PIDataServerLinks")) {
@@ -48,6 +53,7 @@ PIDataServer <- function(webId = NULL, id = NULL, name = NULL, path = NULL, isCo
 	Path = path,
 	IsConnected = isConnected,
 	ServerVersion = serverVersion,
+	ServerTime = serverTime,
 	Links = links,
 	WebException = webException)
 	valueCleaned <- rmNullObs(value)

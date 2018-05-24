@@ -6,8 +6,9 @@
 \usage{
 PIElementTemplateLinks(self = NULL, analysisTemplates = NULL,
   attributeTemplates = NULL, database = NULL, categories = NULL,
-  baseTemplate = NULL, defaultAttribute = NULL, security = NULL,
-  securityEntries = NULL)
+  baseTemplate = NULL, baseTemplates = NULL, derivedTemplates = NULL,
+  defaultAttribute = NULL, notificationRuleTemplates = NULL,
+  security = NULL, securityEntries = NULL)
 }
 \arguments{
 \item{self}{(string)}
@@ -22,7 +23,13 @@ PIElementTemplateLinks(self = NULL, analysisTemplates = NULL,
 
 \item{baseTemplate}{(string)}
 
+\item{baseTemplates}{(string)}
+
+\item{derivedTemplates}{(string)}
+
 \item{defaultAttribute}{(string)}
+
+\item{notificationRuleTemplates}{(string)}
 
 \item{security}{(string)}
 
@@ -35,6 +42,6 @@ PIElementTemplateLinks
 Generate an instance of the PIElementTemplateLinks PI Web API class
 }
 \examples{
-elementTemplateLinks <- PIElementTemplateLinks(self = "", analysisTemplates = "", attributeTemplates = "", database = "", categories = "", baseTemplate = "", defaultAttribute = "", security = "", securityEntries = "")
+elementTemplateLinks <- PIElementTemplateLinks(self = "", analysisTemplates = "", attributeTemplates = "", database = "", categories = "", baseTemplate = "", baseTemplates = "", derivedTemplates = "", defaultAttribute = "", notificationRuleTemplates = "", security = "", securityEntries = "")
 
 }

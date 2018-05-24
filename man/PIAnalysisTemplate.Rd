@@ -51,6 +51,6 @@ PIAnalysisTemplate
 Generate an instance of the PIAnalysisTemplate PI Web API class
 }
 \examples{
-analysisTemplate <- PIAnalysisTemplate(webId = "I1XTG_auSSsvuECG8ad_p8b25QEZgtYQY_J06YnELl5cALiA", id = "612d9811-3f06-4e27-989c-42e5e5c00b88", name = "MyAnalysisTemplate", description = "", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\AnalysisTemplates[MyAnalysisTemplate]", analysisRulePlugInName = "PerformanceEquation", createEnabled = FALSE, groupId = 0, hasNotificationTemplate = FALSE, hasTarget = FALSE, outputTime = "", targetName = "MyElementTemplate", timeRulePlugInName = "Periodic")
+analysisTemplate <- PIAnalysisTemplate(webId = "I1XTG_auSSsvuECG8ad_p8b25QEZgtYQY_J06YnELl5cALiA", id = "612d9811-3f06-4e27-989c-42e5e5c00b88", name = "MyAnalysisTemplate", description = "", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\AnalysisTemplates[MyAnalysisTemplate]", analysisRulePlugInName = "PerformanceEquation", createEnabled = FALSE, groupId = 0, hasNotificationTemplate = FALSE, hasTarget = FALSE, outputTime = "", targetName = "MyElementTemplate", timeRulePlugInName = "Periodic")
 
 }

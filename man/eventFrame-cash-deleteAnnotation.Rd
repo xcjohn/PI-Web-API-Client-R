@@ -2,7 +2,7 @@
 % Please edit documentation in R/eventFrameApi.r
 \name{eventFrame$deleteAnnotation}
 \alias{eventFrame$deleteAnnotation}
-\title{Delete an annotation on an event frame.}
+\title{Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.}
 \arguments{
 \item{id}{The Annotation identifier of the annotation to be deleted.}
 
@@ -12,5 +12,5 @@
 The annotation was deleted.
 }
 \description{
-Delete an annotation on an event frame.
+Delete an annotation on an event frame. If the annotation has attached media, the attached media will also be deleted.
 }

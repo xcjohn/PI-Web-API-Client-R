@@ -29,6 +29,6 @@ PITableCategory
 Generate an instance of the PITableCategory PI Web API class
 }
 \examples{
-tableCategory <- PITableCategory(webId = "I1BCDqD5loBNH0erqeqJodtALAwgzHiSFSd06HP4lKPqYefQ", id = "89c70cc2-5221-4e77-873f-894a3ea61e7d", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyServer\\\\Database\\\\CategoriesTable[CategoryName]")
+tableCategory <- PITableCategory(webId = "I1BCDqD5loBNH0erqeqJodtALAwgzHiSFSd06HP4lKPqYefQ", id = "89c70cc2-5221-4e77-873f-894a3ea61e7d", name = "CategoryName", description = "Relative energy use per ton of process feed.", path = "\\\\\\\\MyAssetServer\\\\Database\\\\CategoriesTable[CategoryName]")
 
 }

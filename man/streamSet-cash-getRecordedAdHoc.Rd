@@ -18,7 +18,7 @@
 
 \item{selectedFields}{List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.}
 
-\item{sortField}{The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.}
+\item{sortField}{The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.}
 
 \item{sortOrder}{The order that the returned collection is sorted. The default is 'Ascending'}
 

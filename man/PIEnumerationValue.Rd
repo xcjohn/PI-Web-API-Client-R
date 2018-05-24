@@ -46,6 +46,6 @@ PIEnumerationValue
 Generate an instance of the PIEnumerationValue PI Web API class
 }
 \examples{
-enumerationValue <- PIEnumerationValue(webId = "I1MVRDqD5loBNH0erqeqJodtALAT_x3jpGsKUCB1vtmvQHUMQlIYqmOlvs0ygEQnSeGSe7w", id = "982a8694-6fe9-4cb3-a011-09d278649eef", name = "BMW|M3", description = "Model Number of BMW", value = 2005, path = "\\\\\\\\MyServer\\\\NuGreen\\\\EnumerationSets[Model Number]\\\\BMW|M3", parent = "BMW", serializeWebId = FALSE, serializeId = FALSE, serializeDescription = FALSE, serializePath = FALSE, serializeLinks = FALSE)
+enumerationValue <- PIEnumerationValue(webId = "I1MVRDqD5loBNH0erqeqJodtALAT_x3jpGsKUCB1vtmvQHUMQlIYqmOlvs0ygEQnSeGSe7w", id = "982a8694-6fe9-4cb3-a011-09d278649eef", name = "CarBrand|Model3", description = "Model Number of CarBrand", value = 2005, path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\EnumerationSets[Model Number]\\\\CarBrand|Model3", parent = "CarBrand", serializeWebId = FALSE, serializeId = FALSE, serializeDescription = FALSE, serializePath = FALSE, serializeLinks = FALSE)
 
 }

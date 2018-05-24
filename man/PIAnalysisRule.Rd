@@ -50,6 +50,6 @@ PIAnalysisRule
 Generate an instance of the PIAnalysisRule PI Web API class
 }
 \examples{
-analysisRule <- PIAnalysisRule(webId = "I1XRXDqD5loBNH0erqeqJodtALAfyWdysKU5xGEQwAVXYTCAAfyWdysKU5xGEQwAVXYTCAA", id = "ca9d257f-94c2-11e7-8443-00155d84c200", name = "PerformanceEquation", description = "Runs a performance equation.", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\AnalysisRule", configString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", displayString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", editorType = "OSIsoft.AF.Analysis.AnalysisRule.PEAnalysisRuleEditor", hasChildren = FALSE, isConfigured = FALSE, isInitializing = FALSE, plugInName = "PerformanceEquation", variableMapping = "b||Attribute1;c||Attribute2")
+analysisRule <- PIAnalysisRule(webId = "I1XRXDqD5loBNH0erqeqJodtALAfyWdysKU5xGEQwAVXYTCAAfyWdysKU5xGEQwAVXYTCAA", id = "ca9d257f-94c2-11e7-8443-00155d84c200", name = "PerformanceEquation", description = "Runs a performance equation.", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]\\\\AnalysisRule", configString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", displayString = "a := TagVal('sinusoid'); b := Pow(a, 2); c := a + b;", editorType = "OSIsoft.AF.Analysis.AnalysisRule.PEAnalysisRuleEditor", hasChildren = FALSE, isConfigured = FALSE, isInitializing = FALSE, plugInName = "PerformanceEquation", variableMapping = "b||Attribute1;c||Attribute2")
 
 }

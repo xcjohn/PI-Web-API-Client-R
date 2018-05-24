@@ -1,4 +1,4 @@
-PIElementTemplateLinks <- function(self = NULL, analysisTemplates = NULL, attributeTemplates = NULL, database = NULL, categories = NULL, baseTemplate = NULL, defaultAttribute = NULL, security = NULL, securityEntries = NULL) {
+PIElementTemplateLinks <- function(self = NULL, analysisTemplates = NULL, attributeTemplates = NULL, database = NULL, categories = NULL, baseTemplate = NULL, baseTemplates = NULL, derivedTemplates = NULL, defaultAttribute = NULL, notificationRuleTemplates = NULL, security = NULL, securityEntries = NULL) {
 	if (is.null(self) == FALSE) {
 		if (is.character(self) == FALSE) {
 			return (print(paste0("Error: self must be a string.")))
@@ -29,9 +29,24 @@ PIElementTemplateLinks <- function(self = NULL, analysisTemplates = NULL, attrib
 			return (print(paste0("Error: baseTemplate must be a string.")))
 		}
 	}
+	if (is.null(baseTemplates) == FALSE) {
+		if (is.character(baseTemplates) == FALSE) {
+			return (print(paste0("Error: baseTemplates must be a string.")))
+		}
+	}
+	if (is.null(derivedTemplates) == FALSE) {
+		if (is.character(derivedTemplates) == FALSE) {
+			return (print(paste0("Error: derivedTemplates must be a string.")))
+		}
+	}
 	if (is.null(defaultAttribute) == FALSE) {
 		if (is.character(defaultAttribute) == FALSE) {
 			return (print(paste0("Error: defaultAttribute must be a string.")))
+		}
+	}
+	if (is.null(notificationRuleTemplates) == FALSE) {
+		if (is.character(notificationRuleTemplates) == FALSE) {
+			return (print(paste0("Error: notificationRuleTemplates must be a string.")))
 		}
 	}
 	if (is.null(security) == FALSE) {
@@ -51,7 +66,10 @@ PIElementTemplateLinks <- function(self = NULL, analysisTemplates = NULL, attrib
 	Database = database,
 	Categories = categories,
 	BaseTemplate = baseTemplate,
+	BaseTemplates = baseTemplates,
+	DerivedTemplates = derivedTemplates,
 	DefaultAttribute = defaultAttribute,
+	NotificationRuleTemplates = notificationRuleTemplates,
 	Security = security,
 	SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)

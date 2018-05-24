@@ -16,7 +16,7 @@ batchApi <- R6Class("batchApi",
 			self$debug <- debug
 		},
 		execute = function(batch) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(batch) || batch == "") {
 				return (paste0("Error: required parameter batch was null or undefined"))
 			}

@@ -6,7 +6,8 @@
 \usage{
 PIAssetServer(webId = NULL, id = NULL, name = NULL, description = NULL,
   path = NULL, isConnected = NULL, serverVersion = NULL,
-  extendedProperties = NULL, links = NULL, webException = NULL)
+  serverTime = NULL, extendedProperties = NULL, links = NULL,
+  webException = NULL)
 }
 \arguments{
 \item{webId}{(string)}
@@ -23,6 +24,8 @@ PIAssetServer(webId = NULL, id = NULL, name = NULL, description = NULL,
 
 \item{serverVersion}{(string)}
 
+\item{serverTime}{(string)}
+
 \item{extendedProperties}{(object)}
 
 \item{links}{()}
@@ -36,6 +39,6 @@ PIAssetServer
 Generate an instance of the PIAssetServer PI Web API class
 }
 \examples{
-assetServer <- PIAssetServer(webId = "I1RSDqD5loBNH0erqeqJodtALA", id = "96f9a00e-4d80-471f-aba9-ea89a1db402c", name = "MyServer", description = "Sample Description", path = "\\\\\\\\MyServer", isConnected = FALSE, serverVersion = "2.5.0.5039")
+assetServer <- PIAssetServer(webId = "I1RSDqD5loBNH0erqeqJodtALA", id = "96f9a00e-4d80-471f-aba9-ea89a1db402c", name = "MyAssetServer", description = "Sample Description", path = "\\\\\\\\MyAssetServer", isConnected = FALSE, serverVersion = "2.5.0.5039", serverTime = "7/22/2014 2:00:00 PM")
 
 }

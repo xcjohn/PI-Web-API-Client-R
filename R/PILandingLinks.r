@@ -1,4 +1,4 @@
-PILandingLinks <- function(self = NULL, assetServers = NULL, dataServers = NULL, search = NULL, system = NULL) {
+PILandingLinks <- function(self = NULL, assetServers = NULL, dataServers = NULL, pIDirectory = NULL, search = NULL, system = NULL) {
 	if (is.null(self) == FALSE) {
 		if (is.character(self) == FALSE) {
 			return (print(paste0("Error: self must be a string.")))
@@ -12,6 +12,11 @@ PILandingLinks <- function(self = NULL, assetServers = NULL, dataServers = NULL,
 	if (is.null(dataServers) == FALSE) {
 		if (is.character(dataServers) == FALSE) {
 			return (print(paste0("Error: dataServers must be a string.")))
+		}
+	}
+	if (is.null(pIDirectory) == FALSE) {
+		if (is.character(pIDirectory) == FALSE) {
+			return (print(paste0("Error: pIDirectory must be a string.")))
 		}
 	}
 	if (is.null(search) == FALSE) {
@@ -28,6 +33,7 @@ PILandingLinks <- function(self = NULL, assetServers = NULL, dataServers = NULL,
 	Self = self,
 	AssetServers = assetServers,
 	DataServers = dataServers,
+	PIDirectory = pIDirectory,
 	Search = search,
 	System = system)
 	valueCleaned <- rmNullObs(value)

@@ -29,6 +29,6 @@ PIStreamValues
 Generate an instance of the PIStreamValues PI Web API class
 }
 \examples{
-streamValues <- PIStreamValues(webId = "I1AbEDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBAGyPedZG1sUmxOOclp3Flwg", name = "Water", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement|Water", unitsAbbreviation = "m")
+streamValues <- PIStreamValues(webId = "I1AbEDqD5loBNH0erqeqJodtALAYIKyyz2F5BGAxQAVXYRDBAGyPedZG1sUmxOOclp3Flwg", name = "Water", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\MyElement|Water", unitsAbbreviation = "m")
 
 }

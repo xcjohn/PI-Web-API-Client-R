@@ -5,16 +5,16 @@
 \title{Generate an instance of the PISearchByAttribute PI Web API class}
 \usage{
 PISearchByAttribute(searchRoot = NULL, elementTemplate = NULL,
-  items = NULL, webException = NULL)
+  webException = NULL, valueQueries = NULL)
 }
 \arguments{
 \item{searchRoot}{(string)}
 
 \item{elementTemplate}{(string)}
 
-\item{items}{(array)}
-
 \item{webException}{()}
+
+\item{valueQueries}{(array)}
 }
 \value{
 PISearchByAttribute
@@ -23,6 +23,6 @@ PISearchByAttribute
 Generate an instance of the PISearchByAttribute PI Web API class
 }
 \examples{
-searchByAttribute <- PISearchByAttribute(searchRoot = "F1FmDqD5loBNH0erqeqJodtALADqD5loBNH0cAAAAAACR1_wUkVTVFVOSVRcQUVGVEVTVFxFVkVOVEZSQU1FU1t-QC9FRl4jXQ", elementTemplate = "F1ETDqD5loBNH0erqeqJodtALAkzfYXwSS9kmTgO1h1pM7ngUkVTVFVOSVRcQUVGVEVTVFxFTEVNRU5UVEVNUExBVEVTW1hYWFhd")
+searchByAttribute <- PISearchByAttribute(searchRoot = "I1RDDqD5loBNH0erqeqJodtALA8fbgUnyQW02v-gLGIxumSg", elementTemplate = "I1ETDqD5loBNH0erqeqJodtALAjFPVfUpY-02A8uioGDSgIg")
 
 }

@@ -1,4 +1,4 @@
-PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descriptor = NULL, pointClass = NULL, pointType = NULL, digitalSetName = NULL, engineeringUnits = NULL, step = NULL, future = NULL, links = NULL, webException = NULL) {
+PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descriptor = NULL, pointClass = NULL, pointType = NULL, digitalSetName = NULL, span = NULL, zero = NULL, engineeringUnits = NULL, step = NULL, future = NULL, displayDigits = NULL, links = NULL, webException = NULL) {
 	if (is.null(webId) == FALSE) {
 		if (is.character(webId) == FALSE) {
 			return (print(paste0("Error: webId must be a string.")))
@@ -39,6 +39,10 @@ PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descripto
 			return (print(paste0("Error: digitalSetName must be a string.")))
 		}
 	}
+	if (is.null(span) == FALSE) {
+	}
+	if (is.null(zero) == FALSE) {
+	}
 	if (is.null(engineeringUnits) == FALSE) {
 		if (is.character(engineeringUnits) == FALSE) {
 			return (print(paste0("Error: engineeringUnits must be a string.")))
@@ -52,6 +56,11 @@ PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descripto
 	if (is.null(future) == FALSE) {
 		if (is.logical(future) == FALSE) {
 			return (print(paste0("Error: future must be a boolean.")))
+		}
+	}
+	if (is.null(displayDigits) == FALSE) {
+		if (check.integer(displayDigits) == FALSE) {
+			return (print(paste0("Error: displayDigits must be an integer.")))
 		}
 	}
 	if (is.null(links) == FALSE) {
@@ -75,9 +84,12 @@ PIPoint <- function(webId = NULL, id = NULL, name = NULL, path = NULL, descripto
 	PointClass = pointClass,
 	PointType = pointType,
 	DigitalSetName = digitalSetName,
+	Span = span,
+	Zero = zero,
 	EngineeringUnits = engineeringUnits,
 	Step = step,
 	Future = future,
+	DisplayDigits = displayDigits,
 	Links = links,
 	WebException = webException)
 	valueCleaned <- rmNullObs(value)

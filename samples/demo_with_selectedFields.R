@@ -1,4 +1,4 @@
-library(piwebapi)
+'library(piwebapi)'
 piWebApiService <- piwebapi$new("https://devdata.osisoft.com/piwebapi/", FALSE, "webapiuser", "!try3.14webapi!", FALSE, FALSE)
 response1 = piWebApiService$home$get()
 
@@ -6,8 +6,8 @@ response1 = piWebApiService$home$get()
 paths = c("pi:\\\\PISRV1\\sinusoid", "pi:\\\\PISRV1\\sinusoidu", "pi:\\\\PISRV1\\cdt158", "af:\\\\PISRV1\\Universities\\UC Davis\\Buildings\\Academic Surge Building\\Electricity|Demand")
 
 
-
 response2 = piWebApiService$dataServer$getByPath("\\\\PISRV1", "WebId")
+
 
 
 response3a = piWebApiService$point$getByPath("\\\\PISRV1\\sinusoidu")
@@ -32,8 +32,6 @@ response7b <- piWebApiService$data$getPlotValues(path = "pi:\\\\PISRV1\\sinusoid
 response7c <- piWebApiService$data$getPlotValues(path = "af:\\\\PISRV1\\UCDavisBuildings\\Buildings\\Buildings\\Academic Surge Building\\Electricity|Demand", startTime = "y-2d", endTime = "t", intervals = 30)
 
 
-
-
 response8a <- piWebApiService$data$getMultipleRecordedValues(paths = paths, startTime = "y-200d", endTime = "t-195d")
 response9a <- piWebApiService$data$getMultipleInterpolatedValues(paths = paths, startTime = "y-200d", endTime = "t-195d", interval = "1h")
 response10a <- piWebApiService$data$getMultiplePlotValues(paths = paths, startTime ="y-200d", endTime = "t-195d", intervals = 30)
@@ -42,3 +40,7 @@ response10a <- piWebApiService$data$getMultiplePlotValues(paths = paths, startTi
 response8b <- piWebApiService$data$getMultipleRecordedValues(paths = paths, startTime = "y-200d", endTime = "t", selectedFields = "items.items.value;items.items.timestamp")
 response9b <- piWebApiService$data$getMultipleInterpolatedValues(paths = paths, startTime = "y-200d", endTime = "t", interval = "1h", selectedFields = "items.items.value;items.items.timestamp")
 response10b <- piWebApiService$data$getMultiplePlotValues(paths = paths, startTime = "y-200d", endTime = "t", intervals = 30, selectedFields = "items.items.value;items.items.timestamp")
+
+response11 <- piWebApiService$calculation$getAtTimes("tagval('sinusoid','*-1d')", NULL, NULL, c("y", "t"), response2$WebId)
+
+

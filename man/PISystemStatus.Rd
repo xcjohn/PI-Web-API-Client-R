@@ -5,7 +5,7 @@
 \title{Generate an instance of the PISystemStatus PI Web API class}
 \usage{
 PISystemStatus(upTimeInMinutes = NULL, state = NULL,
-  cacheInstances = NULL, webException = NULL)
+  cacheInstances = NULL, serverTime = NULL, webException = NULL)
 }
 \arguments{
 \item{upTimeInMinutes}{(number)}
@@ -13,6 +13,8 @@ PISystemStatus(upTimeInMinutes = NULL, state = NULL,
 \item{state}{(string)}
 
 \item{cacheInstances}{(integer)}
+
+\item{serverTime}{(string)}
 
 \item{webException}{()}
 }
@@ -23,6 +25,6 @@ PISystemStatus
 Generate an instance of the PISystemStatus PI Web API class
 }
 \examples{
-systemStatus <- PISystemStatus(state = "Running", cacheInstances = 0)
+systemStatus <- PISystemStatus(state = "Running", cacheInstances = 0, serverTime = "7/22/2014 2:00:00 PM")
 
 }

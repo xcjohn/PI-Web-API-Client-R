@@ -5,7 +5,7 @@
 \title{Generate an instance of the PILandingLinks PI Web API class}
 \usage{
 PILandingLinks(self = NULL, assetServers = NULL, dataServers = NULL,
-  search = NULL, system = NULL)
+  pIDirectory = NULL, search = NULL, system = NULL)
 }
 \arguments{
 \item{self}{(string)}
@@ -13,6 +13,8 @@ PILandingLinks(self = NULL, assetServers = NULL, dataServers = NULL,
 \item{assetServers}{(string)}
 
 \item{dataServers}{(string)}
+
+\item{pIDirectory}{(string)}
 
 \item{search}{(string)}
 
@@ -25,6 +27,6 @@ PILandingLinks
 Generate an instance of the PILandingLinks PI Web API class
 }
 \examples{
-landingLinks <- PILandingLinks(self = "", assetServers = "", dataServers = "", search = "", system = "")
+landingLinks <- PILandingLinks(self = "", assetServers = "", dataServers = "", pIDirectory = "", search = "", system = "")
 
 }

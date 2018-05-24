@@ -4,12 +4,17 @@
 \alias{PIAnnotationLinks}
 \title{Generate an instance of the PIAnnotationLinks PI Web API class}
 \usage{
-PIAnnotationLinks(self = NULL, owner = NULL)
+PIAnnotationLinks(self = NULL, owner = NULL, mediaData = NULL,
+  mediaMetadata = NULL)
 }
 \arguments{
 \item{self}{(string)}
 
 \item{owner}{(string)}
+
+\item{mediaData}{(string)}
+
+\item{mediaMetadata}{(string)}
 }
 \value{
 PIAnnotationLinks
@@ -18,6 +23,6 @@ PIAnnotationLinks
 Generate an instance of the PIAnnotationLinks PI Web API class
 }
 \examples{
-annotationLinks <- PIAnnotationLinks(self = "", owner = "")
+annotationLinks <- PIAnnotationLinks(self = "", owner = "", mediaData = "", mediaMetadata = "")
 
 }

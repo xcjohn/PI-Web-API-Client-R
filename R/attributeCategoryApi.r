@@ -16,28 +16,28 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			self$debug <- debug
 		},
 		getByPath = function(path, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(path) || path == "") {
 				return (paste0("Error: required parameter path was null or undefined"))
 			}
 			if (is.character(path) == FALSE) {
 				return (print(paste0("Error: path must be a string.")))
 			}
-			queryParameters$path <- path
+			qs$add('path', path, FALSE);
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAttributeCategory"
@@ -45,7 +45,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (contentResponse)
 		},
 		get = function(webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -54,18 +54,18 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories/', webId), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAttributeCategory"
@@ -73,7 +73,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (contentResponse)
 		},
 		update = function(webId, PIAttributeCategory) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -92,7 +92,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (res)
 		},
 		delete = function(webId) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -104,7 +104,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (res)
 		},
 		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields, webIdType) {
-			queryParameters <- generateListForQueryString(userIdentity, "userIdentity")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -117,26 +117,27 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			if (is.vector(userIdentity) == FALSE) {
 				return (print(paste0("Error: userIdentity must be a vector.")))
 			}
+			qs$add('userIdentity', userIdentity, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories/', webId, '/security'), collapse = "")
 			if (missing(forceRefresh) == FALSE && is.null(forceRefresh) == FALSE && forceRefresh != "") {
-				queryParameters$forceRefresh <- forceRefresh
+				qs$add('forceRefresh', forceRefresh, FALSE);
 				if (is.logical(forceRefresh) == FALSE) {
 					return (print(paste0("Error: forceRefresh must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsSecurityRights"
@@ -156,7 +157,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (contentResponse)
 		},
 		getSecurityEntries = function(webId, nameFilter, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -165,24 +166,24 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories/', webId, '/securityentries'), collapse = "")
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsSecurityEntry"
@@ -190,7 +191,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (contentResponse)
 		},
 		createSecurityEntry = function(webId, PISecurityEntry, applyToChildren, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -206,13 +207,13 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories/', webId, '/securityentries'), collapse = "")
 			if (missing(applyToChildren) == FALSE && is.null(applyToChildren) == FALSE && applyToChildren != "") {
-				queryParameters$applyToChildren <- applyToChildren
+				qs$add('applyToChildren', applyToChildren, FALSE);
 				if (is.logical(applyToChildren) == FALSE) {
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
@@ -221,7 +222,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
 			}
@@ -236,18 +237,18 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories/', webId, '/securityentries/', name), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PISecurityEntry"
@@ -258,7 +259,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			return (contentResponse)
 		},
 		updateSecurityEntry = function(name, webId, PISecurityEntry, applyToChildren) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
 			}
@@ -280,16 +281,16 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories/', webId, '/securityentries/', name), collapse = "")
 			if (missing(applyToChildren) == FALSE && is.null(applyToChildren) == FALSE && applyToChildren != "") {
-				queryParameters$applyToChildren <- applyToChildren
+				qs$add('applyToChildren', applyToChildren, FALSE);
 				if (is.logical(applyToChildren) == FALSE) {
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
-			res <- putHttpRequest(localVarPath, queryParameters, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- putHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		deleteSecurityEntry = function(name, webId, applyToChildren) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
 			}
@@ -304,7 +305,7 @@ attributeCategoryApi <- R6Class("attributeCategoryApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributecategories/', webId, '/securityentries/', name), collapse = "")
 			if (missing(applyToChildren) == FALSE && is.null(applyToChildren) == FALSE && applyToChildren != "") {
-				queryParameters$applyToChildren <- applyToChildren
+				qs$add('applyToChildren', applyToChildren, FALSE);
 				if (is.logical(applyToChildren) == FALSE) {
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}

@@ -6,9 +6,17 @@
 \arguments{
 \item{webId}{The ID of the element template.}
 
+\item{depthFirstTraverse}{When 'true', a Depth First traversal will be performed; this starts at the root and explores as far as possible along each branch before backtracking. When 'false', a Breadth First traversal will be performed; this starts at the tree root and explores the neighbor nodes first, then moves onto the next level of neighbors. The default is 'false' (Breadth First).}
+
+\item{maxCount}{The maximum number of objects to be returned. The default is 1000.}
+
 \item{selectedFields}{List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.}
 
+\item{showDescendants}{Specifies if the result should include all descendant attribute templates from the current element template, even indirect ones. The default is 'false'.}
+
 \item{showInherited}{Specifies if the result should include attribute templates inherited from base element templates. The default is 'false'.}
+
+\item{startIndex}{The starting index (zero based) of the items to be returned. The default is 0.}
 
 \item{webIdType}{Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".}
 }

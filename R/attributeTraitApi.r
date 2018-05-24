@@ -16,21 +16,22 @@ attributeTraitApi <- R6Class("attributeTraitApi",
 			self$debug <- debug
 		},
 		getByCategory = function(category, selectedFields) {
-			queryParameters <- generateListForQueryString(category, "category")
+			qs <- customQueryString$new()
 			if (is.null(category) || category == "") {
 				return (paste0("Error: required parameter category was null or undefined"))
 			}
 			if (is.vector(category) == FALSE) {
 				return (print(paste0("Error: category must be a vector.")))
 			}
+			qs$add('category', category, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/attributetraits'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsAttributeTrait"
@@ -38,7 +39,7 @@ attributeTraitApi <- R6Class("attributeTraitApi",
 			return (contentResponse)
 		},
 		get = function(name, selectedFields) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(name) || name == "") {
 				return (paste0("Error: required parameter name was null or undefined"))
 			}
@@ -47,12 +48,12 @@ attributeTraitApi <- R6Class("attributeTraitApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributetraits/', name), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIAttributeTrait"

@@ -32,6 +32,6 @@ PISecurityIdentity
 Generate an instance of the PISecurityIdentity PI Web API class
 }
 \examples{
-securityIdentity <- PISecurityIdentity(webId = "I1SIDqD5loBNH0erqeqJodtALASe6l8zgYokqdeeFilFI9tw", id = "f3a5ee49-1838-4aa2-9d79-e16294523db7", name = "MySecurityIdentity", description = "", path = "\\\\\\\\RESTUNIT\\\\SecurityIdentities[MySecurityIdentity]", isEnabled = FALSE)
+securityIdentity <- PISecurityIdentity(webId = "I1SIDqD5loBNH0erqeqJodtALASe6l8zgYokqdeeFilFI9tw", id = "f3a5ee49-1838-4aa2-9d79-e16294523db7", name = "MySecurityIdentity", description = "", path = "\\\\\\\\MyAssetServer\\\\SecurityIdentities[MySecurityIdentity]", isEnabled = FALSE)
 
 }

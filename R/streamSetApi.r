@@ -16,7 +16,7 @@ streamSetApi <- R6Class("streamSetApi",
 			self$debug <- debug
 		},
 		getChannel = function(webId, categoryName, heartbeatRate, includeInitialValues, nameFilter, searchFullHierarchy, showExcluded, showHidden, templateName, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -25,60 +25,60 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/channel'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(heartbeatRate) == FALSE && is.null(heartbeatRate) == FALSE && heartbeatRate != "") {
-				queryParameters$heartbeatRate <- heartbeatRate
+				qs$add('heartbeatRate', heartbeatRate, FALSE);
 				if (check.integer(heartbeatRate) == FALSE) {
 					return (print(paste0("Error: heartbeatRate must be an integer.")))
 				}
 			}
 			if (missing(includeInitialValues) == FALSE && is.null(includeInitialValues) == FALSE && includeInitialValues != "") {
-				queryParameters$includeInitialValues <- includeInitialValues
+				qs$add('includeInitialValues', includeInitialValues, FALSE);
 				if (is.logical(includeInitialValues) == FALSE) {
 					return (print(paste0("Error: includeInitialValues must be a boolean.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 101) {
 				attr(contentResponse, "className") <- "PIItemsStreamValue"
@@ -89,7 +89,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getEnd = function(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, templateName, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -98,66 +98,66 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/end'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValue"
@@ -168,7 +168,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getInterpolated = function(webId, categoryName, endTime, filterExpression, includeFilteredValues, interval, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, templateName, timeZone, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -177,114 +177,114 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/interpolated'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(includeFilteredValues) == FALSE && is.null(includeFilteredValues) == FALSE && includeFilteredValues != "") {
-				queryParameters$includeFilteredValues <- includeFilteredValues
+				qs$add('includeFilteredValues', includeFilteredValues, FALSE);
 				if (is.logical(includeFilteredValues) == FALSE) {
 					return (print(paste0("Error: includeFilteredValues must be a boolean.")))
 				}
 			}
 			if (missing(interval) == FALSE && is.null(interval) == FALSE && interval != "") {
-				queryParameters$interval <- interval
+				qs$add('interval', interval, FALSE);
 				if (is.character(interval) == FALSE) {
 					return (print(paste0("Error: interval must be a string.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(syncTime) == FALSE && is.null(syncTime) == FALSE && syncTime != "") {
-				queryParameters$syncTime <- syncTime
+				qs$add('syncTime', syncTime, FALSE);
 				if (is.character(syncTime) == FALSE) {
 					return (print(paste0("Error: syncTime must be a string.")))
 				}
 			}
 			if (missing(syncTimeBoundaryType) == FALSE && is.null(syncTimeBoundaryType) == FALSE && syncTimeBoundaryType != "") {
-				queryParameters$syncTimeBoundaryType <- syncTimeBoundaryType
+				qs$add('syncTimeBoundaryType', syncTimeBoundaryType, FALSE);
 				if (is.character(syncTimeBoundaryType) == FALSE) {
 					return (print(paste0("Error: syncTimeBoundaryType must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -292,7 +292,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getInterpolatedAtTimes = function(webId, time, categoryName, filterExpression, includeFilteredValues, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(time, "time")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -305,80 +305,81 @@ streamSetApi <- R6Class("streamSetApi",
 			if (is.vector(time) == FALSE) {
 				return (print(paste0("Error: time must be a vector.")))
 			}
+			qs$add('time', time, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/interpolatedattimes'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(includeFilteredValues) == FALSE && is.null(includeFilteredValues) == FALSE && includeFilteredValues != "") {
-				queryParameters$includeFilteredValues <- includeFilteredValues
+				qs$add('includeFilteredValues', includeFilteredValues, FALSE);
 				if (is.logical(includeFilteredValues) == FALSE) {
 					return (print(paste0("Error: includeFilteredValues must be a boolean.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -392,7 +393,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getPlot = function(webId, categoryName, endTime, intervals, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, templateName, timeZone, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -401,90 +402,90 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/plot'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(intervals) == FALSE && is.null(intervals) == FALSE && intervals != "") {
-				queryParameters$intervals <- intervals
+				qs$add('intervals', intervals, FALSE);
 				if (check.integer(intervals) == FALSE) {
 					return (print(paste0("Error: intervals must be an integer.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -495,7 +496,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getRecorded = function(webId, boundaryType, categoryName, endTime, filterExpression, includeFilteredValues, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startTime, templateName, timeZone, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -504,108 +505,108 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/recorded'), collapse = "")
 			if (missing(boundaryType) == FALSE && is.null(boundaryType) == FALSE && boundaryType != "") {
-				queryParameters$boundaryType <- boundaryType
+				qs$add('boundaryType', boundaryType, FALSE);
 				if (is.character(boundaryType) == FALSE) {
 					return (print(paste0("Error: boundaryType must be a string.")))
 				}
 			}
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(includeFilteredValues) == FALSE && is.null(includeFilteredValues) == FALSE && includeFilteredValues != "") {
-				queryParameters$includeFilteredValues <- includeFilteredValues
+				qs$add('includeFilteredValues', includeFilteredValues, FALSE);
 				if (is.logical(includeFilteredValues) == FALSE) {
 					return (print(paste0("Error: includeFilteredValues must be a boolean.")))
 				}
 			}
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -616,7 +617,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		updateValues = function(webId, values, bufferOption, updateOption) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -631,13 +632,13 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/recorded'), collapse = "")
 			if (missing(bufferOption) == FALSE && is.null(bufferOption) == FALSE && bufferOption != "") {
-				queryParameters$bufferOption <- bufferOption
+				qs$add('bufferOption', bufferOption, FALSE);
 				if (is.character(bufferOption) == FALSE) {
 					return (print(paste0("Error: bufferOption must be a string.")))
 				}
 			}
 			if (missing(updateOption) == FALSE && is.null(updateOption) == FALSE && updateOption != "") {
-				queryParameters$updateOption <- updateOption
+				qs$add('updateOption', updateOption, FALSE);
 				if (is.character(updateOption) == FALSE) {
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
@@ -646,7 +647,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (res)
 		},
 		getRecordedAtTime = function(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, timeZone, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -659,69 +660,69 @@ streamSetApi <- R6Class("streamSetApi",
 			if (is.character(time) == FALSE) {
 				return (print(paste0("Error: time must be a string.")))
 			}
-			queryParameters$time <- time
+			qs$add('time', time, FALSE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/recordedattime'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(retrievalMode) == FALSE && is.null(retrievalMode) == FALSE && retrievalMode != "") {
-				queryParameters$retrievalMode <- retrievalMode
+				qs$add('retrievalMode', retrievalMode, FALSE);
 				if (is.character(retrievalMode) == FALSE) {
 					return (print(paste0("Error: retrievalMode must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -732,7 +733,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getRecordedAtTimes = function(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortOrder, templateName, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(time, "time")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -745,74 +746,75 @@ streamSetApi <- R6Class("streamSetApi",
 			if (is.vector(time) == FALSE) {
 				return (print(paste0("Error: time must be a vector.")))
 			}
+			qs$add('time', time, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/recordedattimes'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(retrievalMode) == FALSE && is.null(retrievalMode) == FALSE && retrievalMode != "") {
-				queryParameters$retrievalMode <- retrievalMode
+				qs$add('retrievalMode', retrievalMode, FALSE);
 				if (is.character(retrievalMode) == FALSE) {
 					return (print(paste0("Error: retrievalMode must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -826,7 +828,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getSummaries = function(webId, calculationBasis, categoryName, endTime, filterExpression, nameFilter, sampleInterval, sampleType, searchFullHierarchy, selectedFields, showExcluded, showHidden, startTime, summaryDuration, summaryType, templateName, timeType, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(summaryType, "summaryType")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -835,114 +837,114 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/summary'), collapse = "")
 			if (missing(calculationBasis) == FALSE && is.null(calculationBasis) == FALSE && calculationBasis != "") {
-				queryParameters$calculationBasis <- calculationBasis
+				qs$add('calculationBasis', calculationBasis, FALSE);
 				if (is.character(calculationBasis) == FALSE) {
 					return (print(paste0("Error: calculationBasis must be a string.")))
 				}
 			}
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(sampleInterval) == FALSE && is.null(sampleInterval) == FALSE && sampleInterval != "") {
-				queryParameters$sampleInterval <- sampleInterval
+				qs$add('sampleInterval', sampleInterval, FALSE);
 				if (is.character(sampleInterval) == FALSE) {
 					return (print(paste0("Error: sampleInterval must be a string.")))
 				}
 			}
 			if (missing(sampleType) == FALSE && is.null(sampleType) == FALSE && sampleType != "") {
-				queryParameters$sampleType <- sampleType
+				qs$add('sampleType', sampleType, FALSE);
 				if (is.character(sampleType) == FALSE) {
 					return (print(paste0("Error: sampleType must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(summaryDuration) == FALSE && is.null(summaryDuration) == FALSE && summaryDuration != "") {
-				queryParameters$summaryDuration <- summaryDuration
+				qs$add('summaryDuration', summaryDuration, FALSE);
 				if (is.character(summaryDuration) == FALSE) {
 					return (print(paste0("Error: summaryDuration must be a string.")))
 				}
 			}
 			if (missing(summaryType) == FALSE && is.null(summaryType) == FALSE && summaryType != "") {
-				queryParameters$summaryType <- summaryType
+				qs$add('summaryType', summaryType, TRUE);
 				if (is.vector(summaryType) == FALSE) {
 					return (print(paste0("Error: summaryType must be a vector.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(timeType) == FALSE && is.null(timeType) == FALSE && timeType != "") {
-				queryParameters$timeType <- timeType
+				qs$add('timeType', timeType, FALSE);
 				if (is.character(timeType) == FALSE) {
 					return (print(paste0("Error: timeType must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamSummaries"
@@ -953,7 +955,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getValues = function(webId, categoryName, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, templateName, time, timeZone, webIdType) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -962,78 +964,78 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/value'), collapse = "")
 			if (missing(categoryName) == FALSE && is.null(categoryName) == FALSE && categoryName != "") {
-				queryParameters$categoryName <- categoryName
+				qs$add('categoryName', categoryName, FALSE);
 				if (is.character(categoryName) == FALSE) {
 					return (print(paste0("Error: categoryName must be a string.")))
 				}
 			}
 			if (missing(nameFilter) == FALSE && is.null(nameFilter) == FALSE && nameFilter != "") {
-				queryParameters$nameFilter <- nameFilter
+				qs$add('nameFilter', nameFilter, FALSE);
 				if (is.character(nameFilter) == FALSE) {
 					return (print(paste0("Error: nameFilter must be a string.")))
 				}
 			}
 			if (missing(searchFullHierarchy) == FALSE && is.null(searchFullHierarchy) == FALSE && searchFullHierarchy != "") {
-				queryParameters$searchFullHierarchy <- searchFullHierarchy
+				qs$add('searchFullHierarchy', searchFullHierarchy, FALSE);
 				if (is.logical(searchFullHierarchy) == FALSE) {
 					return (print(paste0("Error: searchFullHierarchy must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(showExcluded) == FALSE && is.null(showExcluded) == FALSE && showExcluded != "") {
-				queryParameters$showExcluded <- showExcluded
+				qs$add('showExcluded', showExcluded, FALSE);
 				if (is.logical(showExcluded) == FALSE) {
 					return (print(paste0("Error: showExcluded must be a boolean.")))
 				}
 			}
 			if (missing(showHidden) == FALSE && is.null(showHidden) == FALSE && showHidden != "") {
-				queryParameters$showHidden <- showHidden
+				qs$add('showHidden', showHidden, FALSE);
 				if (is.logical(showHidden) == FALSE) {
 					return (print(paste0("Error: showHidden must be a boolean.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(templateName) == FALSE && is.null(templateName) == FALSE && templateName != "") {
-				queryParameters$templateName <- templateName
+				qs$add('templateName', templateName, FALSE);
 				if (is.character(templateName) == FALSE) {
 					return (print(paste0("Error: templateName must be a string.")))
 				}
 			}
 			if (missing(time) == FALSE && is.null(time) == FALSE && time != "") {
-				queryParameters$time <- time
+				qs$add('time', time, FALSE);
 				if (is.character(time) == FALSE) {
 					return (print(paste0("Error: time must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValue"
@@ -1044,7 +1046,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		updateValue = function(webId, values, bufferOption, updateOption) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
@@ -1059,13 +1061,13 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/', webId, '/value'), collapse = "")
 			if (missing(bufferOption) == FALSE && is.null(bufferOption) == FALSE && bufferOption != "") {
-				queryParameters$bufferOption <- bufferOption
+				qs$add('bufferOption', bufferOption, FALSE);
 				if (is.character(bufferOption) == FALSE) {
 					return (print(paste0("Error: bufferOption must be a string.")))
 				}
 			}
 			if (missing(updateOption) == FALSE && is.null(updateOption) == FALSE && updateOption != "") {
-				queryParameters$updateOption <- updateOption
+				qs$add('updateOption', updateOption, FALSE);
 				if (is.character(updateOption) == FALSE) {
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
@@ -1074,33 +1076,34 @@ streamSetApi <- R6Class("streamSetApi",
 			return (res)
 		},
 		getChannelAdHoc = function(webId, heartbeatRate, includeInitialValues, webIdType) {
-			queryParameters <- generateListForQueryString(webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/channel'), collapse = "")
 			if (missing(heartbeatRate) == FALSE && is.null(heartbeatRate) == FALSE && heartbeatRate != "") {
-				queryParameters$heartbeatRate <- heartbeatRate
+				qs$add('heartbeatRate', heartbeatRate, FALSE);
 				if (check.integer(heartbeatRate) == FALSE) {
 					return (print(paste0("Error: heartbeatRate must be an integer.")))
 				}
 			}
 			if (missing(includeInitialValues) == FALSE && is.null(includeInitialValues) == FALSE && includeInitialValues != "") {
-				queryParameters$includeInitialValues <- includeInitialValues
+				qs$add('includeInitialValues', includeInitialValues, FALSE);
 				if (is.logical(includeInitialValues) == FALSE) {
 					return (print(paste0("Error: includeInitialValues must be a boolean.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 101) {
 				attr(contentResponse, "className") <- "PIItemsStreamValue"
@@ -1108,39 +1111,40 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getEndAdHoc = function(webId, selectedFields, sortField, sortOrder, webIdType) {
-			queryParameters <- generateListForQueryString(webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/end'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -1148,87 +1152,88 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getInterpolatedAdHoc = function(webId, endTime, filterExpression, includeFilteredValues, interval, selectedFields, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/interpolated'), collapse = "")
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(includeFilteredValues) == FALSE && is.null(includeFilteredValues) == FALSE && includeFilteredValues != "") {
-				queryParameters$includeFilteredValues <- includeFilteredValues
+				qs$add('includeFilteredValues', includeFilteredValues, FALSE);
 				if (is.logical(includeFilteredValues) == FALSE) {
 					return (print(paste0("Error: includeFilteredValues must be a boolean.")))
 				}
 			}
 			if (missing(interval) == FALSE && is.null(interval) == FALSE && interval != "") {
-				queryParameters$interval <- interval
+				qs$add('interval', interval, FALSE);
 				if (is.character(interval) == FALSE) {
 					return (print(paste0("Error: interval must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(syncTime) == FALSE && is.null(syncTime) == FALSE && syncTime != "") {
-				queryParameters$syncTime <- syncTime
+				qs$add('syncTime', syncTime, FALSE);
 				if (is.character(syncTime) == FALSE) {
 					return (print(paste0("Error: syncTime must be a string.")))
 				}
 			}
 			if (missing(syncTimeBoundaryType) == FALSE && is.null(syncTimeBoundaryType) == FALSE && syncTimeBoundaryType != "") {
-				queryParameters$syncTimeBoundaryType <- syncTimeBoundaryType
+				qs$add('syncTimeBoundaryType', syncTimeBoundaryType, FALSE);
 				if (is.character(syncTimeBoundaryType) == FALSE) {
 					return (print(paste0("Error: syncTimeBoundaryType must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -1236,57 +1241,59 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getInterpolatedAtTimesAdHoc = function(time, webId, filterExpression, includeFilteredValues, selectedFields, sortOrder, timeZone, webIdType) {
-			queryParameters <- generateListForTwoQueryString(time, "time", webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(time) || time == "") {
 				return (paste0("Error: required parameter time was null or undefined"))
 			}
 			if (is.vector(time) == FALSE) {
 				return (print(paste0("Error: time must be a vector.")))
 			}
+			qs$add('time', time, TRUE);
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/interpolatedattimes'), collapse = "")
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(includeFilteredValues) == FALSE && is.null(includeFilteredValues) == FALSE && includeFilteredValues != "") {
-				queryParameters$includeFilteredValues <- includeFilteredValues
+				qs$add('includeFilteredValues', includeFilteredValues, FALSE);
 				if (is.logical(includeFilteredValues) == FALSE) {
 					return (print(paste0("Error: includeFilteredValues must be a boolean.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -1300,63 +1307,64 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getPlotAdHoc = function(webId, endTime, intervals, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/plot'), collapse = "")
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(intervals) == FALSE && is.null(intervals) == FALSE && intervals != "") {
-				queryParameters$intervals <- intervals
+				qs$add('intervals', intervals, FALSE);
 				if (check.integer(intervals) == FALSE) {
 					return (print(paste0("Error: intervals must be an integer.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -1367,81 +1375,82 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getRecordedAdHoc = function(webId, boundaryType, endTime, filterExpression, includeFilteredValues, maxCount, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/recorded'), collapse = "")
 			if (missing(boundaryType) == FALSE && is.null(boundaryType) == FALSE && boundaryType != "") {
-				queryParameters$boundaryType <- boundaryType
+				qs$add('boundaryType', boundaryType, FALSE);
 				if (is.character(boundaryType) == FALSE) {
 					return (print(paste0("Error: boundaryType must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(includeFilteredValues) == FALSE && is.null(includeFilteredValues) == FALSE && includeFilteredValues != "") {
-				queryParameters$includeFilteredValues <- includeFilteredValues
+				qs$add('includeFilteredValues', includeFilteredValues, FALSE);
 				if (is.logical(includeFilteredValues) == FALSE) {
 					return (print(paste0("Error: includeFilteredValues must be a boolean.")))
 				}
 			}
 			if (missing(maxCount) == FALSE && is.null(maxCount) == FALSE && maxCount != "") {
-				queryParameters$maxCount <- maxCount
+				qs$add('maxCount', maxCount, FALSE);
 				if (check.integer(maxCount) == FALSE) {
 					return (print(paste0("Error: maxCount must be an integer.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -1452,7 +1461,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		updateValuesAdHoc = function(values, bufferOption, updateOption) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(values) || values == "") {
 				return (paste0("Error: required parameter values was null or undefined"))
 			}
@@ -1461,13 +1470,13 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/recorded'), collapse = "")
 			if (missing(bufferOption) == FALSE && is.null(bufferOption) == FALSE && bufferOption != "") {
-				queryParameters$bufferOption <- bufferOption
+				qs$add('bufferOption', bufferOption, FALSE);
 				if (is.character(bufferOption) == FALSE) {
 					return (print(paste0("Error: bufferOption must be a string.")))
 				}
 			}
 			if (missing(updateOption) == FALSE && is.null(updateOption) == FALSE && updateOption != "") {
-				queryParameters$updateOption <- updateOption
+				qs$add('updateOption', updateOption, FALSE);
 				if (is.character(updateOption) == FALSE) {
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
@@ -1476,46 +1485,47 @@ streamSetApi <- R6Class("streamSetApi",
 			return (res)
 		},
 		getRecordedAtTimeAdHoc = function(time, webId, retrievalMode, selectedFields, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(time) || time == "") {
 				return (paste0("Error: required parameter time was null or undefined"))
 			}
 			if (is.character(time) == FALSE) {
 				return (print(paste0("Error: time must be a string.")))
 			}
-			queryParameters$time <- time
+			qs$add('time', time, FALSE);
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/recordedattime'), collapse = "")
 			if (missing(retrievalMode) == FALSE && is.null(retrievalMode) == FALSE && retrievalMode != "") {
-				queryParameters$retrievalMode <- retrievalMode
+				qs$add('retrievalMode', retrievalMode, FALSE);
 				if (is.character(retrievalMode) == FALSE) {
 					return (print(paste0("Error: retrievalMode must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValue"
@@ -1526,51 +1536,53 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getRecordedAtTimesAdHoc = function(time, webId, retrievalMode, selectedFields, sortOrder, timeZone, webIdType) {
-			queryParameters <- generateListForTwoQueryString(time, "time", webId, "webId")
+			qs <- customQueryString$new()
 			if (is.null(time) || time == "") {
 				return (paste0("Error: required parameter time was null or undefined"))
 			}
 			if (is.vector(time) == FALSE) {
 				return (print(paste0("Error: time must be a vector.")))
 			}
+			qs$add('time', time, TRUE);
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/recordedattimes'), collapse = "")
 			if (missing(retrievalMode) == FALSE && is.null(retrievalMode) == FALSE && retrievalMode != "") {
-				queryParameters$retrievalMode <- retrievalMode
+				qs$add('retrievalMode', retrievalMode, FALSE);
 				if (is.character(retrievalMode) == FALSE) {
 					return (print(paste0("Error: retrievalMode must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValues"
@@ -1584,87 +1596,88 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		getSummariesAdHoc = function(webId, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, timeZone, webIdType) {
-			queryParameters <- generateListForTwoQueryString(webId, "webId", summaryType, "summaryType")
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/summary'), collapse = "")
 			if (missing(calculationBasis) == FALSE && is.null(calculationBasis) == FALSE && calculationBasis != "") {
-				queryParameters$calculationBasis <- calculationBasis
+				qs$add('calculationBasis', calculationBasis, FALSE);
 				if (is.character(calculationBasis) == FALSE) {
 					return (print(paste0("Error: calculationBasis must be a string.")))
 				}
 			}
 			if (missing(endTime) == FALSE && is.null(endTime) == FALSE && endTime != "") {
-				queryParameters$endTime <- endTime
+				qs$add('endTime', endTime, FALSE);
 				if (is.character(endTime) == FALSE) {
 					return (print(paste0("Error: endTime must be a string.")))
 				}
 			}
 			if (missing(filterExpression) == FALSE && is.null(filterExpression) == FALSE && filterExpression != "") {
-				queryParameters$filterExpression <- filterExpression
+				qs$add('filterExpression', filterExpression, FALSE);
 				if (is.character(filterExpression) == FALSE) {
 					return (print(paste0("Error: filterExpression must be a string.")))
 				}
 			}
 			if (missing(sampleInterval) == FALSE && is.null(sampleInterval) == FALSE && sampleInterval != "") {
-				queryParameters$sampleInterval <- sampleInterval
+				qs$add('sampleInterval', sampleInterval, FALSE);
 				if (is.character(sampleInterval) == FALSE) {
 					return (print(paste0("Error: sampleInterval must be a string.")))
 				}
 			}
 			if (missing(sampleType) == FALSE && is.null(sampleType) == FALSE && sampleType != "") {
-				queryParameters$sampleType <- sampleType
+				qs$add('sampleType', sampleType, FALSE);
 				if (is.character(sampleType) == FALSE) {
 					return (print(paste0("Error: sampleType must be a string.")))
 				}
 			}
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(startTime) == FALSE && is.null(startTime) == FALSE && startTime != "") {
-				queryParameters$startTime <- startTime
+				qs$add('startTime', startTime, FALSE);
 				if (is.character(startTime) == FALSE) {
 					return (print(paste0("Error: startTime must be a string.")))
 				}
 			}
 			if (missing(summaryDuration) == FALSE && is.null(summaryDuration) == FALSE && summaryDuration != "") {
-				queryParameters$summaryDuration <- summaryDuration
+				qs$add('summaryDuration', summaryDuration, FALSE);
 				if (is.character(summaryDuration) == FALSE) {
 					return (print(paste0("Error: summaryDuration must be a string.")))
 				}
 			}
 			if (missing(summaryType) == FALSE && is.null(summaryType) == FALSE && summaryType != "") {
-				queryParameters$summaryType <- summaryType
+				qs$add('summaryType', summaryType, TRUE);
 				if (is.vector(summaryType) == FALSE) {
 					return (print(paste0("Error: summaryType must be a vector.")))
 				}
 			}
 			if (missing(timeType) == FALSE && is.null(timeType) == FALSE && timeType != "") {
-				queryParameters$timeType <- timeType
+				qs$add('timeType', timeType, FALSE);
 				if (is.character(timeType) == FALSE) {
 					return (print(paste0("Error: timeType must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamSummaries"
@@ -1674,52 +1687,107 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			return (contentResponse)
 		},
-		getValuesAdHoc = function(webId, selectedFields, sortField, sortOrder, time, timeZone, webIdType) {
-			queryParameters <- generateListForQueryString(webId, "webId")
+		retrieveStreamSetUpdates = function(marker, selectedFields, webIdType) {
+			qs <- customQueryString$new()
+			if (is.null(marker) || marker == "") {
+				return (paste0("Error: required parameter marker was null or undefined"))
+			}
+			if (is.vector(marker) == FALSE) {
+				return (print(paste0("Error: marker must be a vector.")))
+			}
+			qs$add('marker', marker, TRUE);
+			localVarPath <- paste(c(self$serviceBase, '/streamsets/updates'), collapse = "")
+			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
+				qs$add('selectedFields', selectedFields, FALSE);
+				if (is.character(selectedFields) == FALSE) {
+					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				qs$add('webIdType', webIdType, FALSE);
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
+			contentResponse <- content(res)
+			if (res$status == 200) {
+				attr(contentResponse, "className") <- "PIItemsStreamUpdatesRetrieve"
+			}
+			return (contentResponse)
+		},
+		registerStreamSetUpdates = function(webId, selectedFields, webIdType) {
+			qs <- customQueryString$new()
 			if (is.null(webId) || webId == "") {
 				return (paste0("Error: required parameter webId was null or undefined"))
 			}
 			if (is.vector(webId) == FALSE) {
 				return (print(paste0("Error: webId must be a vector.")))
 			}
+			qs$add('webId', webId, TRUE);
+			localVarPath <- paste(c(self$serviceBase, '/streamsets/updates'), collapse = "")
+			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
+				qs$add('selectedFields', selectedFields, FALSE);
+				if (is.character(selectedFields) == FALSE) {
+					return (print(paste0("Error: selectedFields must be a string.")))
+				}
+			}
+			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
+				qs$add('webIdType', webIdType, FALSE);
+				if (is.character(webIdType) == FALSE) {
+					return (print(paste0("Error: webIdType must be a string.")))
+				}
+			}
+			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			return (res)
+		},
+		getValuesAdHoc = function(webId, selectedFields, sortField, sortOrder, time, timeZone, webIdType) {
+			qs <- customQueryString$new()
+			if (is.null(webId) || webId == "") {
+				return (paste0("Error: required parameter webId was null or undefined"))
+			}
+			if (is.vector(webId) == FALSE) {
+				return (print(paste0("Error: webId must be a vector.")))
+			}
+			qs$add('webId', webId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/value'), collapse = "")
 			if (missing(selectedFields) == FALSE && is.null(selectedFields) == FALSE && selectedFields != "") {
-				queryParameters$selectedFields <- selectedFields
+				qs$add('selectedFields', selectedFields, FALSE);
 				if (is.character(selectedFields) == FALSE) {
 					return (print(paste0("Error: selectedFields must be a string.")))
 				}
 			}
 			if (missing(sortField) == FALSE && is.null(sortField) == FALSE && sortField != "") {
-				queryParameters$sortField <- sortField
+				qs$add('sortField', sortField, FALSE);
 				if (is.character(sortField) == FALSE) {
 					return (print(paste0("Error: sortField must be a string.")))
 				}
 			}
 			if (missing(sortOrder) == FALSE && is.null(sortOrder) == FALSE && sortOrder != "") {
-				queryParameters$sortOrder <- sortOrder
+				qs$add('sortOrder', sortOrder, FALSE);
 				if (is.character(sortOrder) == FALSE) {
 					return (print(paste0("Error: sortOrder must be a string.")))
 				}
 			}
 			if (missing(time) == FALSE && is.null(time) == FALSE && time != "") {
-				queryParameters$time <- time
+				qs$add('time', time, FALSE);
 				if (is.character(time) == FALSE) {
 					return (print(paste0("Error: time must be a string.")))
 				}
 			}
 			if (missing(timeZone) == FALSE && is.null(timeZone) == FALSE && timeZone != "") {
-				queryParameters$timeZone <- timeZone
+				qs$add('timeZone', timeZone, FALSE);
 				if (is.character(timeZone) == FALSE) {
 					return (print(paste0("Error: timeZone must be a string.")))
 				}
 			}
 			if (missing(webIdType) == FALSE && is.null(webIdType) == FALSE && webIdType != "") {
-				queryParameters$webIdType <- webIdType
+				qs$add('webIdType', webIdType, FALSE);
 				if (is.character(webIdType) == FALSE) {
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsStreamValue"
@@ -1730,7 +1798,7 @@ streamSetApi <- R6Class("streamSetApi",
 			return (contentResponse)
 		},
 		updateValueAdHoc = function(values, bufferOption, updateOption) {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			if (is.null(values) || values == "") {
 				return (paste0("Error: required parameter values was null or undefined"))
 			}
@@ -1739,13 +1807,13 @@ streamSetApi <- R6Class("streamSetApi",
 			}
 			localVarPath <- paste(c(self$serviceBase, '/streamsets/value'), collapse = "")
 			if (missing(bufferOption) == FALSE && is.null(bufferOption) == FALSE && bufferOption != "") {
-				queryParameters$bufferOption <- bufferOption
+				qs$add('bufferOption', bufferOption, FALSE);
 				if (is.character(bufferOption) == FALSE) {
 					return (print(paste0("Error: bufferOption must be a string.")))
 				}
 			}
 			if (missing(updateOption) == FALSE && is.null(updateOption) == FALSE && updateOption != "") {
-				queryParameters$updateOption <- updateOption
+				qs$add('updateOption', updateOption, FALSE);
 				if (is.character(updateOption) == FALSE) {
 					return (print(paste0("Error: updateOption must be a string.")))
 				}

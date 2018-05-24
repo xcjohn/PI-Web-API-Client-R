@@ -16,9 +16,9 @@ systemApi <- R6Class("systemApi",
 			self$debug <- debug
 		},
 		landing = function() {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/system'), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PISystemLanding"
@@ -26,9 +26,9 @@ systemApi <- R6Class("systemApi",
 			return (contentResponse)
 		},
 		cacheInstances = function() {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/system/cacheinstances'), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIItemsCacheInstance"
@@ -36,9 +36,9 @@ systemApi <- R6Class("systemApi",
 			return (contentResponse)
 		},
 		status = function() {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/system/status'), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PISystemStatus"
@@ -46,9 +46,9 @@ systemApi <- R6Class("systemApi",
 			return (contentResponse)
 		},
 		userInfo = function() {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/system/userinfo'), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 				attr(contentResponse, "className") <- "PIUserInfo"
@@ -59,9 +59,9 @@ systemApi <- R6Class("systemApi",
 			return (contentResponse)
 		},
 		versions = function() {
-			queryParameters <- list()
+			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/system/versions'), collapse = "")
-			res <- getHttpRequest(localVarPath, queryParameters, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- getHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			contentResponse <- content(res)
 			if (res$status == 200) {
 			}

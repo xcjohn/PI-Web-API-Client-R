@@ -69,6 +69,6 @@ PIAnalysis
 Generate an instance of the PIAnalysis PI Web API class
 }
 \examples{
-analysis <- PIAnalysis(webId = "I1XsDqD5loBNH0erqeqJodtALAWDOFEb-U5xGEQwAVXYTCAA", id = "11853358-94bf-11e7-8443-00155d84c200", name = "MyAnalysis", description = "", path = "\\\\\\\\MYSERVER\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]", analysisRulePlugInName = "PerformanceEquation", autoCreated = FALSE, groupId = 0, hasNotification = FALSE, hasTarget = FALSE, hasTemplate = FALSE, isConfigured = FALSE, isTimeRuleDefinedByTemplate = FALSE, maximumQueueSize = 0, outputTime = "", priority = "High", publishResults = FALSE, status = "Disabled", targetWebId = "E0DqD5loBNH0erqeqJodtALAFwF3cBcv5hGA2AAVXYRDBAUkVTVFVOSVRcNkQwQjc2MDItOTYxMi00OTRBLUE4MEQtODQyRDMyOTZENTYxXDkyMjFGMDhGLUZCMTUtNDZFMy1BQzYzLURCNDkzRDhGNkJFQg", templateName = "", timeRulePlugInName = "Periodic")
+analysis <- PIAnalysis(webId = "I1XsDqD5loBNH0erqeqJodtALAWDOFEb-U5xGEQwAVXYTCAA", id = "11853358-94bf-11e7-8443-00155d84c200", name = "MyAnalysis", description = "", path = "\\\\\\\\MyAssetServer\\\\MyDatabase\\\\MyElement\\\\Analyses[MyAnalysis]", analysisRulePlugInName = "PerformanceEquation", autoCreated = FALSE, groupId = 0, hasNotification = FALSE, hasTarget = FALSE, hasTemplate = FALSE, isConfigured = FALSE, isTimeRuleDefinedByTemplate = FALSE, maximumQueueSize = 0, outputTime = "", priority = "High", publishResults = FALSE, status = "Disabled", targetWebId = "I1ETDqD5loBNH0erqeqJodtALAjFPVfUpY-02A8uioGDSgIg", templateName = "", timeRulePlugInName = "Periodic")
 
 }

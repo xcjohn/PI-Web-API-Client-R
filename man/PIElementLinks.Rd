@@ -9,7 +9,7 @@ PIElementLinks(self = NULL, analyses = NULL, attributes = NULL,
   categories = NULL, defaultAttribute = NULL, eventFrames = NULL,
   interpolatedData = NULL, recordedData = NULL, plotData = NULL,
   summaryData = NULL, value = NULL, endValue = NULL, security = NULL,
-  securityEntries = NULL)
+  securityEntries = NULL, notificationRules = NULL)
 }
 \arguments{
 \item{self}{(string)}
@@ -47,6 +47,8 @@ PIElementLinks(self = NULL, analyses = NULL, attributes = NULL,
 \item{security}{(string)}
 
 \item{securityEntries}{(string)}
+
+\item{notificationRules}{(string)}
 }
 \value{
 PIElementLinks
@@ -55,6 +57,6 @@ PIElementLinks
 Generate an instance of the PIElementLinks PI Web API class
 }
 \examples{
-elementLinks <- PIElementLinks(self = "", analyses = "", attributes = "", elements = "", database = "", parent = "", template = "", categories = "", defaultAttribute = "", eventFrames = "", interpolatedData = "", recordedData = "", plotData = "", summaryData = "", value = "", endValue = "", security = "", securityEntries = "")
+elementLinks <- PIElementLinks(self = "", analyses = "", attributes = "", elements = "", database = "", parent = "", template = "", categories = "", defaultAttribute = "", eventFrames = "", interpolatedData = "", recordedData = "", plotData = "", summaryData = "", value = "", endValue = "", security = "", securityEntries = "", notificationRules = "")
 
 }

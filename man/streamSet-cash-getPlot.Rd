@@ -22,7 +22,7 @@
 
 \item{showHidden}{Specified if the search should include attributes with the Hidden property set. The default is 'false'.}
 
-\item{sortField}{The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.}
+\item{sortField}{The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.}
 
 \item{sortOrder}{The order that the returned collection is sorted. The default is 'Ascending'}
 
