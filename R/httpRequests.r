@@ -65,11 +65,12 @@ putHttpRequest <- function(url, queryParameters, bodyRequest, username, password
 }
 
 showError <- function(res) {
-    print(paste0("HTTP Status code is ", res$status, "."))
-    if (res$status == 401) {
-        print(paste0("Authentication Error: Please review PI Web API security and allowed authentication methods."))
-    }
+
     if (res$status > 299) {
+        print(paste0("HTTP Status code is ", res$status, "."))
+        if (res$status == 401) {
+          print(paste0("Authentication Error: Please review PI Web API security and allowed authentication methods."))
+        }
 		    error <- content(res)
 		    if (is.null(error$Errors[[1]])==FALSE)
 		    {
