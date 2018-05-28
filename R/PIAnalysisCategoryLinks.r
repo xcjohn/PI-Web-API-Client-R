@@ -20,10 +20,10 @@ PIAnalysisCategoryLinks <- function(self = NULL, database = NULL, security = NUL
 		}
 	}
 	value <- list(
-	Self = self,
-	Database = database,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Database = database,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysisCategoryLinks"
 	return(valueCleaned)

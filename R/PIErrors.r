@@ -8,7 +8,7 @@ PIErrors <- function(errors = NULL) {
 		}
 	}
 	value <- list(
-	Errors = errors)
+		Errors = errors)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIErrors"
 	return(valueCleaned)

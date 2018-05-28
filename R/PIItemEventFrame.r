@@ -22,10 +22,10 @@ PIItemEventFrame <- function(identifier = NULL, identifierType = NULL, object = 
 		}
 	}
 	value <- list(
-	Identifier = identifier,
-	IdentifierType = identifierType,
-	Object = object,
-	Exception = exception)
+		Identifier = identifier,
+		IdentifierType = identifierType,
+		Object = object,
+		Exception = exception)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIItemEventFrame"
 	return(valueCleaned)

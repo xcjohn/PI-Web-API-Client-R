@@ -30,12 +30,12 @@ PIAnalysisRuleLinks <- function(self = NULL, analysisRules = NULL, analysis = NU
 		}
 	}
 	value <- list(
-	Self = self,
-	AnalysisRules = analysisRules,
-	Analysis = analysis,
-	AnalysisTemplate = analysisTemplate,
-	Parent = parent,
-	PlugIn = plugIn)
+		Self = self,
+		AnalysisRules = analysisRules,
+		Analysis = analysis,
+		AnalysisTemplate = analysisTemplate,
+		Parent = parent,
+		PlugIn = plugIn)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysisRuleLinks"
 	return(valueCleaned)

@@ -20,10 +20,10 @@ PITableCategoryLinks <- function(self = NULL, database = NULL, security = NULL, 
 		}
 	}
 	value <- list(
-	Self = self,
-	Database = database,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Database = database,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITableCategoryLinks"
 	return(valueCleaned)

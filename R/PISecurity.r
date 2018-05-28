@@ -64,18 +64,18 @@ PISecurity <- function(canAnnotate = NULL, canDelete = NULL, canExecute = NULL, 
 		}
 	}
 	value <- list(
-	CanAnnotate = canAnnotate,
-	CanDelete = canDelete,
-	CanExecute = canExecute,
-	CanRead = canRead,
-	CanReadData = canReadData,
-	CanSubscribe = canSubscribe,
-	CanSubscribeOthers = canSubscribeOthers,
-	CanWrite = canWrite,
-	CanWriteData = canWriteData,
-	HasAdmin = hasAdmin,
-	Rights = rights,
-	WebException = webException)
+		CanAnnotate = canAnnotate,
+		CanDelete = canDelete,
+		CanExecute = canExecute,
+		CanRead = canRead,
+		CanReadData = canReadData,
+		CanSubscribe = canSubscribe,
+		CanSubscribeOthers = canSubscribeOthers,
+		CanWrite = canWrite,
+		CanWriteData = canWriteData,
+		HasAdmin = hasAdmin,
+		Rights = rights,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurity"
 	return(valueCleaned)

@@ -37,13 +37,13 @@ PIAttributeCategory <- function(webId = NULL, id = NULL, name = NULL, descriptio
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttributeCategory"
 	return(valueCleaned)

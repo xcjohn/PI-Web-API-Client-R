@@ -39,13 +39,13 @@ PIRequest <- function(method = NULL, resource = NULL, requestTemplate = NULL, pa
 		}
 	}
 	value <- list(
-	Method = method,
-	Resource = resource,
-	RequestTemplate = requestTemplate,
-	Parameters = parameters,
-	Headers = headers,
-	Content = content,
-	ParentIds = parentIds)
+		Method = method,
+		Resource = resource,
+		RequestTemplate = requestTemplate,
+		Parameters = parameters,
+		Headers = headers,
+		Content = content,
+		ParentIds = parentIds)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIRequest"
 	return(valueCleaned)

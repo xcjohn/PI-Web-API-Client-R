@@ -42,14 +42,14 @@ PISecurityIdentity <- function(webId = NULL, id = NULL, name = NULL, description
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	IsEnabled = isEnabled,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		IsEnabled = isEnabled,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityIdentity"
 	return(valueCleaned)

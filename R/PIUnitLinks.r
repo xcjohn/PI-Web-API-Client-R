@@ -15,9 +15,9 @@ PIUnitLinks <- function(self = NULL, class = NULL, referenceUnit = NULL) {
 		}
 	}
 	value <- list(
-	Self = self,
-	Class = class,
-	ReferenceUnit = referenceUnit)
+		Self = self,
+		Class = class,
+		ReferenceUnit = referenceUnit)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIUnitLinks"
 	return(valueCleaned)

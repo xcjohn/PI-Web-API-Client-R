@@ -22,10 +22,10 @@ PISystemLanding <- function(productTitle = NULL, productVersion = NULL, links = 
 		}
 	}
 	value <- list(
-	ProductTitle = productTitle,
-	ProductVersion = productVersion,
-	Links = links,
-	WebException = webException)
+		ProductTitle = productTitle,
+		ProductVersion = productVersion,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISystemLanding"
 	return(valueCleaned)

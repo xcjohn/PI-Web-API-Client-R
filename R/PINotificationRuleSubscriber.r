@@ -76,21 +76,21 @@ PINotificationRuleSubscriber <- function(webId = NULL, id = NULL, name = NULL, d
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	ConfigString = configString,
-	ContactTemplateName = contactTemplateName,
-	ContactType = contactType,
-	DeliveryFormatName = deliveryFormatName,
-	PlugInName = plugInName,
-	EscalationTimeout = escalationTimeout,
-	MaximumRetries = maximumRetries,
-	NotifyOption = notifyOption,
-	RetryInterval = retryInterval,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		ConfigString = configString,
+		ContactTemplateName = contactTemplateName,
+		ContactType = contactType,
+		DeliveryFormatName = deliveryFormatName,
+		PlugInName = plugInName,
+		EscalationTimeout = escalationTimeout,
+		MaximumRetries = maximumRetries,
+		NotifyOption = notifyOption,
+		RetryInterval = retryInterval,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PINotificationRuleSubscriber"
 	return(valueCleaned)

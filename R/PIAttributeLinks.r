@@ -85,23 +85,23 @@ PIAttributeLinks <- function(self = NULL, attributes = NULL, element = NULL, eve
 		}
 	}
 	value <- list(
-	Self = self,
-	Attributes = attributes,
-	Element = element,
-	EventFrame = eventFrame,
-	Parent = parent,
-	Template = template,
-	InterpolatedData = interpolatedData,
-	RecordedData = recordedData,
-	PlotData = plotData,
-	SummaryData = summaryData,
-	Value = value,
-	EndValue = endValue,
-	Point = point,
-	Categories = categories,
-	EnumerationSet = enumerationSet,
-	EnumerationValues = enumerationValues,
-	Trait = trait)
+		Self = self,
+		Attributes = attributes,
+		Element = element,
+		EventFrame = eventFrame,
+		Parent = parent,
+		Template = template,
+		InterpolatedData = interpolatedData,
+		RecordedData = recordedData,
+		PlotData = plotData,
+		SummaryData = summaryData,
+		Value = value,
+		EndValue = endValue,
+		Point = point,
+		Categories = categories,
+		EnumerationSet = enumerationSet,
+		EnumerationValues = enumerationValues,
+		Trait = trait)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttributeLinks"
 	return(valueCleaned)

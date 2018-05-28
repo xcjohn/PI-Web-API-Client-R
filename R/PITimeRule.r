@@ -77,21 +77,21 @@ PITimeRule <- function(webId = NULL, id = NULL, name = NULL, description = NULL,
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	ConfigString = configString,
-	ConfigStringStored = configStringStored,
-	DisplayString = displayString,
-	EditorType = editorType,
-	IsConfigured = isConfigured,
-	IsInitializing = isInitializing,
-	MergeDuplicatedItems = mergeDuplicatedItems,
-	PlugInName = plugInName,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		ConfigString = configString,
+		ConfigStringStored = configStringStored,
+		DisplayString = displayString,
+		EditorType = editorType,
+		IsConfigured = isConfigured,
+		IsInitializing = isInitializing,
+		MergeDuplicatedItems = mergeDuplicatedItems,
+		PlugInName = plugInName,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITimeRule"
 	return(valueCleaned)

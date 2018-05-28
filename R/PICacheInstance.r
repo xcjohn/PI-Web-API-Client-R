@@ -31,12 +31,12 @@ PICacheInstance <- function(id = NULL, lastRefreshTime = NULL, willRefreshAfter 
 		}
 	}
 	value <- list(
-	Id = id,
-	LastRefreshTime = lastRefreshTime,
-	WillRefreshAfter = willRefreshAfter,
-	ScheduledExpirationTime = scheduledExpirationTime,
-	User = user,
-	WebException = webException)
+		Id = id,
+		LastRefreshTime = lastRefreshTime,
+		WillRefreshAfter = willRefreshAfter,
+		ScheduledExpirationTime = scheduledExpirationTime,
+		User = user,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PICacheInstance"
 	return(valueCleaned)

@@ -90,23 +90,23 @@ PIAnalysisRulePlugIn <- function(webId = NULL, id = NULL, name = NULL, descripti
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	AssemblyFileName = assemblyFileName,
-	AssemblyID = assemblyID,
-	AssemblyLoadProperties = assemblyLoadProperties,
-	AssemblyTime = assemblyTime,
-	CompatibilityVersion = compatibilityVersion,
-	IsBrowsable = isBrowsable,
-	IsNonEditableConfig = isNonEditableConfig,
-	LoadedAssemblyTime = loadedAssemblyTime,
-	LoadedVersion = loadedVersion,
-	Version = version,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		AssemblyFileName = assemblyFileName,
+		AssemblyID = assemblyID,
+		AssemblyLoadProperties = assemblyLoadProperties,
+		AssemblyTime = assemblyTime,
+		CompatibilityVersion = compatibilityVersion,
+		IsBrowsable = isBrowsable,
+		IsNonEditableConfig = isNonEditableConfig,
+		LoadedAssemblyTime = loadedAssemblyTime,
+		LoadedVersion = loadedVersion,
+		Version = version,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysisRulePlugIn"
 	return(valueCleaned)

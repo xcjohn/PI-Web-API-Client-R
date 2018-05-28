@@ -55,16 +55,16 @@ PITable <- function(webId = NULL, id = NULL, name = NULL, description = NULL, pa
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	CategoryNames = categoryNames,
-	TimeZone = timeZone,
-	ConvertToLocalTime = convertToLocalTime,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		CategoryNames = categoryNames,
+		TimeZone = timeZone,
+		ConvertToLocalTime = convertToLocalTime,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITable"
 	return(valueCleaned)

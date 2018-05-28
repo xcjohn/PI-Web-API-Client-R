@@ -32,12 +32,12 @@ PIDataServerLicense <- function(amountLeft = NULL, amountUsed = NULL, name = NUL
 		}
 	}
 	value <- list(
-	AmountLeft = amountLeft,
-	AmountUsed = amountUsed,
-	Name = name,
-	TotalAmount = totalAmount,
-	Links = links,
-	WebException = webException)
+		AmountLeft = amountLeft,
+		AmountUsed = amountUsed,
+		Name = name,
+		TotalAmount = totalAmount,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIDataServerLicense"
 	return(valueCleaned)

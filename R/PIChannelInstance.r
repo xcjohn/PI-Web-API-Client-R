@@ -26,11 +26,11 @@ PIChannelInstance <- function(id = NULL, startTime = NULL, lastMessageSentTime =
 		}
 	}
 	value <- list(
-	Id = id,
-	StartTime = startTime,
-	LastMessageSentTime = lastMessageSentTime,
-	SentMessageCount = sentMessageCount,
-	WebException = webException)
+		Id = id,
+		StartTime = startTime,
+		LastMessageSentTime = lastMessageSentTime,
+		SentMessageCount = sentMessageCount,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIChannelInstance"
 	return(valueCleaned)

@@ -10,8 +10,8 @@ PIDataServerLicenseLinks <- function(self = NULL, parent = NULL) {
 		}
 	}
 	value <- list(
-	Self = self,
-	Parent = parent)
+		Self = self,
+		Parent = parent)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIDataServerLicenseLinks"
 	return(valueCleaned)

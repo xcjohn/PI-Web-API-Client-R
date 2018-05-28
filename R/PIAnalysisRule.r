@@ -85,22 +85,22 @@ PIAnalysisRule <- function(webId = NULL, id = NULL, name = NULL, description = N
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	ConfigString = configString,
-	DisplayString = displayString,
-	EditorType = editorType,
-	HasChildren = hasChildren,
-	IsConfigured = isConfigured,
-	IsInitializing = isInitializing,
-	PlugInName = plugInName,
-	SupportedBehaviors = supportedBehaviors,
-	VariableMapping = variableMapping,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		ConfigString = configString,
+		DisplayString = displayString,
+		EditorType = editorType,
+		HasChildren = hasChildren,
+		IsConfigured = isConfigured,
+		IsInitializing = isInitializing,
+		PlugInName = plugInName,
+		SupportedBehaviors = supportedBehaviors,
+		VariableMapping = variableMapping,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysisRule"
 	return(valueCleaned)

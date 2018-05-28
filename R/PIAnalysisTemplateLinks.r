@@ -50,16 +50,16 @@ PIAnalysisTemplateLinks <- function(self = NULL, database = NULL, categories = N
 		}
 	}
 	value <- list(
-	Self = self,
-	Database = database,
-	Categories = categories,
-	AnalysisRule = analysisRule,
-	AnalysisRulePlugIn = analysisRulePlugIn,
-	TimeRule = timeRule,
-	TimeRulePlugIn = timeRulePlugIn,
-	Target = target,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Database = database,
+		Categories = categories,
+		AnalysisRule = analysisRule,
+		AnalysisRulePlugIn = analysisRulePlugIn,
+		TimeRule = timeRule,
+		TimeRulePlugIn = timeRulePlugIn,
+		Target = target,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysisTemplateLinks"
 	return(valueCleaned)

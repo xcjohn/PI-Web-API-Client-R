@@ -30,12 +30,12 @@ PIEnumerationSetLinks <- function(self = NULL, database = NULL, dataServer = NUL
 		}
 	}
 	value <- list(
-	Self = self,
-	Database = database,
-	DataServer = dataServer,
-	Values = values,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Database = database,
+		DataServer = dataServer,
+		Values = values,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIEnumerationSetLinks"
 	return(valueCleaned)

@@ -31,12 +31,12 @@ PIStreamUpdatesRegister <- function(status = NULL, source = NULL, sourceName = N
 		}
 	}
 	value <- list(
-	Status = status,
-	Source = source,
-	SourceName = sourceName,
-	SourcePath = sourcePath,
-	LatestMarker = latestMarker,
-	Exception = exception)
+		Status = status,
+		Source = source,
+		SourceName = sourceName,
+		SourcePath = sourcePath,
+		LatestMarker = latestMarker,
+		Exception = exception)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIStreamUpdatesRegister"
 	return(valueCleaned)

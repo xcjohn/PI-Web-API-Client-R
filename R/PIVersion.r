@@ -21,10 +21,10 @@ PIVersion <- function(fullVersion = NULL, majorMinorRevision = NULL, build = NUL
 		}
 	}
 	value <- list(
-	FullVersion = fullVersion,
-	MajorMinorRevision = majorMinorRevision,
-	Build = build,
-	WebException = webException)
+		FullVersion = fullVersion,
+		MajorMinorRevision = majorMinorRevision,
+		Build = build,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIVersion"
 	return(valueCleaned)

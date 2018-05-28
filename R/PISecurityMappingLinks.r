@@ -25,11 +25,11 @@ PISecurityMappingLinks <- function(self = NULL, assetServer = NULL, securityIden
 		}
 	}
 	value <- list(
-	Self = self,
-	AssetServer = assetServer,
-	SecurityIdentity = securityIdentity,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		AssetServer = assetServer,
+		SecurityIdentity = securityIdentity,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityMappingLinks"
 	return(valueCleaned)

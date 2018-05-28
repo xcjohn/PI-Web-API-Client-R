@@ -47,15 +47,15 @@ PIUnitClass <- function(webId = NULL, id = NULL, name = NULL, description = NULL
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	CanonicalUnitName = canonicalUnitName,
-	CanonicalUnitAbbreviation = canonicalUnitAbbreviation,
-	Path = path,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		CanonicalUnitName = canonicalUnitName,
+		CanonicalUnitAbbreviation = canonicalUnitAbbreviation,
+		Path = path,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIUnitClass"
 	return(valueCleaned)

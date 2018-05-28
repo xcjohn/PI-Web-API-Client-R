@@ -20,10 +20,10 @@ PIAnnotationLinks <- function(self = NULL, owner = NULL, mediaData = NULL, media
 		}
 	}
 	value <- list(
-	Self = self,
-	Owner = owner,
-	MediaData = mediaData,
-	MediaMetadata = mediaMetadata)
+		Self = self,
+		Owner = owner,
+		MediaData = mediaData,
+		MediaMetadata = mediaMetadata)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnnotationLinks"
 	return(valueCleaned)

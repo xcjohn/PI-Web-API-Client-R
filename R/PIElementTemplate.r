@@ -77,21 +77,21 @@ PIElementTemplate <- function(webId = NULL, id = NULL, name = NULL, description 
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	AllowElementToExtend = allowElementToExtend,
-	BaseTemplate = baseTemplate,
-	InstanceType = instanceType,
-	NamingPattern = namingPattern,
-	CategoryNames = categoryNames,
-	ExtendedProperties = extendedProperties,
-	Severity = severity,
-	CanBeAcknowledged = canBeAcknowledged,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		AllowElementToExtend = allowElementToExtend,
+		BaseTemplate = baseTemplate,
+		InstanceType = instanceType,
+		NamingPattern = namingPattern,
+		CategoryNames = categoryNames,
+		ExtendedProperties = extendedProperties,
+		Severity = severity,
+		CanBeAcknowledged = canBeAcknowledged,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIElementTemplate"
 	return(valueCleaned)

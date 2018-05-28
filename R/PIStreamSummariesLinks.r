@@ -5,7 +5,7 @@ PIStreamSummariesLinks <- function(source = NULL) {
 		}
 	}
 	value <- list(
-	Source = source)
+		Source = source)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIStreamSummariesLinks"
 	return(valueCleaned)

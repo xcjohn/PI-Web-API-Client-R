@@ -20,10 +20,10 @@ PIUnitClassLinks <- function(self = NULL, canonicalUnit = NULL, units = NULL, as
 		}
 	}
 	value <- list(
-	Self = self,
-	CanonicalUnit = canonicalUnit,
-	Units = units,
-	AssetServer = assetServer)
+		Self = self,
+		CanonicalUnit = canonicalUnit,
+		Units = units,
+		AssetServer = assetServer)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIUnitClassLinks"
 	return(valueCleaned)

@@ -32,12 +32,12 @@ PIStreamSummaries <- function(webId = NULL, name = NULL, path = NULL, items = NU
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Name = name,
-	Path = path,
-	Items = items,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Name = name,
+		Path = path,
+		Items = items,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIStreamSummaries"
 	return(valueCleaned)

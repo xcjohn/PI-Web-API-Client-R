@@ -11,8 +11,8 @@ PIItemsAnalysisRule <- function(items = NULL, links = NULL) {
 		}
 	}
 	value <- list(
-	Items = items,
-	Links = links)
+		Items = items,
+		Links = links)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIItemsAnalysisRule"
 	return(valueCleaned)

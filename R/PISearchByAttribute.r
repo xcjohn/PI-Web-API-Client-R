@@ -21,10 +21,10 @@ PISearchByAttribute <- function(searchRoot = NULL, elementTemplate = NULL, webEx
 		}
 	}
 	value <- list(
-	SearchRoot = searchRoot,
-	ElementTemplate = elementTemplate,
-	WebException = webException,
-	ValueQueries = valueQueries)
+		SearchRoot = searchRoot,
+		ElementTemplate = elementTemplate,
+		WebException = webException,
+		ValueQueries = valueQueries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISearchByAttribute"
 	return(valueCleaned)

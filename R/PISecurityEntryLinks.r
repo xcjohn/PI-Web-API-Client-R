@@ -15,9 +15,9 @@ PISecurityEntryLinks <- function(self = NULL, securableObject = NULL, securityId
 		}
 	}
 	value <- list(
-	Self = self,
-	SecurableObject = securableObject,
-	SecurityIdentity = securityIdentity)
+		Self = self,
+		SecurableObject = securableObject,
+		SecurityIdentity = securityIdentity)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityEntryLinks"
 	return(valueCleaned)

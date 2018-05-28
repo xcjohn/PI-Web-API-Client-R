@@ -19,10 +19,10 @@ PIPointAttribute <- function(name = NULL, value = NULL, links = NULL, webExcepti
 		}
 	}
 	value <- list(
-	Name = name,
-	Value = value,
-	Links = links,
-	WebException = webException)
+		Name = name,
+		Value = value,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIPointAttribute"
 	return(valueCleaned)

@@ -47,15 +47,15 @@ PISecurityMapping <- function(webId = NULL, id = NULL, name = NULL, description 
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	Account = account,
-	SecurityIdentityWebId = securityIdentityWebId,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		Account = account,
+		SecurityIdentityWebId = securityIdentityWebId,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityMapping"
 	return(valueCleaned)

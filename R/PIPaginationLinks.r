@@ -15,9 +15,9 @@ PIPaginationLinks <- function(first = NULL, previous = NULL, last = NULL) {
 		}
 	}
 	value <- list(
-	First = first,
-	Previous = previous,
-	Last = last)
+		First = first,
+		Previous = previous,
+		Last = last)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIPaginationLinks"
 	return(valueCleaned)

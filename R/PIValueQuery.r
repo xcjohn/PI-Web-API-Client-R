@@ -23,11 +23,11 @@ PIValueQuery <- function(attributeName = NULL, attributeUOM = NULL, attributeVal
 		}
 	}
 	value <- list(
-	AttributeName = attributeName,
-	AttributeUOM = attributeUOM,
-	AttributeValue = attributeValue,
-	SearchOperator = searchOperator,
-	WebException = webException)
+		AttributeName = attributeName,
+		AttributeUOM = attributeUOM,
+		AttributeValue = attributeValue,
+		SearchOperator = searchOperator,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIValueQuery"
 	return(valueCleaned)

@@ -41,14 +41,14 @@ PIStreamUpdatesRetrieve <- function(source = NULL, sourceName = NULL, sourcePath
 		}
 	}
 	value <- list(
-	Source = source,
-	SourceName = sourceName,
-	SourcePath = sourcePath,
-	RequestedMarker = requestedMarker,
-	LatestMarker = latestMarker,
-	Status = status,
-	Events = events,
-	Exception = exception)
+		Source = source,
+		SourceName = sourceName,
+		SourcePath = sourcePath,
+		RequestedMarker = requestedMarker,
+		LatestMarker = latestMarker,
+		Status = status,
+		Events = events,
+		Exception = exception)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIStreamUpdatesRetrieve"
 	return(valueCleaned)

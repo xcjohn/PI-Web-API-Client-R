@@ -10,8 +10,8 @@ PIPointAttributeLinks <- function(self = NULL, point = NULL) {
 		}
 	}
 	value <- list(
-	Self = self,
-	Point = point)
+		Self = self,
+		Point = point)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIPointAttributeLinks"
 	return(valueCleaned)

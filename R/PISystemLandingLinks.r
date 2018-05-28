@@ -30,12 +30,12 @@ PISystemLandingLinks <- function(self = NULL, cacheInstances = NULL, configurati
 		}
 	}
 	value <- list(
-	Self = self,
-	CacheInstances = cacheInstances,
-	Configuration = configuration,
-	UserInfo = userInfo,
-	Versions = versions,
-	Status = status)
+		Self = self,
+		CacheInstances = cacheInstances,
+		Configuration = configuration,
+		UserInfo = userInfo,
+		Versions = versions,
+		Status = status)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISystemLandingLinks"
 	return(valueCleaned)

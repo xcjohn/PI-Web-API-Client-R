@@ -17,9 +17,9 @@ PISummaryValue <- function(type = NULL, value = NULL, webException = NULL) {
 		}
 	}
 	value <- list(
-	Type = type,
-	Value = value,
-	WebException = webException)
+		Type = type,
+		Value = value,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISummaryValue"
 	return(valueCleaned)

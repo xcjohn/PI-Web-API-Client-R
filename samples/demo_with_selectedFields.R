@@ -44,3 +44,18 @@ response10b <- piWebApiService$data$getMultiplePlotValues(paths = paths, startTi
 response11 <- piWebApiService$calculation$getAtTimes("tagval('sinusoid','*-1d')", NULL, NULL, c("y", "t"), response2$WebId)
 
 
+response12 <- piWebApiService$element$getByPath("\\\\PISRV1\\City Bikes\\(TO)BIKE")
+response13 <- piWebApiService$elementTemplate$getByPath("\\\\PISRV1\\City Bikes\\ElementTemplates[BikeStationTemplate]")
+valueQueries = list();
+valUeQuery1 <- PIValueQuery(attributeName = "Latitude", attributeValue = 0, searchOperator = "GreaterThan")
+valueQueries[[1]] = valUeQuery1
+search1 <- PISearchByAttribute(searchRoot = response12$WebId, elementTemplate = response13$WebId,  valueQueries = valueQueries);
+
+response14 <-piWebApiService$element$createSearchByAttribute(search1, FALSE, NULL)
+searchId = substr(response14$headers$location,65,1000000)
+
+response15 <-piWebApiService$element$executeSearchByAttribute(searchId)
+
+
+
+

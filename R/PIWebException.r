@@ -13,8 +13,8 @@ PIWebException <- function(statusCode = NULL, errors = NULL) {
 		}
 	}
 	value <- list(
-	StatusCode = statusCode,
-	Errors = errors)
+		StatusCode = statusCode,
+		Errors = errors)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIWebException"
 	return(valueCleaned)

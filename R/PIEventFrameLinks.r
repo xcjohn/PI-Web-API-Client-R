@@ -95,25 +95,25 @@ PIEventFrameLinks <- function(self = NULL, attributes = NULL, eventFrames = NULL
 		}
 	}
 	value <- list(
-	Self = self,
-	Attributes = attributes,
-	EventFrames = eventFrames,
-	Database = database,
-	ReferencedElements = referencedElements,
-	PrimaryReferencedElement = primaryReferencedElement,
-	Parent = parent,
-	Template = template,
-	DefaultAttribute = defaultAttribute,
-	Categories = categories,
-	Annotations = annotations,
-	InterpolatedData = interpolatedData,
-	RecordedData = recordedData,
-	PlotData = plotData,
-	SummaryData = summaryData,
-	Value = value,
-	EndValue = endValue,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Attributes = attributes,
+		EventFrames = eventFrames,
+		Database = database,
+		ReferencedElements = referencedElements,
+		PrimaryReferencedElement = primaryReferencedElement,
+		Parent = parent,
+		Template = template,
+		DefaultAttribute = defaultAttribute,
+		Categories = categories,
+		Annotations = annotations,
+		InterpolatedData = interpolatedData,
+		RecordedData = recordedData,
+		PlotData = plotData,
+		SummaryData = summaryData,
+		Value = value,
+		EndValue = endValue,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIEventFrameLinks"
 	return(valueCleaned)

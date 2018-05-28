@@ -43,15 +43,15 @@ PIStreamAnnotation <- function(id = NULL, name = NULL, description = NULL, value
 		}
 	}
 	value <- list(
-	Id = id,
-	Name = name,
-	Description = description,
-	Value = value,
-	Creator = creator,
-	CreationDate = creationDate,
-	Modifier = modifier,
-	ModifyDate = modifyDate,
-	WebException = webException)
+		Id = id,
+		Name = name,
+		Description = description,
+		Value = value,
+		Creator = creator,
+		CreationDate = creationDate,
+		Modifier = modifier,
+		ModifyDate = modifyDate,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIStreamAnnotation"
 	return(valueCleaned)

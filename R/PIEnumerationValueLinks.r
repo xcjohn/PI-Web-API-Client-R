@@ -15,9 +15,9 @@ PIEnumerationValueLinks <- function(self = NULL, enumerationSet = NULL, parent =
 		}
 	}
 	value <- list(
-	Self = self,
-	EnumerationSet = enumerationSet,
-	Parent = parent)
+		Self = self,
+		EnumerationSet = enumerationSet,
+		Parent = parent)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIEnumerationValueLinks"
 	return(valueCleaned)

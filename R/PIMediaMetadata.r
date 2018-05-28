@@ -34,13 +34,13 @@ PIMediaMetadata <- function(author = NULL, changeDate = NULL, description = NULL
 		}
 	}
 	value <- list(
-	Author = author,
-	ChangeDate = changeDate,
-	Description = description,
-	Name = name,
-	Size = size,
-	Links = links,
-	WebException = webException)
+		Author = author,
+		ChangeDate = changeDate,
+		Description = description,
+		Name = name,
+		Size = size,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIMediaMetadata"
 	return(valueCleaned)

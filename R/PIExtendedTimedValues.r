@@ -16,9 +16,9 @@ PIExtendedTimedValues <- function(items = NULL, unitsAbbreviation = NULL, webExc
 		}
 	}
 	value <- list(
-	Items = items,
-	UnitsAbbreviation = unitsAbbreviation,
-	WebException = webException)
+		Items = items,
+		UnitsAbbreviation = unitsAbbreviation,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIExtendedTimedValues"
 	return(valueCleaned)

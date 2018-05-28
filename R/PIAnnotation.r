@@ -49,16 +49,16 @@ PIAnnotation <- function(id = NULL, name = NULL, description = NULL, value = NUL
 		}
 	}
 	value <- list(
-	Id = id,
-	Name = name,
-	Description = description,
-	Value = value,
-	Creator = creator,
-	CreationDate = creationDate,
-	Modifier = modifier,
-	ModifyDate = modifyDate,
-	Links = links,
-	WebException = webException)
+		Id = id,
+		Name = name,
+		Description = description,
+		Value = value,
+		Creator = creator,
+		CreationDate = creationDate,
+		Modifier = modifier,
+		ModifyDate = modifyDate,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnnotation"
 	return(valueCleaned)

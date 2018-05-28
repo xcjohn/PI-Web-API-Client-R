@@ -47,15 +47,15 @@ PIDataServer <- function(webId = NULL, id = NULL, name = NULL, path = NULL, isCo
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Path = path,
-	IsConnected = isConnected,
-	ServerVersion = serverVersion,
-	ServerTime = serverTime,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Path = path,
+		IsConnected = isConnected,
+		ServerVersion = serverVersion,
+		ServerTime = serverTime,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIDataServer"
 	return(valueCleaned)

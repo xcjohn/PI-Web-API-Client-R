@@ -43,15 +43,15 @@ PITimedValue <- function(timestamp = NULL, unitsAbbreviation = NULL, good = NULL
 		}
 	}
 	value <- list(
-	Timestamp = timestamp,
-	UnitsAbbreviation = unitsAbbreviation,
-	Good = good,
-	Questionable = questionable,
-	Substituted = substituted,
-	Annotated = annotated,
-	Value = value,
-	Errors = errors,
-	WebException = webException)
+		Timestamp = timestamp,
+		UnitsAbbreviation = unitsAbbreviation,
+		Good = good,
+		Questionable = questionable,
+		Substituted = substituted,
+		Annotated = annotated,
+		Value = value,
+		Errors = errors,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITimedValue"
 	return(valueCleaned)

@@ -55,19 +55,19 @@ PIUnit <- function(webId = NULL, id = NULL, name = NULL, abbreviation = NULL, de
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Abbreviation = abbreviation,
-	Description = description,
-	Path = path,
-	Factor = factor,
-	Offset = offset,
-	ReferenceFactor = referenceFactor,
-	ReferenceOffset = referenceOffset,
-	ReferenceUnitAbbreviation = referenceUnitAbbreviation,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Abbreviation = abbreviation,
+		Description = description,
+		Path = path,
+		Factor = factor,
+		Offset = offset,
+		ReferenceFactor = referenceFactor,
+		ReferenceOffset = referenceOffset,
+		ReferenceUnitAbbreviation = referenceUnitAbbreviation,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIUnit"
 	return(valueCleaned)

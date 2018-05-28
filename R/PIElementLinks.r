@@ -95,25 +95,25 @@ PIElementLinks <- function(self = NULL, analyses = NULL, attributes = NULL, elem
 		}
 	}
 	value <- list(
-	Self = self,
-	Analyses = analyses,
-	Attributes = attributes,
-	Elements = elements,
-	Database = database,
-	Parent = parent,
-	Template = template,
-	Categories = categories,
-	DefaultAttribute = defaultAttribute,
-	EventFrames = eventFrames,
-	InterpolatedData = interpolatedData,
-	RecordedData = recordedData,
-	PlotData = plotData,
-	SummaryData = summaryData,
-	Value = value,
-	EndValue = endValue,
-	Security = security,
-	SecurityEntries = securityEntries,
-	NotificationRules = notificationRules)
+		Self = self,
+		Analyses = analyses,
+		Attributes = attributes,
+		Elements = elements,
+		Database = database,
+		Parent = parent,
+		Template = template,
+		Categories = categories,
+		DefaultAttribute = defaultAttribute,
+		EventFrames = eventFrames,
+		InterpolatedData = interpolatedData,
+		RecordedData = recordedData,
+		PlotData = plotData,
+		SummaryData = summaryData,
+		Value = value,
+		EndValue = endValue,
+		Security = security,
+		SecurityEntries = securityEntries,
+		NotificationRules = notificationRules)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIElementLinks"
 	return(valueCleaned)

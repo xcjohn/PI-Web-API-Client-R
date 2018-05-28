@@ -38,12 +38,12 @@ PISecurityEntry <- function(name = NULL, securityIdentityName = NULL, allowRight
 		}
 	}
 	value <- list(
-	Name = name,
-	SecurityIdentityName = securityIdentityName,
-	AllowRights = allowRights,
-	DenyRights = denyRights,
-	Links = links,
-	WebException = webException)
+		Name = name,
+		SecurityIdentityName = securityIdentityName,
+		AllowRights = allowRights,
+		DenyRights = denyRights,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityEntry"
 	return(valueCleaned)

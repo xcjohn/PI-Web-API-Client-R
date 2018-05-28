@@ -85,22 +85,22 @@ PISecurityRights <- function(ownerWebId = NULL, securityItem = NULL, userIdentit
 		}
 	}
 	value <- list(
-	OwnerWebId = ownerWebId,
-	SecurityItem = securityItem,
-	UserIdentity = userIdentity,
-	Links = links,
-	CanAnnotate = canAnnotate,
-	CanDelete = canDelete,
-	CanExecute = canExecute,
-	CanRead = canRead,
-	CanReadData = canReadData,
-	CanSubscribe = canSubscribe,
-	CanSubscribeOthers = canSubscribeOthers,
-	CanWrite = canWrite,
-	CanWriteData = canWriteData,
-	HasAdmin = hasAdmin,
-	Rights = rights,
-	WebException = webException)
+		OwnerWebId = ownerWebId,
+		SecurityItem = securityItem,
+		UserIdentity = userIdentity,
+		Links = links,
+		CanAnnotate = canAnnotate,
+		CanDelete = canDelete,
+		CanExecute = canExecute,
+		CanRead = canRead,
+		CanReadData = canReadData,
+		CanSubscribe = canSubscribe,
+		CanSubscribeOthers = canSubscribeOthers,
+		CanWrite = canWrite,
+		CanWriteData = canWriteData,
+		HasAdmin = hasAdmin,
+		Rights = rights,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityRights"
 	return(valueCleaned)

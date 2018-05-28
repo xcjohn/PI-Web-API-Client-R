@@ -8,7 +8,7 @@ PIItemsstring <- function(items = NULL) {
 		}
 	}
 	value <- list(
-	Items = items)
+		Items = items)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIItemsstring"
 	return(valueCleaned)

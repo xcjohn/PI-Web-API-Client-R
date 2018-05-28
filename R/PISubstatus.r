@@ -16,9 +16,9 @@ PISubstatus <- function(substatus = NULL, message = NULL, webException = NULL) {
 		}
 	}
 	value <- list(
-	Substatus = substatus,
-	Message = message,
-	WebException = webException)
+		Substatus = substatus,
+		Message = message,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISubstatus"
 	return(valueCleaned)

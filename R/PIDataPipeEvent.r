@@ -48,16 +48,16 @@ PIDataPipeEvent <- function(action = NULL, timestamp = NULL, unitsAbbreviation =
 		}
 	}
 	value <- list(
-	Action = action,
-	Timestamp = timestamp,
-	UnitsAbbreviation = unitsAbbreviation,
-	Good = good,
-	Questionable = questionable,
-	Substituted = substituted,
-	Annotated = annotated,
-	Value = value,
-	Errors = errors,
-	WebException = webException)
+		Action = action,
+		Timestamp = timestamp,
+		UnitsAbbreviation = unitsAbbreviation,
+		Good = good,
+		Questionable = questionable,
+		Substituted = substituted,
+		Annotated = annotated,
+		Value = value,
+		Errors = errors,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIDataPipeEvent"
 	return(valueCleaned)

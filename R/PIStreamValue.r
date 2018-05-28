@@ -33,12 +33,12 @@ PIStreamValue <- function(webId = NULL, name = NULL, path = NULL, value = NULL, 
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Name = name,
-	Path = path,
-	Value = value,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Name = name,
+		Path = path,
+		Value = value,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIStreamValue"
 	return(valueCleaned)

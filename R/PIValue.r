@@ -14,9 +14,9 @@ PIValue <- function(value = NULL, exception = NULL, webException = NULL) {
 		}
 	}
 	value <- list(
-	Value = value,
-	Exception = exception,
-	WebException = webException)
+		Value = value,
+		Exception = exception,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIValue"
 	return(valueCleaned)

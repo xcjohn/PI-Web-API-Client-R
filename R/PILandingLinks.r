@@ -30,12 +30,12 @@ PILandingLinks <- function(self = NULL, assetServers = NULL, dataServers = NULL,
 		}
 	}
 	value <- list(
-	Self = self,
-	AssetServers = assetServers,
-	DataServers = dataServers,
-	PIDirectory = pIDirectory,
-	Search = search,
-	System = system)
+		Self = self,
+		AssetServers = assetServers,
+		DataServers = dataServers,
+		PIDirectory = pIDirectory,
+		Search = search,
+		System = system)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PILandingLinks"
 	return(valueCleaned)

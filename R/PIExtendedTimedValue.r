@@ -48,16 +48,16 @@ PIExtendedTimedValue <- function(annotations = NULL, timestamp = NULL, unitsAbbr
 		}
 	}
 	value <- list(
-	Annotations = annotations,
-	Timestamp = timestamp,
-	UnitsAbbreviation = unitsAbbreviation,
-	Good = good,
-	Questionable = questionable,
-	Substituted = substituted,
-	Annotated = annotated,
-	Value = value,
-	Errors = errors,
-	WebException = webException)
+		Annotations = annotations,
+		Timestamp = timestamp,
+		UnitsAbbreviation = unitsAbbreviation,
+		Good = good,
+		Questionable = questionable,
+		Substituted = substituted,
+		Annotated = annotated,
+		Value = value,
+		Errors = errors,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIExtendedTimedValue"
 	return(valueCleaned)

@@ -12,8 +12,8 @@ PILanding <- function(links = NULL, webException = NULL) {
 		}
 	}
 	value <- list(
-	Links = links,
-	WebException = webException)
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PILanding"
 	return(valueCleaned)

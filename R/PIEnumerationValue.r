@@ -72,20 +72,20 @@ PIEnumerationValue <- function(webId = NULL, id = NULL, name = NULL, description
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Value = value,
-	Path = path,
-	Parent = parent,
-	Links = links,
-	SerializeWebId = serializeWebId,
-	SerializeId = serializeId,
-	SerializeDescription = serializeDescription,
-	SerializePath = serializePath,
-	SerializeLinks = serializeLinks,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Value = value,
+		Path = path,
+		Parent = parent,
+		Links = links,
+		SerializeWebId = serializeWebId,
+		SerializeId = serializeId,
+		SerializeDescription = serializeDescription,
+		SerializePath = serializePath,
+		SerializeLinks = serializeLinks,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIEnumerationValue"
 	return(valueCleaned)

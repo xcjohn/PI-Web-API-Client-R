@@ -5,7 +5,7 @@ PIRequestTemplate <- function(resource = NULL) {
 		}
 	}
 	value <- list(
-	Resource = resource)
+		Resource = resource)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIRequestTemplate"
 	return(valueCleaned)

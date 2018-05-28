@@ -30,12 +30,12 @@ PIAttributeTemplateLinks <- function(self = NULL, attributeTemplates = NULL, ele
 		}
 	}
 	value <- list(
-	Self = self,
-	AttributeTemplates = attributeTemplates,
-	ElementTemplate = elementTemplate,
-	Parent = parent,
-	Categories = categories,
-	Trait = trait)
+		Self = self,
+		AttributeTemplates = attributeTemplates,
+		ElementTemplate = elementTemplate,
+		Parent = parent,
+		Categories = categories,
+		Trait = trait)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttributeTemplateLinks"
 	return(valueCleaned)

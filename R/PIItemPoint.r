@@ -22,10 +22,10 @@ PIItemPoint <- function(identifier = NULL, identifierType = NULL, object = NULL,
 		}
 	}
 	value <- list(
-	Identifier = identifier,
-	IdentifierType = identifierType,
-	Object = object,
-	Exception = exception)
+		Identifier = identifier,
+		IdentifierType = identifierType,
+		Object = object,
+		Exception = exception)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIItemPoint"
 	return(valueCleaned)

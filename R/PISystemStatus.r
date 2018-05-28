@@ -23,11 +23,11 @@ PISystemStatus <- function(upTimeInMinutes = NULL, state = NULL, cacheInstances 
 		}
 	}
 	value <- list(
-	UpTimeInMinutes = upTimeInMinutes,
-	State = state,
-	CacheInstances = cacheInstances,
-	ServerTime = serverTime,
-	WebException = webException)
+		UpTimeInMinutes = upTimeInMinutes,
+		State = state,
+		CacheInstances = cacheInstances,
+		ServerTime = serverTime,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISystemStatus"
 	return(valueCleaned)

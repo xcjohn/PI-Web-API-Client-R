@@ -15,9 +15,9 @@ PIDataServerLinks <- function(self = NULL, points = NULL, enumerationSets = NULL
 		}
 	}
 	value <- list(
-	Self = self,
-	Points = points,
-	EnumerationSets = enumerationSets)
+		Self = self,
+		Points = points,
+		EnumerationSets = enumerationSets)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIDataServerLinks"
 	return(valueCleaned)

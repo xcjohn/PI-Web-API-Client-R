@@ -31,12 +31,12 @@ PIUserInfo <- function(identityType = NULL, name = NULL, isAuthenticated = NULL,
 		}
 	}
 	value <- list(
-	IdentityType = identityType,
-	Name = name,
-	IsAuthenticated = isAuthenticated,
-	SID = sID,
-	ImpersonationLevel = impersonationLevel,
-	WebException = webException)
+		IdentityType = identityType,
+		Name = name,
+		IsAuthenticated = isAuthenticated,
+		SID = sID,
+		ImpersonationLevel = impersonationLevel,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIUserInfo"
 	return(valueCleaned)

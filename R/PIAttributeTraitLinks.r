@@ -5,7 +5,7 @@ PIAttributeTraitLinks <- function(self = NULL) {
 		}
 	}
 	value <- list(
-	Self = self)
+		Self = self)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttributeTraitLinks"
 	return(valueCleaned)

@@ -85,22 +85,22 @@ PIAnalysisTemplate <- function(webId = NULL, id = NULL, name = NULL, description
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	AnalysisRulePlugInName = analysisRulePlugInName,
-	CategoryNames = categoryNames,
-	CreateEnabled = createEnabled,
-	GroupId = groupId,
-	HasNotificationTemplate = hasNotificationTemplate,
-	HasTarget = hasTarget,
-	OutputTime = outputTime,
-	TargetName = targetName,
-	TimeRulePlugInName = timeRulePlugInName,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		AnalysisRulePlugInName = analysisRulePlugInName,
+		CategoryNames = categoryNames,
+		CreateEnabled = createEnabled,
+		GroupId = groupId,
+		HasNotificationTemplate = hasNotificationTemplate,
+		HasTarget = hasTarget,
+		OutputTime = outputTime,
+		TargetName = targetName,
+		TimeRulePlugInName = timeRulePlugInName,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysisTemplate"
 	return(valueCleaned)

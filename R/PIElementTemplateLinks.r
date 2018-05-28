@@ -60,18 +60,18 @@ PIElementTemplateLinks <- function(self = NULL, analysisTemplates = NULL, attrib
 		}
 	}
 	value <- list(
-	Self = self,
-	AnalysisTemplates = analysisTemplates,
-	AttributeTemplates = attributeTemplates,
-	Database = database,
-	Categories = categories,
-	BaseTemplate = baseTemplate,
-	BaseTemplates = baseTemplates,
-	DerivedTemplates = derivedTemplates,
-	DefaultAttribute = defaultAttribute,
-	NotificationRuleTemplates = notificationRuleTemplates,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		AnalysisTemplates = analysisTemplates,
+		AttributeTemplates = attributeTemplates,
+		Database = database,
+		Categories = categories,
+		BaseTemplate = baseTemplate,
+		BaseTemplates = baseTemplates,
+		DerivedTemplates = derivedTemplates,
+		DefaultAttribute = defaultAttribute,
+		NotificationRuleTemplates = notificationRuleTemplates,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIElementTemplateLinks"
 	return(valueCleaned)

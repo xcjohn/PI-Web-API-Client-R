@@ -13,8 +13,8 @@ PIPropertyError <- function(fieldName = NULL, message = NULL) {
 		}
 	}
 	value <- list(
-	FieldName = fieldName,
-	Message = message)
+		FieldName = fieldName,
+		Message = message)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIPropertyError"
 	return(valueCleaned)

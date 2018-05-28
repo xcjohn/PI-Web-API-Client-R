@@ -10,8 +10,8 @@ PISecurityRightsLinks <- function(self = NULL, owner = NULL) {
 		}
 	}
 	value <- list(
-	Self = self,
-	Owner = owner)
+		Self = self,
+		Owner = owner)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PISecurityRightsLinks"
 	return(valueCleaned)

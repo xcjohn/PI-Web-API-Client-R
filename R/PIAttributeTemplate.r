@@ -107,27 +107,27 @@ PIAttributeTemplate <- function(webId = NULL, id = NULL, name = NULL, descriptio
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	Type = type,
-	TypeQualifier = typeQualifier,
-	DefaultUnitsName = defaultUnitsName,
-	DefaultValue = defaultValue,
-	DataReferencePlugIn = dataReferencePlugIn,
-	ConfigString = configString,
-	IsConfigurationItem = isConfigurationItem,
-	IsExcluded = isExcluded,
-	IsHidden = isHidden,
-	IsManualDataEntry = isManualDataEntry,
-	HasChildren = hasChildren,
-	CategoryNames = categoryNames,
-	TraitName = traitName,
-	DefaultUnitsNameAbbreviation = defaultUnitsNameAbbreviation,
-	Links = links,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		Type = type,
+		TypeQualifier = typeQualifier,
+		DefaultUnitsName = defaultUnitsName,
+		DefaultValue = defaultValue,
+		DataReferencePlugIn = dataReferencePlugIn,
+		ConfigString = configString,
+		IsConfigurationItem = isConfigurationItem,
+		IsExcluded = isExcluded,
+		IsHidden = isHidden,
+		IsManualDataEntry = isManualDataEntry,
+		HasChildren = hasChildren,
+		CategoryNames = categoryNames,
+		TraitName = traitName,
+		DefaultUnitsNameAbbreviation = defaultUnitsNameAbbreviation,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttributeTemplate"
 	return(valueCleaned)

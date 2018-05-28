@@ -57,17 +57,17 @@ PIAttributeTrait <- function(name = NULL, abbreviation = NULL, allowChildAttribu
 		}
 	}
 	value <- list(
-	Name = name,
-	Abbreviation = abbreviation,
-	AllowChildAttributes = allowChildAttributes,
-	AllowDuplicates = allowDuplicates,
-	IsAllowedOnRootAttribute = isAllowedOnRootAttribute,
-	IsTypeInherited = isTypeInherited,
-	IsUOMInherited = isUOMInherited,
-	RequireNumeric = requireNumeric,
-	RequireString = requireString,
-	Links = links,
-	WebException = webException)
+		Name = name,
+		Abbreviation = abbreviation,
+		AllowChildAttributes = allowChildAttributes,
+		AllowDuplicates = allowDuplicates,
+		IsAllowedOnRootAttribute = isAllowedOnRootAttribute,
+		IsTypeInherited = isTypeInherited,
+		IsUOMInherited = isUOMInherited,
+		RequireNumeric = requireNumeric,
+		RequireString = requireString,
+		Links = links,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttributeTrait"
 	return(valueCleaned)

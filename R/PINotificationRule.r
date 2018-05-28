@@ -74,20 +74,20 @@ PINotificationRule <- function(webId = NULL, id = NULL, name = NULL, description
 		}
 	}
 	value <- list(
-	WebId = webId,
-	Id = id,
-	Name = name,
-	Description = description,
-	Path = path,
-	AutoCreated = autoCreated,
-	CategoryNames = categoryNames,
-	Criteria = criteria,
-	MultiTriggerEventOption = multiTriggerEventOption,
-	NonrepetitionInterval = nonrepetitionInterval,
-	ResendInterval = resendInterval,
-	Status = status,
-	TemplateName = templateName,
-	WebException = webException)
+		WebId = webId,
+		Id = id,
+		Name = name,
+		Description = description,
+		Path = path,
+		AutoCreated = autoCreated,
+		CategoryNames = categoryNames,
+		Criteria = criteria,
+		MultiTriggerEventOption = multiTriggerEventOption,
+		NonrepetitionInterval = nonrepetitionInterval,
+		ResendInterval = resendInterval,
+		Status = status,
+		TemplateName = templateName,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PINotificationRule"
 	return(valueCleaned)

@@ -20,10 +20,10 @@ PITimeRuleLinks <- function(self = NULL, analysis = NULL, analysisTemplate = NUL
 		}
 	}
 	value <- list(
-	Self = self,
-	Analysis = analysis,
-	AnalysisTemplate = analysisTemplate,
-	PlugIn = plugIn)
+		Self = self,
+		Analysis = analysis,
+		AnalysisTemplate = analysisTemplate,
+		PlugIn = plugIn)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITimeRuleLinks"
 	return(valueCleaned)

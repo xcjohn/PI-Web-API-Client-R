@@ -15,9 +15,9 @@ PIMediaMetadataLinks <- function(self = NULL, owner = NULL, mediaData = NULL) {
 		}
 	}
 	value <- list(
-	Self = self,
-	Owner = owner,
-	MediaData = mediaData)
+		Self = self,
+		Owner = owner,
+		MediaData = mediaData)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIMediaMetadataLinks"
 	return(valueCleaned)

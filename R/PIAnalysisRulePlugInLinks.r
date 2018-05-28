@@ -10,8 +10,8 @@ PIAnalysisRulePlugInLinks <- function(self = NULL, assetServer = NULL) {
 		}
 	}
 	value <- list(
-	Self = self,
-	AssetServer = assetServer)
+		Self = self,
+		AssetServer = assetServer)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAnalysisRulePlugInLinks"
 	return(valueCleaned)

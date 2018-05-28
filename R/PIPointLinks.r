@@ -45,15 +45,15 @@ PIPointLinks <- function(self = NULL, dataServer = NULL, attributes = NULL, inte
 		}
 	}
 	value <- list(
-	Self = self,
-	DataServer = dataServer,
-	Attributes = attributes,
-	InterpolatedData = interpolatedData,
-	RecordedData = recordedData,
-	PlotData = plotData,
-	SummaryData = summaryData,
-	Value = value,
-	EndValue = endValue)
+		Self = self,
+		DataServer = dataServer,
+		Attributes = attributes,
+		InterpolatedData = interpolatedData,
+		RecordedData = recordedData,
+		PlotData = plotData,
+		SummaryData = summaryData,
+		Value = value,
+		EndValue = endValue)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIPointLinks"
 	return(valueCleaned)

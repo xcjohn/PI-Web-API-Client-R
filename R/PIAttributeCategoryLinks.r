@@ -20,10 +20,10 @@ PIAttributeCategoryLinks <- function(self = NULL, database = NULL, security = NU
 		}
 	}
 	value <- list(
-	Self = self,
-	Database = database,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Database = database,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAttributeCategoryLinks"
 	return(valueCleaned)

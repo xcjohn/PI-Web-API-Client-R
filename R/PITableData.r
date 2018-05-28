@@ -13,9 +13,9 @@ PITableData <- function(columns = NULL, rows = NULL, webException = NULL) {
 		}
 	}
 	value <- list(
-	Columns = columns,
-	Rows = rows,
-	WebException = webException)
+		Columns = columns,
+		Rows = rows,
+		WebException = webException)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PITableData"
 	return(valueCleaned)

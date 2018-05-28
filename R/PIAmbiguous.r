@@ -5,7 +5,7 @@ PIAmbiguous <- function(reason = NULL) {
 		}
 	}
 	value <- list(
-	Reason = reason)
+		Reason = reason)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAmbiguous"
 	return(valueCleaned)

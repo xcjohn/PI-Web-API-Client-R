@@ -22,10 +22,10 @@ PIItemAttribute <- function(identifier = NULL, identifierType = NULL, object = N
 		}
 	}
 	value <- list(
-	Identifier = identifier,
-	IdentifierType = identifierType,
-	Object = object,
-	Exception = exception)
+		Identifier = identifier,
+		IdentifierType = identifierType,
+		Object = object,
+		Exception = exception)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIItemAttribute"
 	return(valueCleaned)

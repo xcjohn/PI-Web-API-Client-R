@@ -50,16 +50,16 @@ PIAssetServerLinks <- function(self = NULL, databases = NULL, notificationContac
 		}
 	}
 	value <- list(
-	Self = self,
-	Databases = databases,
-	NotificationContactTemplates = notificationContactTemplates,
-	SecurityIdentities = securityIdentities,
-	SecurityMappings = securityMappings,
-	UnitClasses = unitClasses,
-	AnalysisRulePlugIns = analysisRulePlugIns,
-	TimeRulePlugIns = timeRulePlugIns,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Databases = databases,
+		NotificationContactTemplates = notificationContactTemplates,
+		SecurityIdentities = securityIdentities,
+		SecurityMappings = securityMappings,
+		UnitClasses = unitClasses,
+		AnalysisRulePlugIns = analysisRulePlugIns,
+		TimeRulePlugIns = timeRulePlugIns,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAssetServerLinks"
 	return(valueCleaned)

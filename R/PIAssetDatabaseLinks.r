@@ -70,20 +70,20 @@ PIAssetDatabaseLinks <- function(self = NULL, elements = NULL, elementTemplates 
 		}
 	}
 	value <- list(
-	Self = self,
-	Elements = elements,
-	ElementTemplates = elementTemplates,
-	EventFrames = eventFrames,
-	AssetServer = assetServer,
-	ElementCategories = elementCategories,
-	AttributeCategories = attributeCategories,
-	TableCategories = tableCategories,
-	AnalysisCategories = analysisCategories,
-	AnalysisTemplates = analysisTemplates,
-	EnumerationSets = enumerationSets,
-	Tables = tables,
-	Security = security,
-	SecurityEntries = securityEntries)
+		Self = self,
+		Elements = elements,
+		ElementTemplates = elementTemplates,
+		EventFrames = eventFrames,
+		AssetServer = assetServer,
+		ElementCategories = elementCategories,
+		AttributeCategories = attributeCategories,
+		TableCategories = tableCategories,
+		AnalysisCategories = analysisCategories,
+		AnalysisTemplates = analysisTemplates,
+		EnumerationSets = enumerationSets,
+		Tables = tables,
+		Security = security,
+		SecurityEntries = securityEntries)
 	valueCleaned <- rmNullObs(value)
 	attr(valueCleaned, "className") <- "PIAssetDatabaseLinks"
 	return(valueCleaned)
