@@ -219,6 +219,23 @@ securityEntry <- PISecurityEntry(allowRights = allowRight, denyRights = denyRigh
 response17 <- piWebApiService$element$updateSecurityEntry("SwaggerIdentity", elementWebId, securityEntry, TRUE)
 ```
 
+### PISearchByAttribute examples
+
+```r
+response12 <- piWebApiService$element$getByPath("\\\\PISRV1\\City Bikes\\(TO)BIKE")
+response13 <- piWebApiService$elementTemplate$getByPath("\\\\PISRV1\\City Bikes\\ElementTemplates[BikeStationTemplate]")
+valueQueries = list();
+valUeQuery1 <- PIValueQuery(attributeName = "Latitude", attributeValue = 0, searchOperator = "GreaterThan")
+valueQueries[[1]] = valUeQuery1
+search1 <- PISearchByAttribute(searchRoot = response12$WebId, elementTemplate = response13$WebId,  valueQueries = valueQueries);
+
+response14 <-piWebApiService$element$createSearchByAttribute(search1, FALSE, NULL)
+searchId = substr(response14$headers$location,65,1000000)
+
+response15 <-piWebApiService$element$executeSearchByAttribute(searchId)
+
+```
+
 
 ## Licensing
 Copyright 2018 OSIsoft, LLC.
