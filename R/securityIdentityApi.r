@@ -88,7 +88,7 @@ securityIdentityApi <- R6Class("securityIdentityApi",
 				return (print(paste0("Error: the class from the parameter PISecurityIdentity should be PISecurityIdentity.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/securityidentities/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PISecurityIdentity, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityIdentity, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ securityIdentityApi <- R6Class("securityIdentityApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/securityidentities/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields, webIdType) {

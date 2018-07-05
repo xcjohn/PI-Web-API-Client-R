@@ -201,7 +201,7 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAssetDatabase, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAssetDatabase, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getNotificationContactTemplates = function(webId, selectedFields, webIdType) {
@@ -366,7 +366,7 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, securityItem, selectedFields, webIdType) {
@@ -476,7 +476,7 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
 			}
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityIdentities = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType) {
@@ -559,7 +559,7 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityIdentity, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityIdentity, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityIdentitiesForUser = function(webId, userIdentity, selectedFields, webIdType) {
@@ -686,7 +686,7 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityMapping, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityMapping, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getTimeRulePlugIns = function(webId, selectedFields, webIdType) {
@@ -767,7 +767,7 @@ assetServerApi <- R6Class("assetServerApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIUnitClass, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIUnitClass, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

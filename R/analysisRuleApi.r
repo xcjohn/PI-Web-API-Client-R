@@ -88,7 +88,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 				return (print(paste0("Error: the class from the parameter PIAnalysisRule should be PIAnalysisRule.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysisrules/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAnalysisRule, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysisRule, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysisrules/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnalysisRules = function(webId, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {
@@ -189,7 +189,7 @@ analysisRuleApi <- R6Class("analysisRuleApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAnalysisRule, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysisRule, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

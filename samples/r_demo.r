@@ -1,14 +1,15 @@
-'cat("\014")'
-'rm(list=ls())'
 'library(piwebapi)'
 'help(package="piwebapi")'
-
 
 
 piWebApiService <- piwebapi$new("https://devdata.osisoft.com/piwebapi/", FALSE, "webapiuser", "!try3.14webapi!", FALSE, FALSE)
 response1 = piWebApiService$home$get()
 
+response3a = piWebApiService$point$getByPath("\\\\PISRV1\\sinusoidu")
+response3b = piWebApiService$point$getByPath("\\\\PISRV1\\cdt158")
+response3c = piWebApiService$point$getByPath("\\\\PISRV1\\sinusoid")
 
+webIds <- c(response3a$WebId, response3b$WebId, response3c$WebId)
 
 
 
@@ -59,7 +60,8 @@ response11 <- piWebApiService$data$getMultipleRecordedValues(paths = paths, star
 response12 <- piWebApiService$data$getMultipleInterpolatedValues(paths = paths, startTime = "y-200d", endTime = "t", interval = "1h")
 response13 <- piWebApiService$data$getMultiplePlotValues(paths = paths, startTime = "y-200d", endTime = "t", intervals = 30)
 
-
-
-
+response14 <- piWebApiService$streamSet$registerStreamSetUpdates(webIds);
+piItemsStreamUpdatesRegister <- content(response14)
+markers <- c(piItemsStreamUpdatesRegister$Items[[1]]$LatestMarker, piItemsStreamUpdatesRegister$Items[[2]]$LatestMarker, piItemsStreamUpdatesRegister$Items[[3]]$LatestMarker)
+response15 <- piWebApiService$streamSet$retrieveStreamSetUpdates(markers);
 

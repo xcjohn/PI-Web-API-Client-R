@@ -236,6 +236,15 @@ response15 <-piWebApiService$element$executeSearchByAttribute(searchId)
 
 ```
 
+### StreamUpdates
+
+```r
+response16 <- piWebApiService$streamSet$registerStreamSetUpdates(webIds);
+piItemsStreamUpdatesRegister <- content(response14)
+markers <- c(piItemsStreamUpdatesRegister$Items[[1]]$LatestMarker, piItemsStreamUpdatesRegister$Items[[2]]$LatestMarker, piItemsStreamUpdatesRegister$Items[[3]]$LatestMarker)
+response17 <- piWebApiService$streamSet$retrieveStreamSetUpdates(markers);
+```
+
 
 ## Licensing
 Copyright 2018 OSIsoft, LLC.

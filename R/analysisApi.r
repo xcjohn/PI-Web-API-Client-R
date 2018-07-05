@@ -88,7 +88,7 @@ analysisApi <- R6Class("analysisApi",
 				return (print(paste0("Error: the class from the parameter PIAnalysis should be PIAnalysis.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analyses/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAnalysis, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysis, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ analysisApi <- R6Class("analysisApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analyses/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {
@@ -246,7 +246,7 @@ analysisApi <- R6Class("analysisApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
@@ -338,7 +338,7 @@ analysisApi <- R6Class("analysisApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnalysesQuery = function(databaseWebId, maxCount, query, selectedFields, startIndex, webIdType) {

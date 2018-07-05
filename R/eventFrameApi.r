@@ -88,7 +88,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: the class from the parameter PIEventFrame should be PIEventFrame.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIEventFrame, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIEventFrame, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		acknowledge = function(webId) {
@@ -112,7 +112,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/acknowledge'), collapse = "")
-			res <- patchHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnnotations = function(webId, selectedFields, webIdType) {
@@ -165,7 +165,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAnnotation, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAnnotation, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnnotationById = function(id, webId, selectedFields, webIdType) {
@@ -224,7 +224,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: the class from the parameter PIAnnotation should be PIAnnotation.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/annotations/', id), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAnnotation, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAnnotation, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		deleteAnnotation = function(id, webId) {
@@ -242,7 +242,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/annotations/', id), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		deleteAnnotationAttachmentMediaById = function(id, webId) {
@@ -260,7 +260,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/annotations/', id, '/attachment/media'), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnnotationAttachmentMediaMetadataById = function(id, webId, selectedFields, webIdType) {
@@ -431,7 +431,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		captureValues = function(webId) {
@@ -443,7 +443,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/attributes/capture'), collapse = "")
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {
@@ -489,7 +489,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: includeChildElements must be a boolean.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		findEventFrameAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime, webIdType) {
@@ -768,7 +768,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIEventFrame, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIEventFrame, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getReferencedElements = function(webId, selectedFields, webIdType) {
@@ -914,7 +914,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
@@ -1006,7 +1006,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getMultiple = function(asParallel, includeMode, path, selectedFields, webId, webIdType) {
@@ -1132,7 +1132,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISearchByAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISearchByAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		executeSearchByAttribute = function(searchId, canBeAcknowledged, endTime, isAcknowledged, maxCount, nameFilter, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, webIdType) {

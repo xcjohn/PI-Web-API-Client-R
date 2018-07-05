@@ -88,7 +88,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 				return (print(paste0("Error: the class from the parameter PIAssetDatabase should be PIAssetDatabase.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAssetDatabase, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAssetDatabase, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		findAnalyses = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, startIndex, webIdType) {
@@ -218,7 +218,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAnalysisCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysisCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnalysisTemplates = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType) {
@@ -302,7 +302,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAnalysisTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysisTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAttributeCategories = function(webId, selectedFields, webIdType) {
@@ -355,7 +355,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAttributeCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAttributeCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		findElementAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, elementCategory, elementDescriptionFilter, elementNameFilter, elementTemplate, elementType, maxCount, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {
@@ -520,7 +520,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIElementCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIElementCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getElements = function(webId, categoryName, descriptionFilter, elementType, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, templateName, webIdType) {
@@ -633,7 +633,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIElement, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIElement, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getElementTemplates = function(webId, field, maxCount, query, selectedFields, sortField, sortOrder, webIdType) {
@@ -717,7 +717,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIElementTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIElementTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getEnumerationSets = function(webId, selectedFields, webIdType) {
@@ -770,7 +770,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIEnumerationSet, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIEnumerationSet, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		findEventFrameAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime, webIdType) {
@@ -1049,7 +1049,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIEventFrame, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIEventFrame, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		export = function(webId, endTime, exportMode, startTime) {
@@ -1100,7 +1100,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: importMode must be a vector.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getReferencedElements = function(webId, categoryName, descriptionFilter, elementType, maxCount, nameFilter, selectedFields, sortField, sortOrder, startIndex, templateName, webIdType) {
@@ -1207,7 +1207,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: referenceType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		removeReferencedElement = function(webId, referencedElementWebId) {
@@ -1226,7 +1226,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 			}
 			qs$add('referencedElementWebId', referencedElementWebId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/assetdatabases/', webId, '/referencedelements'), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurity = function(webId, securityItem, userIdentity, forceRefresh, selectedFields, webIdType) {
@@ -1363,7 +1363,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, securityItem, selectedFields, webIdType) {
@@ -1473,7 +1473,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: securityItem must be a string.")))
 				}
 			}
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getTableCategories = function(webId, selectedFields, webIdType) {
@@ -1526,7 +1526,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PITableCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PITableCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getTables = function(webId, selectedFields, webIdType) {
@@ -1579,7 +1579,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PITable, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PITable, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

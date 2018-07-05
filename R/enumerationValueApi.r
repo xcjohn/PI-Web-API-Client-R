@@ -88,7 +88,7 @@ enumerationValueApi <- R6Class("enumerationValueApi",
 				return (print(paste0("Error: the class from the parameter PIEnumerationValue should be PIEnumerationValue.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/enumerationvalues/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIEnumerationValue, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIEnumerationValue, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		deleteEnumerationValue = function(webId) {
@@ -100,7 +100,7 @@ enumerationValueApi <- R6Class("enumerationValueApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/enumerationvalues/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

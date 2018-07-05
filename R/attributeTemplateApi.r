@@ -88,7 +88,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 				return (print(paste0("Error: the class from the parameter PIAttributeTemplate should be PIAttributeTemplate.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributetemplates/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAttributeTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAttributeTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributetemplates/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAttributeTemplates = function(webId, selectedFields, webIdType) {
@@ -153,7 +153,7 @@ attributeTemplateApi <- R6Class("attributeTemplateApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAttributeTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAttributeTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {

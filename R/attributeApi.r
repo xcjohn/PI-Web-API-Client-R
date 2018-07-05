@@ -88,7 +88,7 @@ attributeApi <- R6Class("attributeApi",
 				return (print(paste0("Error: the class from the parameter PIAttribute should be PIAttribute.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributes/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ attributeApi <- R6Class("attributeApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/attributes/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAttributes = function(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, trait, traitCategory, valueType, webIdType) {
@@ -231,7 +231,7 @@ attributeApi <- R6Class("attributeApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {
@@ -277,7 +277,7 @@ attributeApi <- R6Class("attributeApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getValue = function(webId, selectedFields) {

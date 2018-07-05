@@ -88,7 +88,7 @@ analysisCategoryApi <- R6Class("analysisCategoryApi",
 				return (print(paste0("Error: the class from the parameter PIAnalysisCategory should be PIAnalysisCategory.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysiscategories/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAnalysisCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysisCategory, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ analysisCategoryApi <- R6Class("analysisCategoryApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysiscategories/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields, webIdType) {
@@ -218,7 +218,7 @@ analysisCategoryApi <- R6Class("analysisCategoryApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
@@ -310,7 +310,7 @@ analysisCategoryApi <- R6Class("analysisCategoryApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

@@ -88,7 +88,7 @@ timeRuleApi <- R6Class("timeRuleApi",
 				return (print(paste0("Error: the class from the parameter PITimeRule should be PITimeRule.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/timerules/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PITimeRule, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PITimeRule, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ timeRuleApi <- R6Class("timeRuleApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/timerules/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

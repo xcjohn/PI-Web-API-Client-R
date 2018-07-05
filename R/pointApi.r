@@ -88,7 +88,7 @@ pointApi <- R6Class("pointApi",
 				return (print(paste0("Error: the class from the parameter PIPoint should be PIPoint.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/points/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIPoint, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIPoint, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ pointApi <- R6Class("pointApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/points/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAttributes = function(webId, name, nameFilter, selectedFields, webIdType) {

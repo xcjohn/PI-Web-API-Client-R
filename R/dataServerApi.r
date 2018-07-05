@@ -173,7 +173,7 @@ dataServerApi <- R6Class("dataServerApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIEnumerationSet, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIEnumerationSet, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getLicense = function(webId, module, selectedFields, webIdType) {
@@ -281,7 +281,7 @@ dataServerApi <- R6Class("dataServerApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIPoint, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIPoint, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

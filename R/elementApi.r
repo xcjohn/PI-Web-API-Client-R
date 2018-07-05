@@ -88,7 +88,7 @@ elementApi <- R6Class("elementApi",
 				return (print(paste0("Error: the class from the parameter PIElement should be PIElement.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/elements/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIElement, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIElement, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ elementApi <- R6Class("elementApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/elements/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnalyses = function(webId, maxCount, selectedFields, sortField, sortOrder, startIndex, webIdType) {
@@ -177,7 +177,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAnalysis, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysis, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAttributes = function(webId, categoryName, maxCount, nameFilter, searchFullHierarchy, selectedFields, showExcluded, showHidden, sortField, sortOrder, startIndex, templateName, trait, traitCategory, valueType, webIdType) {
@@ -308,7 +308,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {
@@ -354,7 +354,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: includeChildElements must be a boolean.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		findElementAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, elementCategory, elementDescriptionFilter, elementNameFilter, elementTemplate, elementType, maxCount, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {
@@ -579,7 +579,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIElement, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIElement, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getEventFrames = function(webId, canBeAcknowledged, categoryName, endTime, isAcknowledged, maxCount, nameFilter, searchMode, selectedFields, severity, sortField, sortOrder, startIndex, startTime, templateName, webIdType) {
@@ -842,7 +842,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: referenceType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		removeReferencedElement = function(webId, referencedElementWebId) {
@@ -861,7 +861,7 @@ elementApi <- R6Class("elementApi",
 			}
 			qs$add('referencedElementWebId', referencedElementWebId, TRUE);
 			localVarPath <- paste(c(self$serviceBase, '/elements/', webId, '/referencedelements'), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurity = function(webId, userIdentity, forceRefresh, selectedFields, webIdType) {
@@ -979,7 +979,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
@@ -1071,7 +1071,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getMultiple = function(asParallel, includeMode, path, selectedFields, webId, webIdType) {
@@ -1191,7 +1191,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISearchByAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISearchByAttribute, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		executeSearchByAttribute = function(searchId, categoryName, descriptionFilter, maxCount, nameFilter, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {

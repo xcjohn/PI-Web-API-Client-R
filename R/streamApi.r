@@ -390,7 +390,7 @@ streamApi <- R6Class("streamApi",
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, values, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), values, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getRecordedAtTime = function(webId, time, associations, desiredUnits, retrievalMode, selectedFields, timeZone) {
@@ -622,7 +622,7 @@ streamApi <- R6Class("streamApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getValue = function(webId, desiredUnits, selectedFields, time, timeZone) {
@@ -702,7 +702,7 @@ streamApi <- R6Class("streamApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PITimedValue, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PITimedValue, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		retrieveStreamUpdate = function(marker, desiredUnits, selectedFields, webIdType) {

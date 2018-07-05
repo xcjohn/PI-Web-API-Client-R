@@ -643,7 +643,7 @@ streamSetApi <- R6Class("streamSetApi",
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, values, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), values, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getRecordedAtTime = function(webId, time, categoryName, nameFilter, retrievalMode, searchFullHierarchy, selectedFields, showExcluded, showHidden, templateName, timeZone, webIdType) {
@@ -1072,7 +1072,7 @@ streamSetApi <- R6Class("streamSetApi",
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, values, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), values, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getChannelAdHoc = function(webId, heartbeatRate, includeInitialValues, webIdType) {
@@ -1481,7 +1481,7 @@ streamSetApi <- R6Class("streamSetApi",
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, values, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), values, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getRecordedAtTimeAdHoc = function(time, webId, retrievalMode, selectedFields, timeZone, webIdType) {
@@ -1738,7 +1738,7 @@ streamSetApi <- R6Class("streamSetApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getValuesAdHoc = function(webId, selectedFields, sortField, sortOrder, time, timeZone, webIdType) {
@@ -1818,7 +1818,7 @@ streamSetApi <- R6Class("streamSetApi",
 					return (print(paste0("Error: updateOption must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, values, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), values, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

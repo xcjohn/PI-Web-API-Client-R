@@ -88,7 +88,7 @@ unitApi <- R6Class("unitApi",
 				return (print(paste0("Error: the class from the parameter PIUnit should be PIUnit.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/units/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIUnit, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIUnit, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ unitApi <- R6Class("unitApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/units/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

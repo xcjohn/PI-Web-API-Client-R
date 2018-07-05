@@ -1,3 +1,5 @@
+cat("\014")
+rm(list=ls())
 library(R6)
 library(httr)
 library(rjson)

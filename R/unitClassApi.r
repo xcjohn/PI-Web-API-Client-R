@@ -88,7 +88,7 @@ unitClassApi <- R6Class("unitClassApi",
 				return (print(paste0("Error: the class from the parameter PIUnitClass should be PIUnitClass.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/unitclasses/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIUnitClass, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIUnitClass, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -100,7 +100,7 @@ unitClassApi <- R6Class("unitClassApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/unitclasses/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCanonicalUnit = function(webId, selectedFields, webIdType) {
@@ -181,7 +181,7 @@ unitClassApi <- R6Class("unitClassApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PIUnit, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PIUnit, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)

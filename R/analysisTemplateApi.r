@@ -66,7 +66,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), NULL, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		get = function(webId, selectedFields, webIdType) {
@@ -113,7 +113,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 				return (print(paste0("Error: the class from the parameter PIAnalysisTemplate should be PIAnalysisTemplate.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysistemplates/', webId), collapse = "")
-			res <- patchHttpRequest(localVarPath, PIAnalysisTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, qs$getQueryParameters(), PIAnalysisTemplate, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		delete = function(webId) {
@@ -125,7 +125,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/analysistemplates/', webId), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {
@@ -271,7 +271,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, qs$getQueryParameters(), PISecurityEntry, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getSecurityEntryByName = function(name, webId, selectedFields, webIdType) {
@@ -363,7 +363,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: applyToChildren must be a boolean.")))
 				}
 			}
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnalysisTemplatesQuery = function(databaseWebId, maxCount, query, selectedFields, startIndex, webIdType) {

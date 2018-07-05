@@ -1,11 +1,11 @@
-deleteHttpRequest <- function(url, username, password, authType, validateSSL, debug) {
+deleteHttpRequest <- function(url, queryParameters, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
-        res <- DELETE(url, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), verbose())
+        res <- DELETE(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), verbose())
 		showError(res)
 		return(res)
     }
     else {
-        res <- DELETE(url, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL))
+        res <- DELETE(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL))
 		showError(res)
 		return(res)
     }
@@ -25,27 +25,27 @@ getHttpRequest <- function(url, queryParameters, username, password, authType, v
     }
 }
 
-postHttpRequest <- function(url, bodyRequest, username, password, authType, validateSSL, debug) {
+postHttpRequest <- function(url, queryParameters, bodyRequest, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
-        res <- POST(url, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
+        res <- POST(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
 		showError(res)
 		return(res)
     }
     else {
-        res <- POST(url, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
+        res <- POST(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
 		showError(res)
 		return(res)
     }
 }
 
-patchHttpRequest <- function(url, bodyRequest, username, password, authType, validateSSL, debug) {
+patchHttpRequest <- function(url, queryParameters, bodyRequest, username, password, authType, validateSSL, debug) {
     if (debug == TRUE) {
-        res <- PATCH(url, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
+        res <- PATCH(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json", verbose())
 		showError(res)
 		return(res)
     }
     else {
-        res <- PATCH(url, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
+        res <- PATCH(url, query = queryParameters, add_headers('X-Requested-With' = 'PIWebApiWrapper'), authenticate(user = username, password = password, type = authType), config = httr::config(ssl_verifypeer = validateSSL), body = bodyRequest, encode = "json")
 		showError(res)
 		return(res)
     }

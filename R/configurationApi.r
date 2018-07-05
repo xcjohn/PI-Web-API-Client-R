@@ -51,7 +51,7 @@ configurationApi <- R6Class("configurationApi",
 				return (print(paste0("Error: key must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/system/configuration/', key), collapse = "")
-			res <- deleteHttpRequest(localVarPath, self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- deleteHttpRequest(localVarPath, qs$getQueryParameters(), self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		}
 	)
