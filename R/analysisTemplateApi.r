@@ -66,7 +66,7 @@ analysisTemplateApi <- R6Class("analysisTemplateApi",
 					return (print(paste0("Error: webIdType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		get = function(webId, selectedFields, webIdType) {

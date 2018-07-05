@@ -354,7 +354,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: includeChildElements must be a boolean.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		findElementAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, elementCategory, elementDescriptionFilter, elementNameFilter, elementTemplate, elementType, maxCount, searchFullHierarchy, selectedFields, sortField, sortOrder, startIndex, webIdType) {
@@ -842,7 +842,7 @@ elementApi <- R6Class("elementApi",
 					return (print(paste0("Error: referenceType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		removeReferencedElement = function(webId, referencedElementWebId) {

@@ -1100,7 +1100,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: importMode must be a vector.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getReferencedElements = function(webId, categoryName, descriptionFilter, elementType, maxCount, nameFilter, selectedFields, sortField, sortOrder, startIndex, templateName, webIdType) {
@@ -1207,7 +1207,7 @@ assetDatabaseApi <- R6Class("assetDatabaseApi",
 					return (print(paste0("Error: referenceType must be a string.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		removeReferencedElement = function(webId, referencedElementWebId) {

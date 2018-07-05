@@ -112,7 +112,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/acknowledge'), collapse = "")
-			res <- patchHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- patchHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getAnnotations = function(webId, selectedFields, webIdType) {
@@ -443,7 +443,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 				return (print(paste0("Error: webId must be a string.")))
 			}
 			localVarPath <- paste(c(self$serviceBase, '/eventframes/', webId, '/attributes/capture'), collapse = "")
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		getCategories = function(webId, selectedFields, webIdType) {
@@ -489,7 +489,7 @@ eventFrameApi <- R6Class("eventFrameApi",
 					return (print(paste0("Error: includeChildElements must be a boolean.")))
 				}
 			}
-			res <- postHttpRequest(localVarPath, , self$username, self$password, self$authType, self$validateSSL, self$debug)
+			res <- postHttpRequest(localVarPath, null, self$username, self$password, self$authType, self$validateSSL, self$debug)
 			return (res)
 		},
 		findEventFrameAttributes = function(webId, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, endTime, eventFrameCategory, eventFrameDescriptionFilter, eventFrameNameFilter, eventFrameTemplate, maxCount, referencedElementNameFilter, searchFullHierarchy, searchMode, selectedFields, sortField, sortOrder, startIndex, startTime, webIdType) {
