@@ -2,6 +2,9 @@
 'help(package="piwebapi")'
 
 
+'TODO: The PI Web API client must provide a user name and password when using “basic” authentication'
+'Store passwords outside of the code in a hardware TPM, trusted service (credential manager) or in a protected file.'
+'Code to return the user name and password is not shown here.'
 piWebApiService <- piwebapi$new("https://devdata.osisoft.com/piwebapi/", FALSE, "webapiuser", "!try3.14webapi!", FALSE, FALSE)
 response1 = piWebApiService$home$get()
 
