@@ -3,26 +3,32 @@ PI Web API client R package (2018)
 
 ## Introduction
 
-This is an R package that integrates the PI System with R through PI Web API. With this package, you can retrieve PI data without having to generate the URL for each request. This version was developed on top of the PI Web API 2018 swagger specification.
+This is an R package that integrates the PI System with R through PI Web API.
+With this package, you can retrieve PI data without having to generate the URL
+for each request. This version was developed on top of the PI Web API 2018
+swagger specification.
 
 ## Requirements.
 
- - PI Web API 2018 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
+ - PI Web API 2018 installed within your domain using Kerberos or Basic
+   Authentication. If you are using an older version, some methods might not
+   work.
  - R 3.4.3+
 
 ## Installation
 
-This R package is not available on CRAN. You should download it directly from this GitHub repository by using the devtools R package. If you don't have it installed, please use the command below:
+This R package is not available on CRAN. You should download it directly from
+this GitHub repository by using the `remotes` R package. If you don't have it
+installed, please use the command below:
 
 ```r
-install.packages("devtools")
+install.packages("remotes")
 ```
 
-Then, load the library and install the PI Web API R package with the install_github method: 
+Then, load the library and install the PI Web API R package with the `install_github` method:
 
 ```r
-library(devtools)
-install_github("osimloeff/PI-Web-API-Client-R")
+remotes::install_github("hongyuanjia/piwebapi")
 ```
 
 If the installation is successful, the command below will load the package:
@@ -42,17 +48,20 @@ remove.packages("piwebapi")
 All the methods and classes from this R package are described on its documentation, which can be opened by typing on the R console:
 
 ```r
-help(package="piwebapi") 
+help(package="piwebapi")
 ```
 
 ## Notes
 
- - Is is highly recommended to turn debug mode on in case you are using PI Web API 2017 R2+ in order to receive more detailed exception errors. This can be achieved by creating or editing the DebugMode attribute's value to TRUE from the System Configuration element.
+ - Is is highly recommended to turn debug mode on in case you are using PI Web
+   API 2017 R2+ in order to receive more detailed exception errors. This can be
+   achieved by creating or editing the DebugMode attribute's value to TRUE from
+   the System Configuration element.
  - The X-Requested-With header is added to work with CSRF defences.
 
 ## Examples
 
-Please refer to the following examples to understand how to use this library: 
+Please refer to the following examples to understand how to use this library:
 
 
 ### Create an intance of the piwebapi top level object.
@@ -77,9 +86,9 @@ debug <- TRUE
 piWebApiService <- piwebapi$new("https://webserver/piwebapi", useKerberos, username, password, validateSSL, debug)
 ```
 
-If you want to use basic authentication instead of Kerberos, set useKerberos to FALSE.
-If you are having issues with your SSL certificate and you want to ignore this error, set validateSSL to FALSE.
-If you want to receive a log about each HTTP request, set debug to TRUE.
+* If you want to use basic authentication instead of Kerberos, set useKerberos to FALSE.
+* If you are having issues with your SSL certificate and you want to ignore this error, set validateSSL to FALSE.
+* If you want to receive a log about each HTTP request, set debug to TRUE.
 
 ### Retrieve data from the main PI Web API endpoint
 
@@ -247,6 +256,7 @@ response17 <- piWebApiService$streamSet$retrieveStreamSetUpdates(markers);
 
 
 ## Licensing
+
 Copyright 2018 OSIsoft, LLC.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -260,5 +270,5 @@ Copyright 2018 OSIsoft, LLC.
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-   
+
 Please see the file named [LICENSE.md](LICENSE.md).
