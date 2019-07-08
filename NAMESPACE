@@ -1,1 +1,6 @@
+importFrom(data.table,rbindlist)
+importFrom(data.table,set)
+importFrom(data.table,setattr)
+importFrom(data.table,setcolorder)
+importFrom(data.table,setnames)
 exportPattern("^[[:alpha:]]+")
