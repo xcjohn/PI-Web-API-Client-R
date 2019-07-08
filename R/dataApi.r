@@ -33,7 +33,7 @@ dataApi <- R6Class("dataApi",
             return(as.vector(webIds))
         },
         convertToDataFrame = function(items) {
-            resDataFrame <- data.table::rbindlist(items, fill = TRUE)
+            resDataFrame <- data.table::rbindlist(items, fill = TRUE)[, lapply(.SD, unlist, use.names = FALSE)]
             data.table::setnames(resDataFrame,
                 c("timestamp", "value", "unitsAbbreviation", "good", "questionable", "substituted", "annotated")
             )
