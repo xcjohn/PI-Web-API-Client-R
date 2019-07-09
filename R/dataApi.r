@@ -33,6 +33,13 @@ dataApi <- R6Class("dataApi",
             return(as.vector(webIds))
         },
         convertToDataFrame = function(items) {
+            # check if value is tagged
+            for (i in seq_along(items)) {
+                if (!is.numeric(items[[i]]$Value)) {
+                    items[[i]]$Value <- items[[i]]$Value$Name
+                }
+            }
+
             resDataFrame <- data.table::rbindlist(items, fill = TRUE)[, lapply(.SD, unlist, use.names = FALSE)]
             data.table::setnames(resDataFrame,
                 c("timestamp", "value", "unitsAbbreviation", "good", "questionable", "substituted", "annotated")
