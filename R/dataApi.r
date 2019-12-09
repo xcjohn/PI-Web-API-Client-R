@@ -35,7 +35,7 @@ dataApi <- R6Class("dataApi",
         convertToDataFrame = function(items) {
             # check if value is tagged
             for (i in seq_along(items)) {
-                if (!is.numeric(items[[i]]$Value)) {
+                if (!is.numeric(items[[i]]$Value) && is.list(items[[i]]$Value)) {
                     items[[i]]$Value <- items[[i]]$Value$Name
                 }
             }
