@@ -1,7 +1,12 @@
-library(R6)
-library(httr)
-library(rjson)
+.onLoad <- function(libname, pkgname) {
+    require("httr")
+    require("rjson")
+}
 
+.onAttach <- function(libname, pkgname) {
+    require("httr")
+    require("rjson")
+}
 
 piwebapi <- R6Class("piwebapi",
 	private = list(),
