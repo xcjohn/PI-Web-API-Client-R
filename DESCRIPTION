@@ -11,5 +11,7 @@ LazyData: true
 Depends: R6,
     httr,
     rjson
+Imports:
+    data.table
 RoxygenNote: 6.0.1
 

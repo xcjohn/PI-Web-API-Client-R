@@ -33,49 +33,19 @@ dataApi <- R6Class("dataApi",
             return(as.vector(webIds))
         },
         convertToDataFrame = function(items) {
-            itemsLength <- length(items)
-            value <- array(1:itemsLength)
-            timestamp <- array(1:itemsLength)
-            unitsAbbreviation <- array(1:itemsLength)
-            good <- array(1:itemsLength)
-            questionable <- array(1:itemsLength)
-            substituted <- array(1:itemsLength)
-            for (i in 1:itemsLength) {
-                if (is.null(items[[i]]$Value) == FALSE)
-                {
-                  if (is.numeric(items[[i]]$Value) == TRUE)
-                  {
-                    value[i] <- items[[i]]$Value
-                  }
-                  else
-                  {
-                    value[i] <- items[[i]]$Value$Name
-                  }
-                }
-                if (is.null(items[[i]]$Timestamp) == FALSE)
-                {
-                  timestamp[i] <- items[[i]]$Timestamp
-                }
-                if (is.null(items[[i]]$UnitsAbbreviation) == FALSE)
-                {
-                  unitsAbbreviation[i] <- items[[i]]$UnitsAbbreviation
-                }
-                if (is.null(items[[i]]$Good) == FALSE)
-                {
-                  good[i] <- items[[i]]$Good
-                }
-                if (is.null(items[[i]]$Questionable) == FALSE)
-                {
-                  questionable[i] <- items[[i]]$Questionable
-                }
-                if (is.null(items[[i]]$Substituted) == FALSE)
-                {
-                  substituted[i] <- items[[i]]$Substituted
+            # check if value is tagged
+            for (i in seq_along(items)) {
+                if (!is.numeric(items[[i]]$Value) && is.list(items[[i]]$Value)) {
+                    items[[i]]$Value <- items[[i]]$Value$Name
                 }
             }
 
-
-            resDataFrame <- data.frame(value, timestamp, unitsAbbreviation, good, questionable, substituted)
+            resDataFrame <- data.table::rbindlist(items, fill = TRUE)[, lapply(.SD, unlist, use.names = FALSE)]
+            data.table::setnames(resDataFrame,
+                c("timestamp", "value", "unitsAbbreviation", "good", "questionable", "substituted", "annotated")
+            )
+            data.table::set(resDataFrame, NULL, "annotated", NULL)
+            data.table::setcolorder(resDataFrame, "value")
             return(resDataFrame)
         },
         calculateItemsIndex = function(webId, items, originalIndex){
@@ -90,72 +60,21 @@ dataApi <- R6Class("dataApi",
             return(originalIndex)
         },
         convertMultipleStreamsToDataFrame = function(items, gatherInOneDataFrame, webIds, paths = NULL) {
-            streamsLength <- length(items)
+            resDataFrame <- lapply(items, function (item) self$convertToDataFrame(item$Items))
+            data.table::setattr(resDataFrame, "names", paths)
 
             if (gatherInOneDataFrame == TRUE) {
-                itemsLength <- length(items[[1]]$Items)
-                order <- 1:itemsLength
-                resDataFrame <- data.frame(order)
-                for (i in 1:streamsLength) {
-                    k = self$calculateItemsIndex (webIds[i], items, i);
-                    value <- array(1:itemsLength)
-                    timestamp <- array(1:itemsLength)
-                    unitsAbbreviation <- array(1:itemsLength)
-                    good <- array(1:itemsLength)
-                    questionable <- array(1:itemsLength)
-                    substituted <- array(1:itemsLength)
-                    for (j in 1:itemsLength) {
-                      if (is.null(items[[k]]$Items[[j]]$Value) == FALSE)
-                      {
-                        if (is.numeric(items[[k]]$Items[[j]]$Value) == TRUE)
-                        {
-                          value[j] <- items[[k]]$Items[[j]]$Value
-                        }
-                        else
-                        {
-                          value[j] <- items[[k]]$Items[[j]]$Value$Name
-                        }
-                      }
-                      if (is.null(items[[k]]$Items[[j]]$Timestamp) == FALSE)
-                      {
-                        timestamp[j] <- items[[k]]$Items[[j]]$Timestamp
-                      }
-                      if (is.null(items[[k]]$Items[[j]]$UnitsAbbreviation) == FALSE)
-                      {
-                        unitsAbbreviation[j] <- items[[k]]$Items[[j]]$UnitsAbbreviation
-                      }
-                      if (is.null(items[[k]]$Items[[k]]$Good) == FALSE)
-                      {
-                        good[j] <- items[[k]]$Items[[k]]$Good
-                      }
-                      if (is.null(items[[k]]$Items[[j]]$Questionable) == FALSE)
-                      {
-                        questionable[j] <- items[[k]]$Items[[j]]$Questionable
-                      }
-                      if (is.null(items[[k]]$Items[[j]]$Substituted) == FALSE)
-                      {
-                        substituted[j] <- items[[k]]$Items[[j]]$Substituted
-                      }
-                    }
-                    if (i == 1) {
-                        resDataFrame <- data.frame(timestamp)
-                    }
+                timestamp <- resDataFrame[[1]][, .SD, .SDcols = "timestamp"]
 
-                    resDataFrame[[paste0("value", i)]] = as.vector(value)
-                    resDataFrame[[paste0("unitsAbbreviation", i)]] = as.vector(unitsAbbreviation)
-                    resDataFrame[[paste0("good", i)]] = as.vector(good)
-                    resDataFrame[[paste0("questionable", i)]] = as.vector(questionable)
-                    resDataFrame[[paste0("substituted", i)]] = as.vector(substituted)
+                for (i in seq_along(resDataFrame)) {
+                    data.table::setnames(resDataFrame[[i]], NULL, "timestamp", NULL)
+                    data.table::setnames(resDataFrame[[i]], paste0(names(resDataFrame[[1]]), "i"))
                 }
+
+                resDataFrame <- Reduce(cbind, c(list(timestamp), resDataFrame))
+
             }
-            else {
-                resDataFrame <- list()
-                for (i in 1:streamsLength) {
-                    key <- paste0(paths[i])
-                    df <- self$convertToDataFrame(items[[i]]$Items)
-                    resDataFrame[[key]] = df
-                }
-            }
+
             return(resDataFrame)
         },
 
